@@ -94,7 +94,6 @@ namespace STIDiscover
             string progFiles = @"C:\Program Files\Common Files\Microsoft Shared\ink";
             string onScreenKeyboardPath = System.IO.Path.Combine(progFiles, "TabTip.exe");
             onScreenKeyboardProc = System.Diagnostics.Process.Start(onScreenKeyboardPath);
-            Console.Write("Ang pogi ko");
         }
     }
 }
