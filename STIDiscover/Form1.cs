@@ -39,5 +39,17 @@ namespace STIDiscover
         {
             scheduleControl1.BringToFront();
         }
+
+        private void btnOpenMap_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAdmin_Click(object sender, EventArgs e)
+        {
+            AdminLoginForm adm = new AdminLoginForm();
+            adm.ShowDialog();
+            this.Hide();
+        }
     }
 }

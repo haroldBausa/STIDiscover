@@ -33,7 +33,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnOpenMap = new Guna.UI2.WinForms.Guna2Button();
             this.btnSchedule = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnHome = new Guna.UI2.WinForms.Guna2Button();
@@ -45,6 +45,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.scheduleControl1 = new STIDiscover.scheduleControl();
             this.homeControl1 = new STIDiscover.homeControl();
+            this.btnAdmin = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             this.guna2CustomGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -65,8 +66,9 @@
             // 
             this.guna2CustomGradientPanel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2CustomGradientPanel1.BorderRadius = 60;
+            this.guna2CustomGradientPanel1.Controls.Add(this.btnAdmin);
             this.guna2CustomGradientPanel1.Controls.Add(this.guna2Button4);
-            this.guna2CustomGradientPanel1.Controls.Add(this.guna2Button3);
+            this.guna2CustomGradientPanel1.Controls.Add(this.btnOpenMap);
             this.guna2CustomGradientPanel1.Controls.Add(this.btnSchedule);
             this.guna2CustomGradientPanel1.Controls.Add(this.pictureBox2);
             this.guna2CustomGradientPanel1.Controls.Add(this.btnHome);
@@ -89,7 +91,7 @@
             this.guna2Button4.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.guna2Button4.CheckedState.BorderColor = System.Drawing.Color.White;
             this.guna2Button4.CheckedState.FillColor = System.Drawing.Color.White;
-            this.guna2Button4.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.guna2Button4.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
             this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -105,30 +107,31 @@
             this.guna2Button4.TabIndex = 4;
             this.guna2Button4.CheckedChanged += new System.EventHandler(this.guna2Button1_CheckedChanged);
             // 
-            // guna2Button3
+            // btnOpenMap
             // 
-            this.guna2Button3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
-            this.guna2Button3.BorderRadius = 24;
-            this.guna2Button3.BorderThickness = 1;
-            this.guna2Button3.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.guna2Button3.CheckedState.BorderColor = System.Drawing.Color.White;
-            this.guna2Button3.CheckedState.FillColor = System.Drawing.Color.White;
-            this.guna2Button3.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
-            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button3.ForeColor = System.Drawing.Color.White;
-            this.guna2Button3.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button3.Image")));
-            this.guna2Button3.ImageSize = new System.Drawing.Size(70, 70);
-            this.guna2Button3.Location = new System.Drawing.Point(1117, 14);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.Size = new System.Drawing.Size(135, 126);
-            this.guna2Button3.TabIndex = 3;
-            this.guna2Button3.CheckedChanged += new System.EventHandler(this.guna2Button1_CheckedChanged);
+            this.btnOpenMap.BackColor = System.Drawing.Color.Transparent;
+            this.btnOpenMap.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
+            this.btnOpenMap.BorderRadius = 24;
+            this.btnOpenMap.BorderThickness = 1;
+            this.btnOpenMap.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnOpenMap.CheckedState.BorderColor = System.Drawing.Color.White;
+            this.btnOpenMap.CheckedState.FillColor = System.Drawing.Color.White;
+            this.btnOpenMap.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
+            this.btnOpenMap.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnOpenMap.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnOpenMap.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnOpenMap.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnOpenMap.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
+            this.btnOpenMap.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnOpenMap.ForeColor = System.Drawing.Color.White;
+            this.btnOpenMap.Image = ((System.Drawing.Image)(resources.GetObject("btnOpenMap.Image")));
+            this.btnOpenMap.ImageSize = new System.Drawing.Size(70, 70);
+            this.btnOpenMap.Location = new System.Drawing.Point(1117, 14);
+            this.btnOpenMap.Name = "btnOpenMap";
+            this.btnOpenMap.Size = new System.Drawing.Size(135, 126);
+            this.btnOpenMap.TabIndex = 3;
+            this.btnOpenMap.CheckedChanged += new System.EventHandler(this.guna2Button1_CheckedChanged);
+            this.btnOpenMap.Click += new System.EventHandler(this.btnOpenMap_Click);
             // 
             // btnSchedule
             // 
@@ -139,7 +142,7 @@
             this.btnSchedule.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.btnSchedule.CheckedState.BorderColor = System.Drawing.Color.White;
             this.btnSchedule.CheckedState.FillColor = System.Drawing.Color.White;
-            this.btnSchedule.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
+            this.btnSchedule.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
             this.btnSchedule.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnSchedule.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnSchedule.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -176,7 +179,7 @@
             this.btnHome.Checked = true;
             this.btnHome.CheckedState.BorderColor = System.Drawing.Color.White;
             this.btnHome.CheckedState.FillColor = System.Drawing.Color.White;
-            this.btnHome.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
+            this.btnHome.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
             this.btnHome.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnHome.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnHome.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -217,7 +220,7 @@
             // guna2Elipse3
             // 
             this.guna2Elipse3.BorderRadius = 50;
-            this.guna2Elipse3.TargetControl = this.guna2Button3;
+            this.guna2Elipse3.TargetControl = this.btnOpenMap;
             // 
             // guna2Elipse4
             // 
@@ -250,6 +253,31 @@
             this.homeControl1.Size = new System.Drawing.Size(2036, 824);
             this.homeControl1.TabIndex = 0;
             // 
+            // btnAdmin
+            // 
+            this.btnAdmin.BackColor = System.Drawing.Color.Transparent;
+            this.btnAdmin.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
+            this.btnAdmin.BorderRadius = 24;
+            this.btnAdmin.BorderThickness = 1;
+            this.btnAdmin.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnAdmin.CheckedState.BorderColor = System.Drawing.Color.White;
+            this.btnAdmin.CheckedState.FillColor = System.Drawing.Color.White;
+            this.btnAdmin.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.btnAdmin.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAdmin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAdmin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAdmin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAdmin.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
+            this.btnAdmin.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnAdmin.ForeColor = System.Drawing.Color.White;
+            this.btnAdmin.Image = ((System.Drawing.Image)(resources.GetObject("btnAdmin.Image")));
+            this.btnAdmin.ImageSize = new System.Drawing.Size(70, 70);
+            this.btnAdmin.Location = new System.Drawing.Point(1676, 14);
+            this.btnAdmin.Name = "btnAdmin";
+            this.btnAdmin.Size = new System.Drawing.Size(135, 126);
+            this.btnAdmin.TabIndex = 5;
+            this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -281,7 +309,7 @@
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private Guna.UI2.WinForms.Guna2Button btnSchedule;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
+        private Guna.UI2.WinForms.Guna2Button btnOpenMap;
         private Guna.UI2.WinForms.Guna2Button guna2Button4;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse2;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse3;
@@ -289,6 +317,7 @@
         private System.Windows.Forms.Panel panel2;
         private homeControl homeControl1;
         private scheduleControl scheduleControl1;
+        private Guna.UI2.WinForms.Guna2Button btnAdmin;
     }
 }
 

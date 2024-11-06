@@ -46,8 +46,8 @@ namespace STIDiscover
                         {
                             // Open the next form if login is successful
                             MessageBox.Show("Login successful!");
-                            FormFaceAuthentication ffa = new FormFaceAuthentication();
-                            ffa.ShowDialog();
+                            //FormFaceAuthentication ffa = new FormFaceAuthentication();
+                            //ffa.ShowDialog();
                             this.Hide();
                             // Open your next form here
                         }
@@ -94,6 +94,11 @@ namespace STIDiscover
             string progFiles = @"C:\Program Files\Common Files\Microsoft Shared\ink";
             string onScreenKeyboardPath = System.IO.Path.Combine(progFiles, "TabTip.exe");
             onScreenKeyboardProc = System.Diagnostics.Process.Start(onScreenKeyboardPath);
+        }
+
+        private void AdminLoginForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
