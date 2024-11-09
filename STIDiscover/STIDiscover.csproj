@@ -167,6 +167,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="scheduleControl.resx">
       <DependentUpon>scheduleControl.cs</DependentUpon>
@@ -184,6 +185,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\B1-removebg-preview.png" />
+    <Content Include="Images\B2-removebg-preview.png" />
+    <Content Include="Images\B3-removebg-preview.png" />
+    <Content Include="Images\STIDiscoverLogo.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
