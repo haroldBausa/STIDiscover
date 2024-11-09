@@ -93,9 +93,39 @@ namespace STIDiscover.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap KioskLogo {
+            get {
+                object obj = ResourceManager.GetObject("KioskLogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap moon_solid {
+            get {
+                object obj = ResourceManager.GetObject("moon-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap STIDiscoverLogo {
             get {
                 object obj = ResourceManager.GetObject("STIDiscoverLogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sun_solid {
+            get {
+                object obj = ResourceManager.GetObject("sun-solid", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

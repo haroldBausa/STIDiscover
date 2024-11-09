@@ -45,11 +45,13 @@ namespace STIDiscover
 
         }
 
-        private void btnAdmin_Click(object sender, EventArgs e)
+       
+
+        private void btnAdmin_Click_1(object sender, EventArgs e)
         {
+            this.Hide();
             AdminLoginForm adm = new AdminLoginForm();
             adm.ShowDialog();
-            this.Hide();
         }
     }
 }

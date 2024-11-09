@@ -130,6 +130,12 @@
     <Compile Include="CustomButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="FileMaintenance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FileMaintenance.Designer.cs">
+      <DependentUpon>FileMaintenance.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,9 @@
     </Compile>
     <EmbeddedResource Include="AdminLoginForm.resx">
       <DependentUpon>AdminLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FileMaintenance.resx">
+      <DependentUpon>FileMaintenance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -190,7 +199,11 @@
     <Content Include="Images\B1-removebg-preview.png" />
     <Content Include="Images\B2-removebg-preview.png" />
     <Content Include="Images\B3-removebg-preview.png" />
+    <Content Include="Images\Icons\moon-solid.png" />
+    <Content Include="Images\Icons\sun-solid.png" />
+    <Content Include="Images\KioskLogo.gif" />
     <Content Include="Images\STIDiscoverLogo.gif" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
