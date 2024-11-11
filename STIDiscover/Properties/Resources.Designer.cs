@@ -93,6 +93,26 @@ namespace STIDiscover.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap calendar_check_regular {
+            get {
+                object obj = ResourceManager.GetObject("calendar-check-regular", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap clock_regular {
+            get {
+                object obj = ResourceManager.GetObject("clock-regular", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap KioskLogo {
             get {
                 object obj = ResourceManager.GetObject("KioskLogo", resourceCulture);
@@ -106,6 +126,16 @@ namespace STIDiscover.Properties {
         internal static System.Drawing.Bitmap moon_solid {
             get {
                 object obj = ResourceManager.GetObject("moon-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap right_from_bracket_solid {
+            get {
+                object obj = ResourceManager.GetObject("right-from-bracket-solid", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

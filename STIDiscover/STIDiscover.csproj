@@ -130,6 +130,12 @@
     <Compile Include="CustomButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="EventSchedule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EventSchedule.Designer.cs">
+      <DependentUpon>EventSchedule.cs</DependentUpon>
+    </Compile>
     <Compile Include="FileMaintenance.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +164,9 @@
     </Compile>
     <EmbeddedResource Include="AdminLoginForm.resx">
       <DependentUpon>AdminLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EventSchedule.resx">
+      <DependentUpon>EventSchedule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FileMaintenance.resx">
       <DependentUpon>FileMaintenance.cs</DependentUpon>
@@ -199,7 +208,10 @@
     <Content Include="Images\B1-removebg-preview.png" />
     <Content Include="Images\B2-removebg-preview.png" />
     <Content Include="Images\B3-removebg-preview.png" />
+    <Content Include="Images\Icons\calendar-check-regular.png" />
+    <Content Include="Images\Icons\clock-regular.png" />
     <Content Include="Images\Icons\moon-solid.png" />
+    <Content Include="Images\Icons\right-from-bracket-solid.png" />
     <Content Include="Images\Icons\sun-solid.png" />
     <Content Include="Images\KioskLogo.gif" />
     <Content Include="Images\STIDiscoverLogo.gif" />
