@@ -118,11 +118,17 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="B3-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\B3-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circle-chevron-left-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Icons\circle-chevron-left-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="B1-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\B1-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="B3-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\B3-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="calendar-check-regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Icons\calendar-check-regular.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sun-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Icons\sun-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -130,8 +136,8 @@
   <data name="KioskLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\KioskLogo.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="calendar-check-regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\Icons\calendar-check-regular.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="STIDiscoverLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\STIDiscoverLogo.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="B2-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\B2-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -142,10 +148,10 @@
   <data name="clock-regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Icons\clock-regular.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="STIDiscoverLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\STIDiscoverLogo.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="right-from-bracket-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Icons\right-from-bracket-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circle-chevron-right-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Icons\circle-chevron-right-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

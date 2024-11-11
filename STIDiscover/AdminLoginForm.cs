@@ -50,6 +50,8 @@ namespace STIDiscover
                             //ffa.ShowDialog();
                             this.Hide();
                             // Open your next form here
+                            FileMaintenance fm = new FileMaintenance();
+                            fm.Show();
                         }
                         else
                         {

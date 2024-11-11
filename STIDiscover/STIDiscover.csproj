@@ -127,8 +127,20 @@
     <Compile Include="AdminLoginForm.Designer.cs">
       <DependentUpon>AdminLoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="blankUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="blankUser.Designer.cs">
+      <DependentUpon>blankUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomButton.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EventManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EventManager.Designer.cs">
+      <DependentUpon>EventManager.cs</DependentUpon>
     </Compile>
     <Compile Include="EventSchedule.cs">
       <SubType>UserControl</SubType>
@@ -162,8 +174,20 @@
     <Compile Include="scheduleControl.Designer.cs">
       <DependentUpon>scheduleControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControlDays.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlDays.Designer.cs">
+      <DependentUpon>UserControlDays.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AdminLoginForm.resx">
       <DependentUpon>AdminLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="blankUser.resx">
+      <DependentUpon>blankUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EventManager.resx">
+      <DependentUpon>EventManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EventSchedule.resx">
       <DependentUpon>EventSchedule.cs</DependentUpon>
@@ -190,6 +214,9 @@
     <EmbeddedResource Include="scheduleControl.resx">
       <DependentUpon>scheduleControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControlDays.resx">
+      <DependentUpon>UserControlDays.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -209,6 +236,8 @@
     <Content Include="Images\B2-removebg-preview.png" />
     <Content Include="Images\B3-removebg-preview.png" />
     <Content Include="Images\Icons\calendar-check-regular.png" />
+    <Content Include="Images\Icons\circle-chevron-left-solid.png" />
+    <Content Include="Images\Icons\circle-chevron-right-solid.png" />
     <Content Include="Images\Icons\clock-regular.png" />
     <Content Include="Images\Icons\moon-solid.png" />
     <Content Include="Images\Icons\right-from-bracket-solid.png" />

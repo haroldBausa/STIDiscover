@@ -32,25 +32,26 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.btnAdmin = new Guna.UI2.WinForms.Guna2Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnEventModule = new Guna.UI2.WinForms.Guna2Button();
+            this.btnOpenMap = new Guna.UI2.WinForms.Guna2Button();
+            this.btnSchedule = new Guna.UI2.WinForms.Guna2Button();
+            this.btnHome = new Guna.UI2.WinForms.Guna2Button();
+            this.imageSilder = new System.Windows.Forms.PictureBox();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse4 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
+            this.eventSchedule1 = new STIDiscover.EventSchedule();
             this.scheduleControl1 = new STIDiscover.scheduleControl();
             this.homeControl1 = new STIDiscover.homeControl();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
-            this.btnOpenMap = new Guna.UI2.WinForms.Guna2Button();
-            this.btnSchedule = new Guna.UI2.WinForms.Guna2Button();
-            this.btnHome = new Guna.UI2.WinForms.Guna2Button();
-            this.imageSilder = new System.Windows.Forms.PictureBox();
-            this.btnAdmin = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             this.guna2CustomGradientPanel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageSilder)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -68,7 +69,7 @@
             this.guna2CustomGradientPanel1.BorderRadius = 60;
             this.guna2CustomGradientPanel1.Controls.Add(this.btnAdmin);
             this.guna2CustomGradientPanel1.Controls.Add(this.pictureBox1);
-            this.guna2CustomGradientPanel1.Controls.Add(this.guna2Button4);
+            this.guna2CustomGradientPanel1.Controls.Add(this.btnEventModule);
             this.guna2CustomGradientPanel1.Controls.Add(this.btnOpenMap);
             this.guna2CustomGradientPanel1.Controls.Add(this.btnSchedule);
             this.guna2CustomGradientPanel1.Controls.Add(this.btnHome);
@@ -82,51 +83,30 @@
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1848, 171);
             this.guna2CustomGradientPanel1.TabIndex = 0;
             // 
-            // guna2Elipse1
+            // btnAdmin
             // 
-            this.guna2Elipse1.BorderRadius = 50;
-            this.guna2Elipse1.TargetControl = this.btnHome;
-            // 
-            // guna2Elipse2
-            // 
-            this.guna2Elipse2.BorderRadius = 50;
-            this.guna2Elipse2.TargetControl = this.btnSchedule;
-            // 
-            // guna2Elipse3
-            // 
-            this.guna2Elipse3.BorderRadius = 50;
-            this.guna2Elipse3.TargetControl = this.btnOpenMap;
-            // 
-            // guna2Elipse4
-            // 
-            this.guna2Elipse4.BorderRadius = 50;
-            this.guna2Elipse4.TargetControl = this.guna2Button4;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Controls.Add(this.scheduleControl1);
-            this.panel2.Controls.Add(this.homeControl1);
-            this.panel2.Location = new System.Drawing.Point(5, 4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(2036, 824);
-            this.panel2.TabIndex = 1;
-            // 
-            // scheduleControl1
-            // 
-            this.scheduleControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scheduleControl1.Location = new System.Drawing.Point(0, 0);
-            this.scheduleControl1.Name = "scheduleControl1";
-            this.scheduleControl1.Size = new System.Drawing.Size(2036, 824);
-            this.scheduleControl1.TabIndex = 1;
-            // 
-            // homeControl1
-            // 
-            this.homeControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.homeControl1.Location = new System.Drawing.Point(0, 0);
-            this.homeControl1.Name = "homeControl1";
-            this.homeControl1.Size = new System.Drawing.Size(2036, 824);
-            this.homeControl1.TabIndex = 0;
+            this.btnAdmin.BackColor = System.Drawing.Color.Transparent;
+            this.btnAdmin.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
+            this.btnAdmin.BorderRadius = 24;
+            this.btnAdmin.BorderThickness = 1;
+            this.btnAdmin.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnAdmin.CheckedState.BorderColor = System.Drawing.Color.White;
+            this.btnAdmin.CheckedState.FillColor = System.Drawing.Color.White;
+            this.btnAdmin.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.btnAdmin.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAdmin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAdmin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAdmin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAdmin.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
+            this.btnAdmin.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnAdmin.ForeColor = System.Drawing.Color.White;
+            this.btnAdmin.Image = ((System.Drawing.Image)(resources.GetObject("btnAdmin.Image")));
+            this.btnAdmin.ImageSize = new System.Drawing.Size(70, 70);
+            this.btnAdmin.Location = new System.Drawing.Point(1657, 22);
+            this.btnAdmin.Name = "btnAdmin";
+            this.btnAdmin.Size = new System.Drawing.Size(135, 126);
+            this.btnAdmin.TabIndex = 5;
+            this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click_1);
             // 
             // pictureBox1
             // 
@@ -138,30 +118,31 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // guna2Button4
+            // btnEventModule
             // 
-            this.guna2Button4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
-            this.guna2Button4.BorderRadius = 24;
-            this.guna2Button4.BorderThickness = 1;
-            this.guna2Button4.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.guna2Button4.CheckedState.BorderColor = System.Drawing.Color.White;
-            this.guna2Button4.CheckedState.FillColor = System.Drawing.Color.White;
-            this.guna2Button4.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-            this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
-            this.guna2Button4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button4.ForeColor = System.Drawing.Color.White;
-            this.guna2Button4.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button4.Image")));
-            this.guna2Button4.ImageSize = new System.Drawing.Size(70, 70);
-            this.guna2Button4.Location = new System.Drawing.Point(1348, 22);
-            this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.Size = new System.Drawing.Size(135, 126);
-            this.guna2Button4.TabIndex = 4;
-            this.guna2Button4.CheckedChanged += new System.EventHandler(this.guna2Button1_CheckedChanged);
+            this.btnEventModule.BackColor = System.Drawing.Color.Transparent;
+            this.btnEventModule.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
+            this.btnEventModule.BorderRadius = 24;
+            this.btnEventModule.BorderThickness = 1;
+            this.btnEventModule.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnEventModule.CheckedState.BorderColor = System.Drawing.Color.White;
+            this.btnEventModule.CheckedState.FillColor = System.Drawing.Color.White;
+            this.btnEventModule.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+            this.btnEventModule.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnEventModule.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnEventModule.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEventModule.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEventModule.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
+            this.btnEventModule.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnEventModule.ForeColor = System.Drawing.Color.White;
+            this.btnEventModule.Image = ((System.Drawing.Image)(resources.GetObject("btnEventModule.Image")));
+            this.btnEventModule.ImageSize = new System.Drawing.Size(70, 70);
+            this.btnEventModule.Location = new System.Drawing.Point(1348, 22);
+            this.btnEventModule.Name = "btnEventModule";
+            this.btnEventModule.Size = new System.Drawing.Size(135, 126);
+            this.btnEventModule.TabIndex = 4;
+            this.btnEventModule.CheckedChanged += new System.EventHandler(this.guna2Button1_CheckedChanged);
+            this.btnEventModule.Click += new System.EventHandler(this.btnEventModule_Click);
             // 
             // btnOpenMap
             // 
@@ -254,30 +235,61 @@
             this.imageSilder.TabStop = false;
             this.imageSilder.Visible = false;
             // 
-            // btnAdmin
+            // guna2Elipse1
             // 
-            this.btnAdmin.BackColor = System.Drawing.Color.Transparent;
-            this.btnAdmin.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
-            this.btnAdmin.BorderRadius = 24;
-            this.btnAdmin.BorderThickness = 1;
-            this.btnAdmin.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnAdmin.CheckedState.BorderColor = System.Drawing.Color.White;
-            this.btnAdmin.CheckedState.FillColor = System.Drawing.Color.White;
-            this.btnAdmin.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            this.btnAdmin.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnAdmin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnAdmin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnAdmin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAdmin.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
-            this.btnAdmin.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnAdmin.ForeColor = System.Drawing.Color.White;
-            this.btnAdmin.Image = ((System.Drawing.Image)(resources.GetObject("btnAdmin.Image")));
-            this.btnAdmin.ImageSize = new System.Drawing.Size(70, 70);
-            this.btnAdmin.Location = new System.Drawing.Point(1657, 22);
-            this.btnAdmin.Name = "btnAdmin";
-            this.btnAdmin.Size = new System.Drawing.Size(135, 126);
-            this.btnAdmin.TabIndex = 5;
-            this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click_1);
+            this.guna2Elipse1.BorderRadius = 50;
+            this.guna2Elipse1.TargetControl = this.btnHome;
+            // 
+            // guna2Elipse2
+            // 
+            this.guna2Elipse2.BorderRadius = 50;
+            this.guna2Elipse2.TargetControl = this.btnSchedule;
+            // 
+            // guna2Elipse3
+            // 
+            this.guna2Elipse3.BorderRadius = 50;
+            this.guna2Elipse3.TargetControl = this.btnOpenMap;
+            // 
+            // guna2Elipse4
+            // 
+            this.guna2Elipse4.BorderRadius = 50;
+            this.guna2Elipse4.TargetControl = this.btnEventModule;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.eventSchedule1);
+            this.panel2.Controls.Add(this.scheduleControl1);
+            this.panel2.Controls.Add(this.homeControl1);
+            this.panel2.Location = new System.Drawing.Point(5, 4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(2036, 875);
+            this.panel2.TabIndex = 1;
+            // 
+            // eventSchedule1
+            // 
+            this.eventSchedule1.BackColor = System.Drawing.Color.White;
+            this.eventSchedule1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.eventSchedule1.Location = new System.Drawing.Point(0, 0);
+            this.eventSchedule1.Name = "eventSchedule1";
+            this.eventSchedule1.Size = new System.Drawing.Size(2036, 875);
+            this.eventSchedule1.TabIndex = 2;
+            // 
+            // scheduleControl1
+            // 
+            this.scheduleControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scheduleControl1.Location = new System.Drawing.Point(0, 0);
+            this.scheduleControl1.Name = "scheduleControl1";
+            this.scheduleControl1.Size = new System.Drawing.Size(2036, 875);
+            this.scheduleControl1.TabIndex = 1;
+            // 
+            // homeControl1
+            // 
+            this.homeControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.homeControl1.Location = new System.Drawing.Point(0, 0);
+            this.homeControl1.Name = "homeControl1";
+            this.homeControl1.Size = new System.Drawing.Size(2036, 875);
+            this.homeControl1.TabIndex = 0;
             // 
             // Form1
             // 
@@ -294,9 +306,9 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.guna2CustomGradientPanel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageSilder)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -309,7 +321,7 @@
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2Button btnSchedule;
         private Guna.UI2.WinForms.Guna2Button btnOpenMap;
-        private Guna.UI2.WinForms.Guna2Button guna2Button4;
+        private Guna.UI2.WinForms.Guna2Button btnEventModule;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse2;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse3;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse4;
@@ -319,6 +331,7 @@
         private System.Windows.Forms.PictureBox imageSilder;
         private System.Windows.Forms.PictureBox pictureBox1;
         private Guna.UI2.WinForms.Guna2Button btnAdmin;
+        private EventSchedule eventSchedule1;
     }
 }
 

@@ -103,6 +103,26 @@ namespace STIDiscover.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap circle_chevron_left_solid {
+            get {
+                object obj = ResourceManager.GetObject("circle-chevron-left-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap circle_chevron_right_solid {
+            get {
+                object obj = ResourceManager.GetObject("circle-chevron-right-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap clock_regular {
             get {
                 object obj = ResourceManager.GetObject("clock-regular", resourceCulture);

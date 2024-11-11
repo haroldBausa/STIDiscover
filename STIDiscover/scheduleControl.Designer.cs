@@ -2448,9 +2448,9 @@
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 108);
+            this.panel2.Location = new System.Drawing.Point(0, -51);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(2036, 716);
+            this.panel2.Size = new System.Drawing.Size(2036, 875);
             this.panel2.TabIndex = 38;
             // 
             // panel4
@@ -2459,7 +2459,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 86);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(2036, 630);
+            this.panel4.Size = new System.Drawing.Size(2036, 789);
             this.panel4.TabIndex = 1;
             // 
             // guna2DataGridView1
@@ -2494,7 +2494,7 @@
             this.guna2DataGridView1.RowHeadersVisible = false;
             this.guna2DataGridView1.RowHeadersWidth = 51;
             this.guna2DataGridView1.RowTemplate.Height = 24;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(2036, 630);
+            this.guna2DataGridView1.Size = new System.Drawing.Size(2036, 789);
             this.guna2DataGridView1.TabIndex = 0;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;

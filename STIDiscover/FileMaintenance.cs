@@ -16,5 +16,17 @@ namespace STIDiscover
         {
             InitializeComponent();
         }
+
+        private void btnEvent_Click(object sender, EventArgs e)
+        {
+            eventManager1.BringToFront();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form1 form1 = new Form1(); 
+            form1.ShowDialog();
+        }
     }
 }

@@ -171,7 +171,7 @@
             this.Controls.Add(this.guna2TileButton2);
             this.Controls.Add(this.guna2TileButton1);
             this.Name = "homeControl";
-            this.Size = new System.Drawing.Size(2036, 824);
+            this.Size = new System.Drawing.Size(2036, 875);
             this.ResumeLayout(false);
 
         }

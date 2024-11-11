@@ -53,5 +53,10 @@ namespace STIDiscover
             AdminLoginForm adm = new AdminLoginForm();
             adm.ShowDialog();
         }
+
+        private void btnEventModule_Click(object sender, EventArgs e)
+        {
+            eventSchedule1.BringToFront();
+        }
     }
 }
