@@ -21,5 +21,11 @@ namespace STIDiscover
         {
 
         }
+
+        private void btnB1_Click(object sender, EventArgs e)
+        {
+            Building1 building1 = new Building1();
+            building1.Show();
+        }
     }
 }

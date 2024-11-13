@@ -133,6 +133,12 @@
     <Compile Include="blankUser.Designer.cs">
       <DependentUpon>blankUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Building1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Building1.Designer.cs">
+      <DependentUpon>Building1.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -186,6 +192,9 @@
     <EmbeddedResource Include="blankUser.resx">
       <DependentUpon>blankUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Building1.resx">
+      <DependentUpon>Building1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EventManager.resx">
       <DependentUpon>EventManager.cs</DependentUpon>
     </EmbeddedResource>
@@ -233,11 +242,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\B1-removebg-preview.png" />
+    <Content Include="Images\B1.gif" />
     <Content Include="Images\B2-removebg-preview.png" />
     <Content Include="Images\B3-removebg-preview.png" />
+    <Content Include="Images\Building 1.gif" />
+    <Content Include="Images\Building 2.gif" />
     <Content Include="Images\Icons\calendar-check-regular.png" />
     <Content Include="Images\Icons\circle-chevron-left-solid.png" />
     <Content Include="Images\Icons\circle-chevron-right-solid.png" />
+    <None Include="Images\Icons\circle-xmark-solid %281%29.png" />
+    <Content Include="Images\Icons\circle-xmark-solid.png" />
     <Content Include="Images\Icons\clock-regular.png" />
     <Content Include="Images\Icons\moon-solid.png" />
     <Content Include="Images\Icons\right-from-bracket-solid.png" />

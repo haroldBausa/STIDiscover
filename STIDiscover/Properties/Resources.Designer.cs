@@ -63,6 +63,16 @@ namespace STIDiscover.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap B1 {
+            get {
+                object obj = ResourceManager.GetObject("B1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap B1_removebg_preview {
             get {
                 object obj = ResourceManager.GetObject("B1-removebg-preview", resourceCulture);
@@ -93,6 +103,16 @@ namespace STIDiscover.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Building_1 {
+            get {
+                object obj = ResourceManager.GetObject("Building 1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap calendar_check_regular {
             get {
                 object obj = ResourceManager.GetObject("calendar-check-regular", resourceCulture);
@@ -116,6 +136,26 @@ namespace STIDiscover.Properties {
         internal static System.Drawing.Bitmap circle_chevron_right_solid {
             get {
                 object obj = ResourceManager.GetObject("circle-chevron-right-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap circle_xmark_solid {
+            get {
+                object obj = ResourceManager.GetObject("circle-xmark-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap circle_xmark_solid__1_ {
+            get {
+                object obj = ResourceManager.GetObject("circle-xmark-solid (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

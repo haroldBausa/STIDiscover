@@ -28,73 +28,74 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnB1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnB2 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnB3 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2TileButton3 = new Guna.UI2.WinForms.Guna2TileButton();
             this.guna2TileButton2 = new Guna.UI2.WinForms.Guna2TileButton();
             this.guna2TileButton1 = new Guna.UI2.WinForms.Guna2TileButton();
             this.SuspendLayout();
             // 
-            // guna2Button1
+            // btnB1
             // 
-            this.guna2Button1.Animated = true;
-            this.guna2Button1.AutoRoundedCorners = true;
-            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.BorderRadius = 26;
-            this.guna2Button1.BorderThickness = 1;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
-            this.guna2Button1.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Bold);
-            this.guna2Button1.ForeColor = System.Drawing.Color.Linen;
-            this.guna2Button1.Location = new System.Drawing.Point(191, 696);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(234, 54);
-            this.guna2Button1.TabIndex = 5;
-            this.guna2Button1.Text = "Building 1";
+            this.btnB1.Animated = true;
+            this.btnB1.AutoRoundedCorners = true;
+            this.btnB1.BackColor = System.Drawing.Color.Transparent;
+            this.btnB1.BorderRadius = 26;
+            this.btnB1.BorderThickness = 1;
+            this.btnB1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnB1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnB1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnB1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnB1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            this.btnB1.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Bold);
+            this.btnB1.ForeColor = System.Drawing.Color.Linen;
+            this.btnB1.Location = new System.Drawing.Point(191, 696);
+            this.btnB1.Name = "btnB1";
+            this.btnB1.Size = new System.Drawing.Size(234, 54);
+            this.btnB1.TabIndex = 5;
+            this.btnB1.Text = "Building 1";
+            this.btnB1.Click += new System.EventHandler(this.btnB1_Click);
             // 
-            // guna2Button2
+            // btnB2
             // 
-            this.guna2Button2.Animated = true;
-            this.guna2Button2.AutoRoundedCorners = true;
-            this.guna2Button2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button2.BorderRadius = 26;
-            this.guna2Button2.BorderThickness = 1;
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
-            this.guna2Button2.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button2.ForeColor = System.Drawing.Color.Linen;
-            this.guna2Button2.Location = new System.Drawing.Point(857, 696);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(234, 54);
-            this.guna2Button2.TabIndex = 6;
-            this.guna2Button2.Text = "Building 2";
+            this.btnB2.Animated = true;
+            this.btnB2.AutoRoundedCorners = true;
+            this.btnB2.BackColor = System.Drawing.Color.Transparent;
+            this.btnB2.BorderRadius = 26;
+            this.btnB2.BorderThickness = 1;
+            this.btnB2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnB2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnB2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnB2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnB2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            this.btnB2.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnB2.ForeColor = System.Drawing.Color.Linen;
+            this.btnB2.Location = new System.Drawing.Point(857, 696);
+            this.btnB2.Name = "btnB2";
+            this.btnB2.Size = new System.Drawing.Size(234, 54);
+            this.btnB2.TabIndex = 6;
+            this.btnB2.Text = "Building 2";
             // 
-            // guna2Button3
+            // btnB3
             // 
-            this.guna2Button3.Animated = true;
-            this.guna2Button3.AutoRoundedCorners = true;
-            this.guna2Button3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.BorderRadius = 26;
-            this.guna2Button3.BorderThickness = 1;
-            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
-            this.guna2Button3.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button3.ForeColor = System.Drawing.Color.Linen;
-            this.guna2Button3.Location = new System.Drawing.Point(1553, 696);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.Size = new System.Drawing.Size(234, 54);
-            this.guna2Button3.TabIndex = 7;
-            this.guna2Button3.Text = "Building 3";
+            this.btnB3.Animated = true;
+            this.btnB3.AutoRoundedCorners = true;
+            this.btnB3.BackColor = System.Drawing.Color.Transparent;
+            this.btnB3.BorderRadius = 26;
+            this.btnB3.BorderThickness = 1;
+            this.btnB3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnB3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnB3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnB3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnB3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            this.btnB3.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnB3.ForeColor = System.Drawing.Color.Linen;
+            this.btnB3.Location = new System.Drawing.Point(1553, 696);
+            this.btnB3.Name = "btnB3";
+            this.btnB3.Size = new System.Drawing.Size(234, 54);
+            this.btnB3.TabIndex = 7;
+            this.btnB3.Text = "Building 3";
             // 
             // guna2TileButton3
             // 
@@ -164,9 +165,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.guna2Button3);
-            this.Controls.Add(this.guna2Button2);
-            this.Controls.Add(this.guna2Button1);
+            this.Controls.Add(this.btnB3);
+            this.Controls.Add(this.btnB2);
+            this.Controls.Add(this.btnB1);
             this.Controls.Add(this.guna2TileButton3);
             this.Controls.Add(this.guna2TileButton2);
             this.Controls.Add(this.guna2TileButton1);
@@ -180,8 +181,8 @@
         private Guna.UI2.WinForms.Guna2TileButton guna2TileButton1;
         private Guna.UI2.WinForms.Guna2TileButton guna2TileButton2;
         private Guna.UI2.WinForms.Guna2TileButton guna2TileButton3;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
+        private Guna.UI2.WinForms.Guna2Button btnB1;
+        private Guna.UI2.WinForms.Guna2Button btnB2;
+        private Guna.UI2.WinForms.Guna2Button btnB3;
     }
 }
