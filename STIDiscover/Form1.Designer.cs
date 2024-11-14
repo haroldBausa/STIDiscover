@@ -32,6 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.guna2Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.guna2Elipse4 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
             this.btnAdmin = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnEventModule = new Guna.UI2.WinForms.Guna2Button();
@@ -39,19 +44,15 @@
             this.btnSchedule = new Guna.UI2.WinForms.Guna2Button();
             this.btnHome = new Guna.UI2.WinForms.Guna2Button();
             this.imageSilder = new System.Windows.Forms.PictureBox();
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.guna2Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.guna2Elipse4 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.panel2 = new System.Windows.Forms.Panel();
             this.eventSchedule1 = new STIDiscover.EventSchedule();
             this.scheduleControl1 = new STIDiscover.scheduleControl();
             this.homeControl1 = new STIDiscover.homeControl();
+            this.scheduleControl2 = new STIDiscover.scheduleControl();
             this.panel1.SuspendLayout();
             this.guna2CustomGradientPanel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageSilder)).BeginInit();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -82,6 +83,38 @@
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1848, 171);
             this.guna2CustomGradientPanel1.TabIndex = 0;
+            // 
+            // guna2Elipse1
+            // 
+            this.guna2Elipse1.BorderRadius = 50;
+            this.guna2Elipse1.TargetControl = this.btnHome;
+            // 
+            // guna2Elipse2
+            // 
+            this.guna2Elipse2.BorderRadius = 50;
+            this.guna2Elipse2.TargetControl = this.btnSchedule;
+            // 
+            // guna2Elipse3
+            // 
+            this.guna2Elipse3.BorderRadius = 50;
+            this.guna2Elipse3.TargetControl = this.btnOpenMap;
+            // 
+            // guna2Elipse4
+            // 
+            this.guna2Elipse4.BorderRadius = 50;
+            this.guna2Elipse4.TargetControl = this.btnEventModule;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.scheduleControl2);
+            this.panel2.Controls.Add(this.eventSchedule1);
+            this.panel2.Controls.Add(this.scheduleControl1);
+            this.panel2.Controls.Add(this.homeControl1);
+            this.panel2.Location = new System.Drawing.Point(5, 4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(2036, 875);
+            this.panel2.TabIndex = 1;
             // 
             // btnAdmin
             // 
@@ -235,37 +268,6 @@
             this.imageSilder.TabStop = false;
             this.imageSilder.Visible = false;
             // 
-            // guna2Elipse1
-            // 
-            this.guna2Elipse1.BorderRadius = 50;
-            this.guna2Elipse1.TargetControl = this.btnHome;
-            // 
-            // guna2Elipse2
-            // 
-            this.guna2Elipse2.BorderRadius = 50;
-            this.guna2Elipse2.TargetControl = this.btnSchedule;
-            // 
-            // guna2Elipse3
-            // 
-            this.guna2Elipse3.BorderRadius = 50;
-            this.guna2Elipse3.TargetControl = this.btnOpenMap;
-            // 
-            // guna2Elipse4
-            // 
-            this.guna2Elipse4.BorderRadius = 50;
-            this.guna2Elipse4.TargetControl = this.btnEventModule;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Controls.Add(this.eventSchedule1);
-            this.panel2.Controls.Add(this.scheduleControl1);
-            this.panel2.Controls.Add(this.homeControl1);
-            this.panel2.Location = new System.Drawing.Point(5, 4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(2036, 875);
-            this.panel2.TabIndex = 1;
-            // 
             // eventSchedule1
             // 
             this.eventSchedule1.BackColor = System.Drawing.Color.White;
@@ -291,6 +293,14 @@
             this.homeControl1.Size = new System.Drawing.Size(2036, 875);
             this.homeControl1.TabIndex = 0;
             // 
+            // scheduleControl2
+            // 
+            this.scheduleControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scheduleControl2.Location = new System.Drawing.Point(0, 0);
+            this.scheduleControl2.Name = "scheduleControl2";
+            this.scheduleControl2.Size = new System.Drawing.Size(2036, 875);
+            this.scheduleControl2.TabIndex = 3;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -306,9 +316,9 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.guna2CustomGradientPanel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageSilder)).EndInit();
-            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -332,6 +342,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private Guna.UI2.WinForms.Guna2Button btnAdmin;
         private EventSchedule eventSchedule1;
+        private scheduleControl scheduleControl2;
     }
 }
 
