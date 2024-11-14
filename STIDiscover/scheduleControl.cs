@@ -17,11 +17,16 @@ namespace STIDiscover
         {
             InitializeComponent();
             InitializeDataGridView();
+            this.dgvResults.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResults_CellClick);
+
         }
         private void InitializeDataGridView()
         {
             dgvResults.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvResults.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            dgvCourseDetails.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCourseDetails.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
@@ -34,6 +39,15 @@ namespace STIDiscover
             else
             {
                 dgvResults.DataSource = null; // Clear DataGridView when search box is empty
+            }
+
+            if (!string.IsNullOrEmpty(textBoxSearch.Text))
+            {
+                dgvResults.Visible = true;
+            }
+            else
+            {
+                dgvResults.Visible = false; // Hide DataGridView when TextBox is empty
             }
         }
         private void LiveSearch(string searchQuery)
@@ -51,15 +65,25 @@ namespace STIDiscover
                     DataTable dataTable = new DataTable();
                     dataTable.Columns.Add("Table Name");
 
-                    // Add matching table names to the DataTable
-                    foreach (string tableName in tableNames)
+                    // If no results are found, show a "No result found" message
+                    if (tableNames.Count == 0)
                     {
                         DataRow row = dataTable.NewRow();
-                        row["Table Name"] = tableName;
+                        row["Table Name"] = "No result found";
                         dataTable.Rows.Add(row);
                     }
+                    else
+                    {
+                        // Add matching table names to the DataTable
+                        foreach (string tableName in tableNames)
+                        {
+                            DataRow row = dataTable.NewRow();
+                            row["Table Name"] = tableName.ToUpper();  // Convert to uppercase before adding
+                            dataTable.Rows.Add(row);
+                        }
+                    }
 
-                    // Display the table names in the DataGridView
+                    // Display the table names or the no result message in the DataGridView
                     dgvResults.DataSource = dataTable;
                 }
             }
@@ -80,9 +104,9 @@ namespace STIDiscover
             {
                 while (reader.Read())
                 {
-                    string tableName = reader.GetString(0);
-                    // Perform case-insensitive comparison by converting both strings to lowercase
-                    if (tableName.ToLower().Contains(searchQuery.ToLower()))
+                    string tableName = reader.GetString(0).ToUpper(); // Convert table name to uppercase
+                                                                      // Perform case-insensitive comparison by converting both strings to lowercase
+                    if (tableName.Contains(searchQuery.ToUpper())) // Make search query uppercase for case-insensitive comparison
                     {
                         tableNames.Add(tableName);
                     }
@@ -90,6 +114,103 @@ namespace STIDiscover
             }
 
             return tableNames;
+        }
+
+        private void textBoxSearch_Enter(object sender, EventArgs e)
+        {
+            dgvResults.Visible = true;
+            textBoxSearch.Text = "";
+            textBoxSearch.ForeColor = Color.Black;
+        }
+
+        private void textBoxSearch_Leave(object sender, EventArgs e)
+        {
+
+            
+        }
+
+        private void dgvCourseDetails_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+          
+        }
+        private void DisplayCourseDetails(string tableName)
+        {
+            try
+            {
+                Console.WriteLine($"Fetching details for table: {tableName}"); // Debugging log
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    // Query the selected table for Course_des, Days, Time, and Room
+                    string query = $"SELECT course_des, days, time, room FROM `{tableName}`";
+                    MySqlDataAdapter dataAdapter = new MySqlDataAdapter(query, conn);
+                    DataTable dataTable = new DataTable();
+                    dataAdapter.Fill(dataTable);
+
+                    // Check if the table has data
+                    if (dataTable.Rows.Count == 0)
+                    {
+                        Console.WriteLine("No data found in the selected table."); // Debugging log
+                        MessageBox.Show("No data found for the selected course.");
+                    }
+                    else
+                    {
+                        // Bind the results to the second DataGridView (dgvCourseDetails)
+                        dgvCourseDetails.DataSource = dataTable;
+                        dgvCourseDetails.Visible = true; // Ensure it's visible
+                        Console.WriteLine("Data loaded successfully."); // Debugging log
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                Console.WriteLine($"Error: {ex.Message}");  // Debugging log
+            }
+        }
+
+        private void dgvResults_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0) // Check if the click is on a valid row
+            {
+                // Get the selected table name from the first column
+                string selectedTable = dgvResults.Rows[e.RowIndex].Cells[0].Value.ToString();
+
+                // Call the method to load data from the selected table into the second DataGridView
+                LoadCourseData(selectedTable);
+            }
+        }
+        private void LoadCourseData(string tableName)
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    // Query to get course details (e.g., course_des, days, time, room) from the selected table
+                    string query = $"SELECT course_des, days, time, room FROM {tableName}";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        // Create a DataTable to hold the course data
+                        DataTable dataTable = new DataTable();
+                        dataTable.Load(reader); // Load the data from the reader
+
+                        // Set the DataSource of your second DataGridView to display course data
+                        dgvCourseDetails.DataSource = dataTable;
+
+                        // Disable row selection in dgvCourseData
+                        dgvCourseDetails.SelectionMode = DataGridViewSelectionMode.CellSelect;
+                        dgvCourseDetails.MultiSelect = false;  // Optionally prevent multiple selection
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
     }
 }

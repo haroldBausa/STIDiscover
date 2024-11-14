@@ -21,9 +21,9 @@ namespace STIDiscover
         }
         // Method to fetch events for the current month and year
         // Fetches events for the current month and year
-        private Dictionary<int, string> GetEvents(int month, int year)
+        private Dictionary<int, List<string>> GetEvents(int month, int year)
         {
-            var events = new Dictionary<int, string>();
+            var events = new Dictionary<int, List<string>>();
             string query = "SELECT DAY(event_date) AS Day, event_name FROM Events WHERE MONTH(event_date) = @month AND YEAR(event_date) = @year";
 
             using (MySqlConnection conn = new MySqlConnection("Server=localhost;Database=event_schedule;Uid=root;Pwd=;"))
@@ -39,8 +39,14 @@ namespace STIDiscover
                         while (reader.Read())
                         {
                             int day = reader.GetInt32("Day");
-                            string eventName = reader.GetString("event_name"); // Assuming "EventName" is the event name column
-                            events[day] = eventName;
+                            string eventName = reader.GetString("event_name");
+
+                            if (!events.ContainsKey(day))
+                            {
+                                events[day] = new List<string>();
+                            }
+
+                            events[day].Add(eventName);  // Add event to the list for that day
                         }
                     }
                 }
@@ -50,8 +56,8 @@ namespace STIDiscover
         public void displayDays()
         {
             DateTime now = new DateTime(year, month, 1);
-            String monthName = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
-            lblMonth.Text = monthName + " " + year;
+            string monthName = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
+            lblMonth.Text = $"{monthName} {year}";
 
             DateTime startofthemonth = new DateTime(year, month, 1);
             int days = DateTime.DaysInMonth(year, month);
@@ -60,25 +66,30 @@ namespace STIDiscover
             // Get events for the current month and year
             var events = GetEvents(month, year);
 
-            // Clear existing controls
+            // Clear existing controls in the day container
             dayContainer.Controls.Clear();
 
-            // Fill empty spaces
+            // Add empty spaces for days before the start of the month (empty slots)
             for (int i = 0; i < dayoftheweek; i++)
             {
                 dayContainer.Controls.Add(new Panel { Size = new Size(209, 100), Margin = new Padding(0) });
             }
 
-            // Add days of the month
+            // Add days of the month with event count
             for (int i = 1; i <= days; i++)
             {
                 UserControlDays userdays = new UserControlDays();
-                userdays.days(i);
+                userdays.SetDay(i);  // Set the day number
 
-                // Check if there's an event for this day
+                // Check if there are events for this day
                 if (events.ContainsKey(i))
                 {
-                    userdays.SetEvent(events[i]); // Highlight day if event exists
+                    int eventCount = events[i].Count();  // Get the count of events for this day
+                    userdays.SetEvent(eventCount);  // Pass event count to the user control
+                }
+                else
+                {
+                    userdays.SetEvent(0); // No events for this day
                 }
 
                 dayContainer.Controls.Add(userdays);

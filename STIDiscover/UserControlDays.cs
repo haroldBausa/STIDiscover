@@ -21,14 +21,26 @@ namespace STIDiscover
         {
 
         }
-        public void days(int numday)
+        public void SetDay(int numday)
         {
-            label1.Text = numday + "";
+            label1.Text = numday.ToString();
         }
         // Method to set the event name under the day number
-        public void SetEvent(string eventName)
+        public void SetEvent(int eventCount)
         {
-            lblEventName.Text = eventName;
+            if (eventCount > 0)
+            {
+                lblEventName.Text = $"{eventCount}";
+            }
+            else
+            {
+                lblEventName.Text = "";
+            }
+        }
+
+        private void lblEventName_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

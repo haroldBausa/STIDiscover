@@ -44,12 +44,13 @@
             // 
             // lblEventName
             // 
-            this.lblEventName.AutoSize = true;
-            this.lblEventName.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEventName.Location = new System.Drawing.Point(96, 59);
+            this.lblEventName.Font = new System.Drawing.Font("MS Gothic", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEventName.Location = new System.Drawing.Point(56, 48);
             this.lblEventName.Name = "lblEventName";
-            this.lblEventName.Size = new System.Drawing.Size(0, 20);
+            this.lblEventName.Size = new System.Drawing.Size(174, 56);
             this.lblEventName.TabIndex = 1;
+            this.lblEventName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblEventName.Click += new System.EventHandler(this.lblEventName_Click);
             // 
             // UserControlDays
             // 
