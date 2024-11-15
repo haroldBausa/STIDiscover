@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.lblShowName = new System.Windows.Forms.Label();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnOpen = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // lblShowName
@@ -42,26 +42,27 @@
             this.lblShowName.TabIndex = 0;
             this.lblShowName.Text = "label1";
             // 
-            // guna2Button1
+            // btnOpen
             // 
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(353, 11);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(180, 45);
-            this.guna2Button1.TabIndex = 1;
-            this.guna2Button1.Text = "Click to see details";
+            this.btnOpen.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnOpen.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnOpen.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnOpen.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnOpen.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnOpen.ForeColor = System.Drawing.Color.White;
+            this.btnOpen.Location = new System.Drawing.Point(353, 11);
+            this.btnOpen.Name = "btnOpen";
+            this.btnOpen.Size = new System.Drawing.Size(180, 45);
+            this.btnOpen.TabIndex = 1;
+            this.btnOpen.Text = "Click to see details";
+            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
             // displayControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.Controls.Add(this.guna2Button1);
+            this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.lblShowName);
             this.Name = "displayControl";
             this.Size = new System.Drawing.Size(564, 67);
@@ -73,6 +74,6 @@
         #endregion
 
         private System.Windows.Forms.Label lblShowName;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button btnOpen;
     }
 }
