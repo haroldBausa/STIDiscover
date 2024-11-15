@@ -161,6 +161,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(201, 24);
             this.txtPassword.TabIndex = 12;
+            this.txtPassword.Click += new System.EventHandler(this.txtPassword_Click);
             // 
             // AdminLoginForm
             // 

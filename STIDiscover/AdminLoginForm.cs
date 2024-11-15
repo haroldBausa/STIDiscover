@@ -93,19 +93,67 @@ namespace STIDiscover
         {
             try
             {
-                // Specify the full path to TabTip.exe
-                string tabTipPath = @"C:\Program Files\Common Files\Microsoft Shared\Ink\TabTip.exe";
+                // Specify the full path to osk.exe (On-Screen Keyboard)
+                string oskPath = @"C:\Windows\System32\osk.exe";
 
-                // Check if TabTip.exe exists
-                if (File.Exists(tabTipPath))
+                // Check if osk.exe exists
+                if (File.Exists(oskPath))
                 {
-                    // Launch the On-Screen Keyboard (TabTip.exe)
-                    Process.Start(tabTipPath);
+                    // Create ProcessStartInfo to run osk.exe
+                    ProcessStartInfo startInfo = new ProcessStartInfo
+                    {
+                        FileName = oskPath,
+                        UseShellExecute = true,  // Use shell execute for GUI processes like OSK
+                        CreateNoWindow = true    // Hide the console window (optional)
+                    };
+
+                    // Start the On-Screen Keyboard
+                    Process.Start(startInfo);
                 }
                 else
                 {
-                    // Show an error message if TabTip.exe is not found
-                    MessageBox.Show("TabTip.exe not found at the expected location.",
+                    // Show an error message if osk.exe is not found
+                    MessageBox.Show("On-Screen Keyboard (osk.exe) not found at the expected location.",
+                                    "Error",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Show the error message in a MessageBox
+                MessageBox.Show($"Error opening On-Screen Keyboard:\n{ex.Message}",
+                                "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtPassword_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Specify the full path to osk.exe (On-Screen Keyboard)
+                string oskPath = @"C:\Windows\System32\osk.exe";
+
+                // Check if osk.exe exists
+                if (File.Exists(oskPath))
+                {
+                    // Create ProcessStartInfo to run osk.exe
+                    ProcessStartInfo startInfo = new ProcessStartInfo
+                    {
+                        FileName = oskPath,
+                        UseShellExecute = true,  // Use shell execute for GUI processes like OSK
+                        CreateNoWindow = true    // Hide the console window (optional)
+                    };
+
+                    // Start the On-Screen Keyboard
+                    Process.Start(startInfo);
+                }
+                else
+                {
+                    // Show an error message if osk.exe is not found
+                    MessageBox.Show("On-Screen Keyboard (osk.exe) not found at the expected location.",
                                     "Error",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);
