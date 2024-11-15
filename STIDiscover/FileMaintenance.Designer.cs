@@ -32,7 +32,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.btnExit = new Guna.UI2.WinForms.Guna2Button();
             this.btnEvent = new Guna.UI2.WinForms.Guna2Button();
             this.btnSchedule = new Guna.UI2.WinForms.Guna2Button();
@@ -42,7 +41,6 @@
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,15 +80,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(348, 212);
             this.panel2.TabIndex = 1;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel4.Controls.Add(this.eventManager1);
-            this.panel4.Location = new System.Drawing.Point(354, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1566, 1080);
-            this.panel4.TabIndex = 1;
             // 
             // btnExit
             // 
@@ -173,10 +162,10 @@
             // 
             this.eventManager1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.eventManager1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.eventManager1.Location = new System.Drawing.Point(0, 0);
+            this.eventManager1.Location = new System.Drawing.Point(348, 0);
             this.eventManager1.Name = "eventManager1";
-            this.eventManager1.Size = new System.Drawing.Size(1566, 1080);
-            this.eventManager1.TabIndex = 0;
+            this.eventManager1.Size = new System.Drawing.Size(1572, 1080);
+            this.eventManager1.TabIndex = 1;
             // 
             // FileMaintenance
             // 
@@ -184,7 +173,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
             this.ClientSize = new System.Drawing.Size(1920, 1080);
-            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.eventManager1);
             this.Controls.Add(this.patnavBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FileMaintenance";
@@ -195,7 +184,6 @@
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -211,7 +199,6 @@
         private Guna.UI2.WinForms.Guna2Button btnEvent;
         private Guna.UI2.WinForms.Guna2Button btnSchedule;
         private Guna.UI2.WinForms.Guna2Button btnExit;
-        private System.Windows.Forms.Panel panel4;
         private EventManager eventManager1;
     }
 }

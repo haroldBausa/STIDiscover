@@ -86,7 +86,7 @@
             this.btnNext.Location = new System.Drawing.Point(63, 4);
             this.btnNext.Name = "btnNext";
             this.btnNext.PressedState.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnNext.Size = new System.Drawing.Size(57, 48);
+            this.btnNext.Size = new System.Drawing.Size(66, 58);
             this.btnNext.TabIndex = 9;
             this.btnNext.UseTransparentBackground = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
@@ -103,7 +103,7 @@
             this.btnPrevious.Location = new System.Drawing.Point(3, 4);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.PressedState.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnPrevious.Size = new System.Drawing.Size(63, 48);
+            this.btnPrevious.Size = new System.Drawing.Size(72, 58);
             this.btnPrevious.TabIndex = 8;
             this.btnPrevious.UseTransparentBackground = true;
             this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
@@ -113,7 +113,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(1799, 51);
+            this.label7.Location = new System.Drawing.Point(1799, 65);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(124, 30);
             this.label7.TabIndex = 7;
@@ -124,7 +124,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(1550, 51);
+            this.label6.Location = new System.Drawing.Point(1550, 65);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(89, 30);
             this.label6.TabIndex = 6;
@@ -135,7 +135,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(1253, 51);
+            this.label5.Location = new System.Drawing.Point(1253, 65);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(128, 30);
             this.label5.TabIndex = 5;
@@ -146,7 +146,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(940, 51);
+            this.label4.Location = new System.Drawing.Point(940, 65);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(152, 30);
             this.label4.TabIndex = 4;
@@ -157,7 +157,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(643, 51);
+            this.label3.Location = new System.Drawing.Point(643, 65);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(118, 30);
             this.label3.TabIndex = 3;
@@ -169,7 +169,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(380, 51);
+            this.label2.Location = new System.Drawing.Point(380, 65);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(108, 30);
             this.label2.TabIndex = 2;
@@ -180,7 +180,8 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(102, 51);
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(102, 65);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(104, 30);
             this.label1.TabIndex = 1;
@@ -189,9 +190,9 @@
             // dayContainer
             // 
             this.dayContainer.BackColor = System.Drawing.Color.Transparent;
-            this.dayContainer.Location = new System.Drawing.Point(35, 81);
+            this.dayContainer.Location = new System.Drawing.Point(35, 102);
             this.dayContainer.Name = "dayContainer";
-            this.dayContainer.Size = new System.Drawing.Size(1964, 794);
+            this.dayContainer.Size = new System.Drawing.Size(1964, 773);
             this.dayContainer.TabIndex = 0;
             // 
             // EventSchedule

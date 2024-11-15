@@ -142,6 +142,18 @@
     <Compile Include="CustomButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="displayControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="displayControl.Designer.cs">
+      <DependentUpon>displayControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="displayEventCount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="displayEventCount.Designer.cs">
+      <DependentUpon>displayEventCount.cs</DependentUpon>
+    </Compile>
     <Compile Include="EventManager.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -186,6 +198,12 @@
     <Compile Include="UserControlDays.Designer.cs">
       <DependentUpon>UserControlDays.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControlForEventDescription.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlForEventDescription.Designer.cs">
+      <DependentUpon>UserControlForEventDescription.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AdminLoginForm.resx">
       <DependentUpon>AdminLoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,6 +212,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Building1.resx">
       <DependentUpon>Building1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="displayControl.resx">
+      <DependentUpon>displayControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="displayEventCount.resx">
+      <DependentUpon>displayEventCount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EventManager.resx">
       <DependentUpon>EventManager.cs</DependentUpon>
@@ -225,6 +249,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlDays.resx">
       <DependentUpon>UserControlDays.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlForEventDescription.resx">
+      <DependentUpon>UserControlForEventDescription.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -40,18 +40,34 @@ namespace STIDiscover
         private void ShowEventInfo(DateTime date)
         {
             connection.Open();
-            string query = "SELECT event_name, description FROM events WHERE event_date = @date";
+            string query = "SELECT event_name, description, event_image FROM events WHERE event_date = @date";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@date", date.ToString("yyyy-MM-dd"));
 
             MySqlDataReader reader = cmd.ExecuteReader();
+            lstEvents.Items.Clear(); // Clear previous events
             if (reader.Read())
             {
                 lblInfo.Text = $"Event: {reader["event_name"]}\nDescription: {reader["description"]}";
+
+                // Load and display the image
+                if (reader["event_image"] != DBNull.Value)
+                {
+                    byte[] imgBytes = (byte[])reader["event_image"];
+                    using (MemoryStream ms = new MemoryStream(imgBytes))
+                    {
+                        picEventImage.Image = Image.FromStream(ms);
+                    }
+                }
+                else
+                {
+                    picEventImage.Image = null; // No image
+                }
             }
             else
             {
                 lblInfo.Text = "No event scheduled on this date.";
+                picEventImage.Image = null;
             }
             connection.Close();
         }
@@ -59,29 +75,63 @@ namespace STIDiscover
         private void btnAdd_Click(object sender, EventArgs e)
         {
             connection.Open();
-            string query = "INSERT INTO events (event_date, event_name, description) VALUES (@date, @name, @description)";
+            string query = "INSERT INTO events (event_date, event_name, description, event_image) VALUES (@date, @name, @description, @image)";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@date", dtpEvent.Value.ToString("yyyy-MM-dd"));
             cmd.Parameters.AddWithValue("@name", txtName.Text);
             cmd.Parameters.AddWithValue("@description", txtDescript.Text);
+
+            // Add the image as a BLOB
+            if (picEventImage.Image != null)
+            {
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    picEventImage.Image.Save(ms, picEventImage.Image.RawFormat);
+                    cmd.Parameters.AddWithValue("@image", ms.ToArray());
+                }
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@image", DBNull.Value);
+            }
+
             cmd.ExecuteNonQuery();
             connection.Close();
-            MessageBox.Show("Event added successfully!");
+            MessageBox.Show("Event with image added successfully!");
             ShowEventInfo(dtpEvent.Value);
+            txtDescript.Clear();
+            txtName.Clear();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             connection.Open();
-            string query = "UPDATE events SET event_name = @name, description = @description WHERE event_date = @date";
+            string query = "UPDATE events SET event_name = @name, description = @description, event_image = @image WHERE event_date = @date";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@date", dtpEvent.Value.ToString("yyyy-MM-dd"));
             cmd.Parameters.AddWithValue("@name", txtName.Text);
             cmd.Parameters.AddWithValue("@description", txtDescript.Text);
+
+            // Update the image as a BLOB
+            if (picEventImage.Image != null)
+            {
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    picEventImage.Image.Save(ms, picEventImage.Image.RawFormat);
+                    cmd.Parameters.AddWithValue("@image", ms.ToArray());
+                }
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@image", DBNull.Value);
+            }
+
             int rowsAffected = cmd.ExecuteNonQuery();
             connection.Close();
             MessageBox.Show(rowsAffected > 0 ? "Event updated successfully!" : "No event found on this date.");
             ShowEventInfo(dtpEvent.Value);
+            txtDescript.Clear();
+            txtName.Clear();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -94,6 +144,8 @@ namespace STIDiscover
             connection.Close();
             MessageBox.Show(rowsAffected > 0 ? "Event deleted successfully!" : "No event found on this date.");
             ShowEventInfo(dtpEvent.Value);
+            txtDescript.Clear();
+            txtName.Clear();
         }
         private void StartOnScreenKeyboard()
         {
@@ -163,6 +215,33 @@ namespace STIDiscover
             CloseOnScreenKeyboard();
         }
 
-        
+        private void lstEvents_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lstEvents.SelectedItem != null)
+            {
+                // Parse the selected event to get the name and description
+                string selectedEvent = lstEvents.SelectedItem.ToString();
+                string[] parts = selectedEvent.Split('-');
+                if (parts.Length >= 2)
+                {
+                    txtName.Text = parts[0].Trim(); // Event name
+                    txtDescript.Text = parts[1].Trim(); // Description
+                }
+            }
+        }
+
+        private void btnUpload_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Display the selected image in the PictureBox
+                    picEventImage.Image = Image.FromFile(openFileDialog.FileName);
+                    picEventImage.Tag = openFileDialog.FileName; // Store the file path or name for later use
+                }
+            }
+        }
     }
 }

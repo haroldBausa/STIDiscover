@@ -44,10 +44,10 @@
             this.btnSchedule = new Guna.UI2.WinForms.Guna2Button();
             this.btnHome = new Guna.UI2.WinForms.Guna2Button();
             this.imageSilder = new System.Windows.Forms.PictureBox();
+            this.scheduleControl2 = new STIDiscover.scheduleControl();
             this.eventSchedule1 = new STIDiscover.EventSchedule();
             this.scheduleControl1 = new STIDiscover.scheduleControl();
             this.homeControl1 = new STIDiscover.homeControl();
-            this.scheduleControl2 = new STIDiscover.scheduleControl();
             this.panel1.SuspendLayout();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -268,6 +268,15 @@
             this.imageSilder.TabStop = false;
             this.imageSilder.Visible = false;
             // 
+            // scheduleControl2
+            // 
+            this.scheduleControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scheduleControl2.Location = new System.Drawing.Point(0, 0);
+            this.scheduleControl2.Name = "scheduleControl2";
+            this.scheduleControl2.Size = new System.Drawing.Size(2036, 875);
+            this.scheduleControl2.TabIndex = 3;
+            this.scheduleControl2.Load += new System.EventHandler(this.scheduleControl2_Load);
+            // 
             // eventSchedule1
             // 
             this.eventSchedule1.BackColor = System.Drawing.Color.White;
@@ -292,14 +301,6 @@
             this.homeControl1.Name = "homeControl1";
             this.homeControl1.Size = new System.Drawing.Size(2036, 875);
             this.homeControl1.TabIndex = 0;
-            // 
-            // scheduleControl2
-            // 
-            this.scheduleControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scheduleControl2.Location = new System.Drawing.Point(0, 0);
-            this.scheduleControl2.Name = "scheduleControl2";
-            this.scheduleControl2.Size = new System.Drawing.Size(2036, 875);
-            this.scheduleControl2.TabIndex = 3;
             // 
             // Form1
             // 

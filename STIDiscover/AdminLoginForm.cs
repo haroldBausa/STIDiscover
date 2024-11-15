@@ -82,10 +82,11 @@ namespace STIDiscover
 
         private void label3_Click(object sender, EventArgs e)
         {
+            this.Hide();
             this.Close();
             Form1 form = new Form1();
             form.ShowDialog();
-            this.Hide();
+  
         }
         
         private void AdminLoginForm_Load(object sender, EventArgs e)

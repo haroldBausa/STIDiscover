@@ -257,5 +257,25 @@ namespace STIDiscover
             }
             displayDays(); // Update the calendar display
         }
+        private void OpenEventDetailsForm(int day)
+        {
+            // Fetch events for the selected day
+            var events = GetEvents(month, year);
+            if (events.ContainsKey(day))
+            {
+                List<string> eventNames = events[day];
+
+                // Create a DateTime for the selected date
+                DateTime selectedDate = new DateTime(year, month, day);
+
+                // Open the new form and pass the event names and selected date
+                displayEventCount detailsForm = new displayEventCount(eventNames, selectedDate);
+                detailsForm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No events available for this day.");
+            }
+        }
     }
 }

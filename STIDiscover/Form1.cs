@@ -58,5 +58,10 @@ namespace STIDiscover
         {
             eventSchedule1.BringToFront();
         }
+
+        private void scheduleControl2_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
