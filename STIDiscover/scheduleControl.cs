@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,13 +14,14 @@ namespace STIDiscover
 {
     public partial class scheduleControl : UserControl
     {
+        private Process oskProcess;
         private string connectionString = "Server=localhost;Database=schedules;Uid=root;Pwd=;";
         public scheduleControl()
         {
             InitializeComponent();
             InitializeDataGridView();
             this.dgvResults.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResults_CellClick);
-
+            textBoxSearch.Click += textBoxSearch_Click;
         }
         private void InitializeDataGridView()
         {
@@ -210,6 +213,59 @@ namespace STIDiscover
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void textBoxSearch_Click(object sender, EventArgs e)
+        {
+            StartOnScreenKeyboard();
+        }
+        private void StartOnScreenKeyboard()
+        {
+            try
+            {
+                string oskPath = @"C:\Windows\System32\osk.exe"; // Adjust path if necessary
+
+                // Check if the On-Screen Keyboard exists
+                if (File.Exists(oskPath))
+                {
+                    // Launch the On-Screen Keyboard and save the process object
+                    oskProcess = Process.Start(oskPath);
+                }
+                else
+                {
+                    MessageBox.Show("On-Screen Keyboard not found at the expected location.",
+                                    "Error",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error opening On-Screen Keyboard:\n{ex.Message}",
+                                "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
+        }
+
+        private void CloseOnScreenKeyboard()
+        {
+            // If the On-Screen Keyboard process is running, kill it
+            if (oskProcess != null && !oskProcess.HasExited)
+            {
+                try
+                {
+                    oskProcess.Kill();
+                    oskProcess = null; // Reset the process object after closing
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error closing On-Screen Keyboard:\n{ex.Message}",
+                                    "Error",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                }
             }
         }
     }

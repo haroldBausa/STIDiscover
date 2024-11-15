@@ -15,11 +15,15 @@ namespace STIDiscover
 {
     public partial class AdminLoginForm : Form
     {
-
+        private Process oskProcess;
         public AdminLoginForm()
         {
             InitializeComponent();
             txtUsername.Click += txtUsername_Click;
+            txtPassword.Click += txtPassword_Click;
+
+            txtUsername.Leave += txtUsername_Leave;
+            txtPassword.Leave += txtPassword_Leave;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -91,29 +95,38 @@ namespace STIDiscover
 
         private void txtUsername_Click(object sender, EventArgs e)
         {
+            StartOnScreenKeyboard();
+        }
+
+        private void txtPassword_Click(object sender, EventArgs e)
+        {
+            StartOnScreenKeyboard();
+        }
+
+        private void txtUsername_Leave(object sender, EventArgs e)
+        {
+            CloseOnScreenKeyboard();
+        }
+
+        private void txtPassword_Leave(object sender, EventArgs e)
+        {
+            CloseOnScreenKeyboard();
+        }
+        private void StartOnScreenKeyboard()
+        {
             try
             {
-                // Specify the full path to osk.exe (On-Screen Keyboard)
-                string oskPath = @"C:\Windows\System32\osk.exe";
+                string oskPath = @"C:\Windows\System32\osk.exe"; // Adjust path if necessary
 
-                // Check if osk.exe exists
+                // Check if the On-Screen Keyboard exists
                 if (File.Exists(oskPath))
                 {
-                    // Create ProcessStartInfo to run osk.exe
-                    ProcessStartInfo startInfo = new ProcessStartInfo
-                    {
-                        FileName = oskPath,
-                        UseShellExecute = true,  // Use shell execute for GUI processes like OSK
-                        CreateNoWindow = true    // Hide the console window (optional)
-                    };
-
-                    // Start the On-Screen Keyboard
-                    Process.Start(startInfo);
+                    // Launch the On-Screen Keyboard and save the process object
+                    oskProcess = Process.Start(oskPath);
                 }
                 else
                 {
-                    // Show an error message if osk.exe is not found
-                    MessageBox.Show("On-Screen Keyboard (osk.exe) not found at the expected location.",
+                    MessageBox.Show("On-Screen Keyboard not found at the expected location.",
                                     "Error",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);
@@ -121,7 +134,6 @@ namespace STIDiscover
             }
             catch (Exception ex)
             {
-                // Show the error message in a MessageBox
                 MessageBox.Show($"Error opening On-Screen Keyboard:\n{ex.Message}",
                                 "Error",
                                 MessageBoxButtons.OK,
@@ -129,43 +141,23 @@ namespace STIDiscover
             }
         }
 
-        private void txtPassword_Click(object sender, EventArgs e)
+        private void CloseOnScreenKeyboard()
         {
-            try
+            // If the On-Screen Keyboard process is running, kill it
+            if (oskProcess != null && !oskProcess.HasExited)
             {
-                // Specify the full path to osk.exe (On-Screen Keyboard)
-                string oskPath = @"C:\Windows\System32\osk.exe";
-
-                // Check if osk.exe exists
-                if (File.Exists(oskPath))
+                try
                 {
-                    // Create ProcessStartInfo to run osk.exe
-                    ProcessStartInfo startInfo = new ProcessStartInfo
-                    {
-                        FileName = oskPath,
-                        UseShellExecute = true,  // Use shell execute for GUI processes like OSK
-                        CreateNoWindow = true    // Hide the console window (optional)
-                    };
-
-                    // Start the On-Screen Keyboard
-                    Process.Start(startInfo);
+                    oskProcess.Kill();
+                    oskProcess = null; // Reset the process object after closing
                 }
-                else
+                catch (Exception ex)
                 {
-                    // Show an error message if osk.exe is not found
-                    MessageBox.Show("On-Screen Keyboard (osk.exe) not found at the expected location.",
+                    MessageBox.Show($"Error closing On-Screen Keyboard:\n{ex.Message}",
                                     "Error",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);
                 }
-            }
-            catch (Exception ex)
-            {
-                // Show the error message in a MessageBox
-                MessageBox.Show($"Error opening On-Screen Keyboard:\n{ex.Message}",
-                                "Error",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
             }
         }
     }

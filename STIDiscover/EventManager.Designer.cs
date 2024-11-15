@@ -47,7 +47,7 @@
             this.lblInfo.Font = new System.Drawing.Font("Nirmala UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInfo.Location = new System.Drawing.Point(1009, 208);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(321, 46);
+            this.lblInfo.Size = new System.Drawing.Size(313, 45);
             this.lblInfo.TabIndex = 0;
             this.lblInfo.Text = "No Event Scheduled";
             this.lblInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -123,6 +123,8 @@
             this.txtName.SelectedText = "";
             this.txtName.Size = new System.Drawing.Size(575, 101);
             this.txtName.TabIndex = 5;
+            this.txtName.Click += new System.EventHandler(this.txtName_Click);
+            this.txtName.Leave += new System.EventHandler(this.txtName_Leave);
             // 
             // btnAdd
             // 
@@ -192,6 +194,8 @@
             this.txtDescript.Size = new System.Drawing.Size(575, 229);
             this.txtDescript.TabIndex = 11;
             this.txtDescript.Text = "Text";
+            this.txtDescript.Click += new System.EventHandler(this.txtDescript_Click);
+            this.txtDescript.Leave += new System.EventHandler(this.txtDescript_Leave);
             // 
             // EventManager
             // 

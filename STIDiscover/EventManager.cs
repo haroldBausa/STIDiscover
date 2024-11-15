@@ -8,39 +8,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using MySql.Data.MySqlClient;
 
 namespace STIDiscover
 {
     public partial class EventManager : UserControl
     {
-        private Process onScreenKeyboardProc;
+        private Process oskProcess;
         MySqlConnection connection = new MySqlConnection("Server=localhost;Database=event_schedule;Uid=root;Pwd=;");
         public EventManager()
         {
             InitializeComponent();
-            txtName.Enter += new EventHandler(OpenKeyboard);
-            txtDescript.Enter += new EventHandler(OpenKeyboard);
             dtpEvent.ValueChanged += dtpEvent_ValueChanged;
+            txtDescript.Click += txtDescript_Click;
+            txtName.Click += txtName_Click;
+
+            txtDescript.Leave += txtDescript_Leave;
+            txtName.Leave += txtName_Leave;
         }
 
         private void EventManager_Load(object sender, EventArgs e)
         {
 
-        }
-        private void OpenKeyboard(object sender, EventArgs e)
-        {
-            // Close any open instances of the on-screen keyboard
-            Process[] oskProcessArray = Process.GetProcessesByName("TabTip");
-            foreach (Process oskProcess in oskProcessArray)
-            {
-                oskProcess.Kill();
-            }
-
-            // Open the on-screen keyboard
-            string progFiles = @"C:\Program Files\Common Files\Microsoft Shared\ink";
-            string onScreenKeyboardPath = System.IO.Path.Combine(progFiles, "TabTip.exe");
-            onScreenKeyboardProc = System.Diagnostics.Process.Start(onScreenKeyboardPath);
         }
 
         private void dtpEvent_ValueChanged(object sender, EventArgs e)
@@ -105,5 +95,74 @@ namespace STIDiscover
             MessageBox.Show(rowsAffected > 0 ? "Event deleted successfully!" : "No event found on this date.");
             ShowEventInfo(dtpEvent.Value);
         }
+        private void StartOnScreenKeyboard()
+        {
+            try
+            {
+                string oskPath = @"C:\Windows\System32\osk.exe"; // Adjust path if necessary
+
+                // Check if the On-Screen Keyboard exists
+                if (File.Exists(oskPath))
+                {
+                    // Launch the On-Screen Keyboard and save the process object
+                    oskProcess = Process.Start(oskPath);
+                }
+                else
+                {
+                    MessageBox.Show("On-Screen Keyboard not found at the expected location.",
+                                    "Error",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error opening On-Screen Keyboard:\n{ex.Message}",
+                                "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
+        }
+
+        private void CloseOnScreenKeyboard()
+        {
+            // If the On-Screen Keyboard process is running, kill it
+            if (oskProcess != null && !oskProcess.HasExited)
+            {
+                try
+                {
+                    oskProcess.Kill();
+                    oskProcess = null; // Reset the process object after closing
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error closing On-Screen Keyboard:\n{ex.Message}",
+                                    "Error",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void txtName_Click(object sender, EventArgs e)
+        {
+            StartOnScreenKeyboard();
+        }
+        private void txtName_Leave(object sender, EventArgs e)
+        {
+            StartOnScreenKeyboard();
+        }
+
+        private void txtDescript_Click(object sender, EventArgs e)
+        {
+            CloseOnScreenKeyboard();
+        }
+
+        private void txtDescript_Leave(object sender, EventArgs e)
+        {
+            CloseOnScreenKeyboard();
+        }
+
+        
     }
 }

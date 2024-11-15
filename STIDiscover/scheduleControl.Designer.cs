@@ -36,8 +36,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.textBoxSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.dgvResults = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.textBoxSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.dgvCourseDetails = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2CustomGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).BeginInit();
@@ -57,36 +57,6 @@
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(455, 875);
             this.guna2CustomGradientPanel1.TabIndex = 0;
-            // 
-            // textBoxSearch
-            // 
-            this.textBoxSearch.AutoRoundedCorners = true;
-            this.textBoxSearch.BackColor = System.Drawing.Color.Transparent;
-            this.textBoxSearch.BorderColor = System.Drawing.Color.Transparent;
-            this.textBoxSearch.BorderRadius = 30;
-            this.textBoxSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBoxSearch.DefaultText = "Search for schedule e.g. BSIT,BMMA,BSCS,...";
-            this.textBoxSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.textBoxSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.textBoxSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.textBoxSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.textBoxSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.textBoxSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSearch.ForeColor = System.Drawing.Color.Gray;
-            this.textBoxSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.textBoxSearch.Location = new System.Drawing.Point(16, 94);
-            this.textBoxSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.PasswordChar = '\0';
-            this.textBoxSearch.PlaceholderForeColor = System.Drawing.Color.Black;
-            this.textBoxSearch.PlaceholderText = "";
-            this.textBoxSearch.SelectedText = "";
-            this.textBoxSearch.Size = new System.Drawing.Size(414, 62);
-            this.textBoxSearch.TabIndex = 0;
-            this.textBoxSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
-            this.textBoxSearch.Enter += new System.EventHandler(this.textBoxSearch_Enter);
-            this.textBoxSearch.Leave += new System.EventHandler(this.textBoxSearch_Leave);
             // 
             // dgvResults
             // 
@@ -153,6 +123,37 @@
             this.dgvResults.Visible = false;
             this.dgvResults.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResults_CellClick);
             // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.AutoRoundedCorners = true;
+            this.textBoxSearch.BackColor = System.Drawing.Color.Transparent;
+            this.textBoxSearch.BorderColor = System.Drawing.Color.Transparent;
+            this.textBoxSearch.BorderRadius = 30;
+            this.textBoxSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textBoxSearch.DefaultText = "Search for schedule e.g. BSIT,BMMA,BSCS,...";
+            this.textBoxSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.textBoxSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.textBoxSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.textBoxSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.textBoxSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.textBoxSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSearch.ForeColor = System.Drawing.Color.Gray;
+            this.textBoxSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.textBoxSearch.Location = new System.Drawing.Point(16, 94);
+            this.textBoxSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.PasswordChar = '\0';
+            this.textBoxSearch.PlaceholderForeColor = System.Drawing.Color.Black;
+            this.textBoxSearch.PlaceholderText = "";
+            this.textBoxSearch.SelectedText = "";
+            this.textBoxSearch.Size = new System.Drawing.Size(414, 62);
+            this.textBoxSearch.TabIndex = 0;
+            this.textBoxSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
+            this.textBoxSearch.Click += new System.EventHandler(this.textBoxSearch_Click);
+            this.textBoxSearch.Enter += new System.EventHandler(this.textBoxSearch_Enter);
+            this.textBoxSearch.Leave += new System.EventHandler(this.textBoxSearch_Leave);
+            // 
             // dgvCourseDetails
             // 
             this.dgvCourseDetails.AllowUserToAddRows = false;
@@ -167,7 +168,8 @@
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvCourseDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvCourseDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCourseDetails.ColumnHeadersHeight = 4;
+            this.dgvCourseDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Yi Baiti", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -197,7 +199,7 @@
             this.dgvCourseDetails.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvCourseDetails.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvCourseDetails.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvCourseDetails.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCourseDetails.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvCourseDetails.ThemeStyle.HeaderStyle.Height = 4;
             this.dgvCourseDetails.ThemeStyle.ReadOnly = true;
             this.dgvCourseDetails.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;

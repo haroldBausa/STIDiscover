@@ -122,7 +122,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(26)))), ((int)(((byte)(237)))));
-            this.label2.Location = new System.Drawing.Point(181, 322);
+            this.label2.Location = new System.Drawing.Point(177, 322);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 23);
             this.label2.TabIndex = 9;
@@ -151,6 +151,7 @@
             this.txtUsername.Size = new System.Drawing.Size(201, 24);
             this.txtUsername.TabIndex = 11;
             this.txtUsername.Click += new System.EventHandler(this.txtUsername_Click);
+            this.txtUsername.Leave += new System.EventHandler(this.txtUsername_Leave);
             // 
             // txtPassword
             // 
@@ -162,6 +163,7 @@
             this.txtPassword.Size = new System.Drawing.Size(201, 24);
             this.txtPassword.TabIndex = 12;
             this.txtPassword.Click += new System.EventHandler(this.txtPassword_Click);
+            this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // AdminLoginForm
             // 
