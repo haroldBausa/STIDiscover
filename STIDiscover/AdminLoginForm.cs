@@ -9,17 +9,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.IO;
 using MySqlX.XDevAPI;
 namespace STIDiscover
 {
     public partial class AdminLoginForm : Form
     {
-        private Process onScreenKeyboardProc;
+
         public AdminLoginForm()
         {
             InitializeComponent();
-            txtUsername.Enter += new EventHandler(OpenKeyboard);
-            txtPassword.Enter += new EventHandler(OpenKeyboard);
+            txtUsername.Click += txtUsername_Click;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -83,24 +83,42 @@ namespace STIDiscover
             form.ShowDialog();
             this.Hide();
         }
-        private void OpenKeyboard(object sender, EventArgs e)
-        {
-            // Close any open instances of the on-screen keyboard
-            Process[] oskProcessArray = Process.GetProcessesByName("TabTip");
-            foreach (Process oskProcess in oskProcessArray)
-            {
-                oskProcess.Kill();
-            }
-
-            // Open the on-screen keyboard
-            string progFiles = @"C:\Program Files\Common Files\Microsoft Shared\ink";
-            string onScreenKeyboardPath = System.IO.Path.Combine(progFiles, "TabTip.exe");
-            onScreenKeyboardProc = System.Diagnostics.Process.Start(onScreenKeyboardPath);
-        }
-
+        
         private void AdminLoginForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtUsername_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Specify the full path to TabTip.exe
+                string tabTipPath = @"C:\Program Files\Common Files\Microsoft Shared\Ink\TabTip.exe";
+
+                // Check if TabTip.exe exists
+                if (File.Exists(tabTipPath))
+                {
+                    // Launch the On-Screen Keyboard (TabTip.exe)
+                    Process.Start(tabTipPath);
+                }
+                else
+                {
+                    // Show an error message if TabTip.exe is not found
+                    MessageBox.Show("TabTip.exe not found at the expected location.",
+                                    "Error",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Show the error message in a MessageBox
+                MessageBox.Show($"Error opening On-Screen Keyboard:\n{ex.Message}",
+                                "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
         }
     }
 }
