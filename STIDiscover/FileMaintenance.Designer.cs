@@ -30,13 +30,14 @@
         {
             this.patnavBar = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.btnExit = new Guna.UI2.WinForms.Guna2Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.btnEvent = new Guna.UI2.WinForms.Guna2Button();
             this.btnSchedule = new Guna.UI2.WinForms.Guna2Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.eventManager1 = new STIDiscover.EventManager();
+            this.scheduleControlManager1 = new STIDiscover.ScheduleControlManager();
             this.patnavBar.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -63,24 +64,6 @@
             this.panel3.Size = new System.Drawing.Size(347, 118);
             this.panel3.TabIndex = 3;
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.btnEvent);
-            this.panel1.Controls.Add(this.btnSchedule);
-            this.panel1.Location = new System.Drawing.Point(0, 211);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(375, 749);
-            this.panel1.TabIndex = 2;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(348, 212);
-            this.panel2.TabIndex = 1;
-            // 
             // btnExit
             // 
             this.btnExit.BorderColor = System.Drawing.Color.WhiteSmoke;
@@ -102,6 +85,15 @@
             this.btnExit.Text = "Sign out";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnEvent);
+            this.panel1.Controls.Add(this.btnSchedule);
+            this.panel1.Location = new System.Drawing.Point(0, 211);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(342, 749);
+            this.panel1.TabIndex = 2;
+            // 
             // btnEvent
             // 
             this.btnEvent.BorderColor = System.Drawing.Color.WhiteSmoke;
@@ -119,7 +111,7 @@
             this.btnEvent.ImageSize = new System.Drawing.Size(40, 40);
             this.btnEvent.Location = new System.Drawing.Point(7, 243);
             this.btnEvent.Name = "btnEvent";
-            this.btnEvent.Size = new System.Drawing.Size(341, 65);
+            this.btnEvent.Size = new System.Drawing.Size(320, 57);
             this.btnEvent.TabIndex = 2;
             this.btnEvent.Text = "EVENT MANAGER";
             this.btnEvent.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -142,10 +134,20 @@
             this.btnSchedule.ImageSize = new System.Drawing.Size(40, 40);
             this.btnSchedule.Location = new System.Drawing.Point(7, 123);
             this.btnSchedule.Name = "btnSchedule";
-            this.btnSchedule.Size = new System.Drawing.Size(341, 65);
+            this.btnSchedule.Size = new System.Drawing.Size(320, 55);
             this.btnSchedule.TabIndex = 1;
-            this.btnSchedule.Text = "SCHEDULE CONTROL";
+            this.btnSchedule.Text = "CONTROL SCHEDULE";
             this.btnSchedule.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnSchedule.Click += new System.EventHandler(this.btnSchedule_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(348, 212);
+            this.panel2.TabIndex = 1;
             // 
             // pictureBox1
             // 
@@ -167,12 +169,21 @@
             this.eventManager1.Size = new System.Drawing.Size(1572, 1080);
             this.eventManager1.TabIndex = 1;
             // 
+            // scheduleControlManager1
+            // 
+            this.scheduleControlManager1.BackColor = System.Drawing.SystemColors.Control;
+            this.scheduleControlManager1.Location = new System.Drawing.Point(348, 0);
+            this.scheduleControlManager1.Name = "scheduleControlManager1";
+            this.scheduleControlManager1.Size = new System.Drawing.Size(1920, 1080);
+            this.scheduleControlManager1.TabIndex = 2;
+            // 
             // FileMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
             this.ClientSize = new System.Drawing.Size(1920, 1080);
+            this.Controls.Add(this.scheduleControlManager1);
             this.Controls.Add(this.eventManager1);
             this.Controls.Add(this.patnavBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -200,5 +211,6 @@
         private Guna.UI2.WinForms.Guna2Button btnSchedule;
         private Guna.UI2.WinForms.Guna2Button btnExit;
         private EventManager eventManager1;
+        private ScheduleControlManager scheduleControlManager1;
     }
 }

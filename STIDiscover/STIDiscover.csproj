@@ -226,6 +226,12 @@
     <Compile Include="scheduleControl.Designer.cs">
       <DependentUpon>scheduleControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="ScheduleControlManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ScheduleControlManager.Designer.cs">
+      <DependentUpon>ScheduleControlManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControlDays.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -278,6 +284,9 @@
     <EmbeddedResource Include="scheduleControl.resx">
       <DependentUpon>scheduleControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ScheduleControlManager.resx">
+      <DependentUpon>ScheduleControlManager.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControlDays.resx">
       <DependentUpon>UserControlDays.cs</DependentUpon>
     </EmbeddedResource>
@@ -291,7 +300,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="STIDiscover_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

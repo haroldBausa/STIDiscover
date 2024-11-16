@@ -28,5 +28,10 @@ namespace STIDiscover
             Form1 form1 = new Form1(); 
             form1.ShowDialog();
         }
+
+        private void btnSchedule_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
