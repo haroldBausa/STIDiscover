@@ -39,37 +39,37 @@ namespace STIDiscover
         }
         private void ShowEventInfo(DateTime date)
         {
-            connection.Open();
-            string query = "SELECT event_name, description, event_image FROM events WHERE event_date = @date";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
-            cmd.Parameters.AddWithValue("@date", date.ToString("yyyy-MM-dd"));
-
-            MySqlDataReader reader = cmd.ExecuteReader();
-            lstEvents.Items.Clear(); // Clear previous events
-            if (reader.Read())
+            try
             {
-                lblInfo.Text = $"Event: {reader["event_name"]}\nDescription: {reader["description"]}";
+                connection.Open();
+                string query = "SELECT id, event_name, description, event_image FROM events WHERE event_date = @date";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@date", date.ToString("yyyy-MM-dd"));
 
-                // Load and display the image
-                if (reader["event_image"] != DBNull.Value)
+                MySqlDataReader reader = cmd.ExecuteReader();
+                lstEvents.Items.Clear(); // Clear previous events
+                while (reader.Read())
                 {
-                    byte[] imgBytes = (byte[])reader["event_image"];
-                    using (MemoryStream ms = new MemoryStream(imgBytes))
-                    {
-                        picEventImage.Image = Image.FromStream(ms);
-                    }
+                    // Populate the ListBox with the event ID and name
+                    lstEvents.Items.Add($"{reader["id"]} - {reader["event_name"]}");
+                }
+                if (!lstEvents.Items.Count.Equals(0))
+                {
+                    lblInfo.Text = "Select an event to view details.";
                 }
                 else
                 {
-                    picEventImage.Image = null; // No image
+                    lblInfo.Text = "No events found for the selected date.";
                 }
             }
-            else
+            catch (Exception ex)
             {
-                lblInfo.Text = "No event scheduled on this date.";
-                picEventImage.Image = null;
+                MessageBox.Show($"Error loading events: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            connection.Close();
+            finally
+            {
+                connection.Close();
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -105,47 +105,79 @@ namespace STIDiscover
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            connection.Open();
-            string query = "UPDATE events SET event_name = @name, description = @description, event_image = @image WHERE event_date = @date";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
-            cmd.Parameters.AddWithValue("@date", dtpEvent.Value.ToString("yyyy-MM-dd"));
-            cmd.Parameters.AddWithValue("@name", txtName.Text);
-            cmd.Parameters.AddWithValue("@description", txtDescript.Text);
-
-            // Update the image as a BLOB
-            if (picEventImage.Image != null)
+            if (lstEvents.SelectedItem == null)
             {
-                using (MemoryStream ms = new MemoryStream())
+                MessageBox.Show("Please select an event to update.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string selectedEvent = lstEvents.SelectedItem.ToString();
+            string[] parts = selectedEvent.Split('-');
+            int eventId = int.Parse(parts[0].Trim());
+
+            try
+            {
+                connection.Open();
+                string query = "UPDATE events SET event_name = @name, description = @description, event_image = @image WHERE id = @id";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@id", eventId);
+                cmd.Parameters.AddWithValue("@name", txtName.Text);
+                cmd.Parameters.AddWithValue("@description", txtDescript.Text);
+
+                // Update the image
+                if (picEventImage.Image != null)
                 {
-                    picEventImage.Image.Save(ms, picEventImage.Image.RawFormat);
-                    cmd.Parameters.AddWithValue("@image", ms.ToArray());
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        picEventImage.Image.Save(ms, picEventImage.Image.RawFormat);
+                        cmd.Parameters.AddWithValue("@image", ms.ToArray());
+                    }
                 }
-            }
-            else
-            {
-                cmd.Parameters.AddWithValue("@image", DBNull.Value);
-            }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@image", DBNull.Value);
+                }
 
-            int rowsAffected = cmd.ExecuteNonQuery();
-            connection.Close();
-            MessageBox.Show(rowsAffected > 0 ? "Event updated successfully!" : "No event found on this date.");
-            ShowEventInfo(dtpEvent.Value);
-            txtDescript.Clear();
-            txtName.Clear();
+                int rowsAffected = cmd.ExecuteNonQuery();
+                MessageBox.Show(rowsAffected > 0 ? "Event updated successfully!" : "No event found with the given ID.");
+                ShowEventInfo(dtpEvent.Value); // Refresh the list
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error updating event: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             connection.Open();
-            string query = "DELETE FROM events WHERE event_date = @date";
+            string query = "DELETE FROM events WHERE event_date = @date AND event_name = @name";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@date", dtpEvent.Value.ToString("yyyy-MM-dd"));
+            cmd.Parameters.AddWithValue("@name", txtName.Text); // Use the event name to delete specific event
             int rowsAffected = cmd.ExecuteNonQuery();
             connection.Close();
-            MessageBox.Show(rowsAffected > 0 ? "Event deleted successfully!" : "No event found on this date.");
+
+            if (rowsAffected > 0)
+            {
+                MessageBox.Show("Event deleted successfully!");
+            }
+            else
+            {
+                MessageBox.Show("No matching event found for deletion.");
+            }
+
+            // Refresh the event list
             ShowEventInfo(dtpEvent.Value);
+
+            // Clear input fields
             txtDescript.Clear();
             txtName.Clear();
+            picEventImage.Image = null;
         }
         private void StartOnScreenKeyboard()
         {
@@ -219,13 +251,13 @@ namespace STIDiscover
         {
             if (lstEvents.SelectedItem != null)
             {
-                // Parse the selected event to get the name and description
+                // Get the event ID from the selected item
                 string selectedEvent = lstEvents.SelectedItem.ToString();
                 string[] parts = selectedEvent.Split('-');
                 if (parts.Length >= 2)
                 {
-                    txtName.Text = parts[0].Trim(); // Event name
-                    txtDescript.Text = parts[1].Trim(); // Description
+                    int eventId = int.Parse(parts[0].Trim());
+                    LoadEventDetails(eventId);
                 }
             }
         }
@@ -241,6 +273,45 @@ namespace STIDiscover
                     picEventImage.Image = Image.FromFile(openFileDialog.FileName);
                     picEventImage.Tag = openFileDialog.FileName; // Store the file path or name for later use
                 }
+            }
+        }
+        private void LoadEventDetails(int eventId)
+        {
+            try
+            {
+                connection.Open();
+                string query = "SELECT event_name, description, event_image FROM events WHERE id = @id";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@id", eventId);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    txtName.Text = reader["event_name"].ToString();
+                    txtDescript.Text = reader["description"].ToString();
+
+                    // Load the image if it exists
+                    if (reader["event_image"] != DBNull.Value)
+                    {
+                        byte[] imgBytes = (byte[])reader["event_image"];
+                        using (MemoryStream ms = new MemoryStream(imgBytes))
+                        {
+                            picEventImage.Image = Image.FromStream(ms);
+                        }
+                    }
+                    else
+                    {
+                        picEventImage.Image = null; // No image
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading event details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                connection.Close();
             }
         }
     }
