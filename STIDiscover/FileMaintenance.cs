@@ -31,7 +31,7 @@ namespace STIDiscover
 
         private void btnSchedule_Click(object sender, EventArgs e)
         {
-            
+            scheduleControlManager1.BringToFront();
         }
     }
 }

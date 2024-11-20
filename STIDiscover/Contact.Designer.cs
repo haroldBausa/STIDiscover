@@ -75,6 +75,7 @@
             this.txtCourse.SelectedText = "";
             this.txtCourse.Size = new System.Drawing.Size(327, 43);
             this.txtCourse.TabIndex = 1;
+            this.txtCourse.Click += new System.EventHandler(this.txtCourse_Click);
             // 
             // label2
             // 
@@ -120,6 +121,7 @@
             this.txtYear.SelectedText = "";
             this.txtYear.Size = new System.Drawing.Size(327, 43);
             this.txtYear.TabIndex = 3;
+            this.txtYear.Click += new System.EventHandler(this.txtYear_Click);
             // 
             // label4
             // 
@@ -154,6 +156,7 @@
             this.txtSection.SelectedText = "";
             this.txtSection.Size = new System.Drawing.Size(327, 43);
             this.txtSection.TabIndex = 5;
+            this.txtSection.Click += new System.EventHandler(this.txtSection_Click);
             // 
             // txtConcern
             // 
@@ -178,6 +181,7 @@
             this.txtConcern.SelectedText = "";
             this.txtConcern.Size = new System.Drawing.Size(749, 395);
             this.txtConcern.TabIndex = 7;
+            this.txtConcern.Click += new System.EventHandler(this.txtConcern_Click);
             // 
             // label5
             // 

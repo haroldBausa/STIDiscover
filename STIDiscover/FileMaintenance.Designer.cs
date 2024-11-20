@@ -108,7 +108,6 @@
             this.btnEvent.ForeColor = System.Drawing.Color.White;
             this.btnEvent.Image = global::STIDiscover.Properties.Resources.calendar_check_regular;
             this.btnEvent.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnEvent.ImageSize = new System.Drawing.Size(40, 40);
             this.btnEvent.Location = new System.Drawing.Point(7, 243);
             this.btnEvent.Name = "btnEvent";
             this.btnEvent.Size = new System.Drawing.Size(320, 57);
@@ -131,7 +130,6 @@
             this.btnSchedule.ForeColor = System.Drawing.Color.White;
             this.btnSchedule.Image = global::STIDiscover.Properties.Resources.clock_regular;
             this.btnSchedule.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnSchedule.ImageSize = new System.Drawing.Size(40, 40);
             this.btnSchedule.Location = new System.Drawing.Point(7, 123);
             this.btnSchedule.Name = "btnSchedule";
             this.btnSchedule.Size = new System.Drawing.Size(320, 55);
