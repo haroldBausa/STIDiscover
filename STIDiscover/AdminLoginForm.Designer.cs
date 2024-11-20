@@ -47,7 +47,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Image = global::STIDiscover.Properties.Resources.STIDiscoverLogo;
             this.pictureBox2.Location = new System.Drawing.Point(87, 11);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";

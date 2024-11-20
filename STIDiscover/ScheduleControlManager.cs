@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using OfficeOpenXml;
 
 namespace STIDiscover
 {
@@ -198,7 +200,23 @@ namespace STIDiscover
                     conn.Open();
 
                     // Query to get course details, including `id` as a hidden unique identifier
-                    string query = $"SELECT id, course_des, days, time, room FROM `{tableName}`";
+                    // Sort by `days` (Monday-Sunday) and then by `time`
+                    string query = $@"
+                SELECT id, course_des, days, time, room 
+                FROM `{tableName}` 
+                ORDER BY 
+                CASE 
+                    WHEN LOWER(days) = 'monday' THEN 1
+                    WHEN LOWER(days) = 'tuesday' THEN 2
+                    WHEN LOWER(days) = 'wednesday' THEN 3
+                    WHEN LOWER(days) = 'thursday' THEN 4
+                    WHEN LOWER(days) = 'friday' THEN 5
+                    WHEN LOWER(days) = 'saturday' THEN 6
+                    WHEN LOWER(days) = 'sunday' THEN 7
+                    ELSE 8 -- For any unexpected values
+                END, 
+                STR_TO_DATE(time, '%h:%i %p') ASC"; // Sort by time in ascending order (e.g., 08:00 AM, 10:00 AM)
+
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -282,6 +300,103 @@ namespace STIDiscover
             if (!string.IsNullOrEmpty(currentTableName))
             {
                 LoadCourseData(currentTableName); // Reload data for the currently selected table
+            }
+        }
+
+        private void btnUploadExcel_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Before uploading, make sure to arrange data based on the SQL structure:\n\n" +
+                   "Columns: course_des, days, time, room",
+                   "Upload Schedule", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // Open file dialog to select the Excel file
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Excel Files|*.xlsx;*.xls";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = openFileDialog.FileName;
+                    UploadSchedule(filePath); // Call method to process and upload
+                }
+            }
+        }
+        private void UploadSchedule(string filePath)
+        {
+            try
+            {
+                OfficeOpenXml.ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
+
+                // Step 1: Read the Excel file
+                using (var package = new OfficeOpenXml.ExcelPackage(new FileInfo(filePath)))
+                {
+                    var worksheet = package.Workbook.Worksheets[0];
+
+                    // Extract the table name from the file name (remove the extension and spaces, convert to lowercase)
+                    string tableName = Path.GetFileNameWithoutExtension(filePath).Trim().Replace(" ", "_").ToLower();
+
+                    // Validate column structure based on the Excel headers
+                    var expectedColumns = new[] { "course_des", "days", "time", "room" };
+                    int colCount = worksheet.Dimension.Columns;
+                    for (int col = 1; col <= colCount; col++)
+                    {
+                        string headerText = worksheet.Cells[1, col].Text.ToLower();
+                        if (!expectedColumns.Contains(headerText))
+                        {
+                            MessageBox.Show($"Column mismatch at position {col}. Expected one of {string.Join(", ", expectedColumns)}. Found: {headerText}",
+                                            "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+
+                    // Step 2: Create the table in the database using the extracted table name
+                    using (MySqlConnection conn = new MySqlConnection(connectionString))
+                    {
+                        conn.Open();
+                        string createTableQuery = $@"
+                CREATE TABLE `{tableName}` (
+                    id INT AUTO_INCREMENT PRIMARY KEY,
+                    course_des VARCHAR(255) NULL,
+                    days VARCHAR(50) NULL,
+                    time VARCHAR(50) NULL,
+                    room VARCHAR(100) NULL
+                );";
+
+                        using (MySqlCommand createCmd = new MySqlCommand(createTableQuery, conn))
+                        {
+                            createCmd.ExecuteNonQuery();
+                        }
+
+                        // Step 3: Insert the data into the newly created table
+                        int rowCount = worksheet.Dimension.Rows;
+                        for (int row = 2; row <= rowCount; row++) // Start from row 2 (skip header row)
+                        {
+                            string courseDes = worksheet.Cells[row, 1].Text.Trim();
+                            string days = worksheet.Cells[row, 2].Text.Trim();
+                            string time = worksheet.Cells[row, 3].Text.Trim();
+                            string room = worksheet.Cells[row, 4].Text.Trim();
+
+                            string insertQuery = $@"
+                    INSERT INTO `{tableName}` (course_des, days, time, room) 
+                    VALUES (@courseDes, @days, @time, @room);";
+
+                            using (MySqlCommand insertCmd = new MySqlCommand(insertQuery, conn))
+                            {
+                                insertCmd.Parameters.AddWithValue("@courseDes", courseDes);
+                                insertCmd.Parameters.AddWithValue("@days", days);
+                                insertCmd.Parameters.AddWithValue("@time", time);
+                                insertCmd.Parameters.AddWithValue("@room", room);
+
+                                insertCmd.ExecuteNonQuery();
+                            }
+                        }
+                    }
+                }
+
+                MessageBox.Show("Schedule uploaded successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

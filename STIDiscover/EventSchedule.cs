@@ -257,6 +257,15 @@ namespace STIDiscover
             }
             displayDays(); // Update the calendar display
         }
+
+        private void btnGetHelp_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.Hide();
+            GetHelp getHelp = new GetHelp();
+            getHelp.Show();
+        }
+
         private void OpenEventDetailsForm(int day)
         {
             // Fetch events for the selected day

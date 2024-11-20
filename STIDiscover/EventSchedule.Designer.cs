@@ -30,8 +30,6 @@
         {
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.lblMonth = new System.Windows.Forms.Label();
-            this.btnNext = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.btnPrevious = new Guna.UI2.WinForms.Guna2ImageButton();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -40,11 +38,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dayContainer = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnGetHelp = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.btnNext = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.btnPrevious = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2CustomGradientPanel1
             // 
+            this.guna2CustomGradientPanel1.Controls.Add(this.btnGetHelp);
             this.guna2CustomGradientPanel1.Controls.Add(this.lblMonth);
             this.guna2CustomGradientPanel1.Controls.Add(this.btnNext);
             this.guna2CustomGradientPanel1.Controls.Add(this.btnPrevious);
@@ -73,40 +75,6 @@
             this.lblMonth.TabIndex = 10;
             this.lblMonth.Text = "Month";
             this.lblMonth.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnNext
-            // 
-            this.btnNext.BackColor = System.Drawing.Color.Transparent;
-            this.btnNext.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnNext.HoverState.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnNext.Image = global::STIDiscover.Properties.Resources.circle_chevron_right_solid;
-            this.btnNext.ImageOffset = new System.Drawing.Point(0, 0);
-            this.btnNext.ImageRotate = 0F;
-            this.btnNext.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnNext.Location = new System.Drawing.Point(63, 4);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.PressedState.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnNext.Size = new System.Drawing.Size(66, 58);
-            this.btnNext.TabIndex = 9;
-            this.btnNext.UseTransparentBackground = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // btnPrevious
-            // 
-            this.btnPrevious.BackColor = System.Drawing.Color.Transparent;
-            this.btnPrevious.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnPrevious.HoverState.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnPrevious.Image = global::STIDiscover.Properties.Resources.circle_chevron_left_solid;
-            this.btnPrevious.ImageOffset = new System.Drawing.Point(0, 0);
-            this.btnPrevious.ImageRotate = 0F;
-            this.btnPrevious.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnPrevious.Location = new System.Drawing.Point(3, 4);
-            this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.PressedState.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnPrevious.Size = new System.Drawing.Size(72, 58);
-            this.btnPrevious.TabIndex = 8;
-            this.btnPrevious.UseTransparentBackground = true;
-            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
             // label7
             // 
@@ -195,6 +163,57 @@
             this.dayContainer.Size = new System.Drawing.Size(1964, 773);
             this.dayContainer.TabIndex = 0;
             // 
+            // btnGetHelp
+            // 
+            this.btnGetHelp.BackColor = System.Drawing.Color.Transparent;
+            this.btnGetHelp.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnGetHelp.HoverState.ImageSize = new System.Drawing.Size(0, 0);
+            this.btnGetHelp.Image = global::STIDiscover.Properties.Resources.info;
+            this.btnGetHelp.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnGetHelp.ImageRotate = 0F;
+            this.btnGetHelp.ImageSize = new System.Drawing.Size(70, 70);
+            this.btnGetHelp.Location = new System.Drawing.Point(1944, 4);
+            this.btnGetHelp.Name = "btnGetHelp";
+            this.btnGetHelp.PressedState.ImageSize = new System.Drawing.Size(0, 0);
+            this.btnGetHelp.Size = new System.Drawing.Size(92, 82);
+            this.btnGetHelp.TabIndex = 9;
+            this.btnGetHelp.UseTransparentBackground = true;
+            this.btnGetHelp.Click += new System.EventHandler(this.btnGetHelp_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.BackColor = System.Drawing.Color.Transparent;
+            this.btnNext.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnNext.HoverState.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnNext.Image = global::STIDiscover.Properties.Resources.circle_chevron_right_solid;
+            this.btnNext.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnNext.ImageRotate = 0F;
+            this.btnNext.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnNext.Location = new System.Drawing.Point(63, 4);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.PressedState.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnNext.Size = new System.Drawing.Size(66, 58);
+            this.btnNext.TabIndex = 9;
+            this.btnNext.UseTransparentBackground = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // btnPrevious
+            // 
+            this.btnPrevious.BackColor = System.Drawing.Color.Transparent;
+            this.btnPrevious.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnPrevious.HoverState.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnPrevious.Image = global::STIDiscover.Properties.Resources.circle_chevron_left_solid;
+            this.btnPrevious.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnPrevious.ImageRotate = 0F;
+            this.btnPrevious.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnPrevious.Location = new System.Drawing.Point(3, 4);
+            this.btnPrevious.Name = "btnPrevious";
+            this.btnPrevious.PressedState.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnPrevious.Size = new System.Drawing.Size(72, 58);
+            this.btnPrevious.TabIndex = 8;
+            this.btnPrevious.UseTransparentBackground = true;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
+            // 
             // EventSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -223,5 +242,6 @@
         private Guna.UI2.WinForms.Guna2ImageButton btnPrevious;
         private Guna.UI2.WinForms.Guna2ImageButton btnNext;
         private System.Windows.Forms.Label lblMonth;
+        private Guna.UI2.WinForms.Guna2ImageButton btnGetHelp;
     }
 }

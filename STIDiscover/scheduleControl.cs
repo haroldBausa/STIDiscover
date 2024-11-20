@@ -192,8 +192,23 @@ namespace STIDiscover
                 {
                     conn.Open();
 
-                    // Query to get course details (e.g., course_des, days, time, room) from the selected table
-                    string query = $"SELECT course_des, days, time, room FROM {tableName}";
+                    // Query to fetch and sort data by `days` (Monday to Sunday) and `time`
+                    string query = $@"
+                SELECT course_des, days, time, room 
+                FROM `{tableName}` 
+                ORDER BY 
+                CASE 
+                    WHEN LOWER(days) = 'monday' THEN 1
+                    WHEN LOWER(days) = 'tuesday' THEN 2
+                    WHEN LOWER(days) = 'wednesday' THEN 3
+                    WHEN LOWER(days) = 'thursday' THEN 4
+                    WHEN LOWER(days) = 'friday' THEN 5
+                    WHEN LOWER(days) = 'saturday' THEN 6
+                    WHEN LOWER(days) = 'sunday' THEN 7
+                    ELSE 8 -- For any unexpected values
+                END, 
+                STR_TO_DATE(time, '%h:%i %p') ASC"; // Sort by time in ascending order
+
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -201,12 +216,12 @@ namespace STIDiscover
                         DataTable dataTable = new DataTable();
                         dataTable.Load(reader); // Load the data from the reader
 
-                        // Set the DataSource of your second DataGridView to display course data
+                        // Set the DataSource of dgvCourseDetails to display course data
                         dgvCourseDetails.DataSource = dataTable;
 
-                        // Disable row selection in dgvCourseData
+                        // Disable row selection in dgvCourseDetails
                         dgvCourseDetails.SelectionMode = DataGridViewSelectionMode.CellSelect;
-                        dgvCourseDetails.MultiSelect = false;  // Optionally prevent multiple selection
+                        dgvCourseDetails.MultiSelect = false; // Optionally prevent multiple selection
                     }
                 }
             }
@@ -267,6 +282,14 @@ namespace STIDiscover
                                     MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void btnGetHelp_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.Hide();
+            GetHelp getHelp = new GetHelp();
+            getHelp.Show();
         }
     }
 }

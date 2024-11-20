@@ -39,6 +39,7 @@
             this.dgvResults = new Guna.UI2.WinForms.Guna2DataGridView();
             this.textBoxSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.dgvCourseDetails = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.btnGetHelp = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2CustomGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourseDetails)).BeginInit();
@@ -46,6 +47,7 @@
             // 
             // guna2CustomGradientPanel1
             // 
+            this.guna2CustomGradientPanel1.Controls.Add(this.btnGetHelp);
             this.guna2CustomGradientPanel1.Controls.Add(this.dgvResults);
             this.guna2CustomGradientPanel1.Controls.Add(this.textBoxSearch);
             this.guna2CustomGradientPanel1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -211,6 +213,23 @@
             this.dgvCourseDetails.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvCourseDetails.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCourseDetails_CellClick);
             // 
+            // btnGetHelp
+            // 
+            this.btnGetHelp.BackColor = System.Drawing.Color.Transparent;
+            this.btnGetHelp.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnGetHelp.HoverState.ImageSize = new System.Drawing.Size(0, 0);
+            this.btnGetHelp.Image = global::STIDiscover.Properties.Resources.info;
+            this.btnGetHelp.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnGetHelp.ImageRotate = 0F;
+            this.btnGetHelp.ImageSize = new System.Drawing.Size(70, 70);
+            this.btnGetHelp.Location = new System.Drawing.Point(0, 0);
+            this.btnGetHelp.Name = "btnGetHelp";
+            this.btnGetHelp.PressedState.ImageSize = new System.Drawing.Size(0, 0);
+            this.btnGetHelp.Size = new System.Drawing.Size(92, 82);
+            this.btnGetHelp.TabIndex = 9;
+            this.btnGetHelp.UseTransparentBackground = true;
+            this.btnGetHelp.Click += new System.EventHandler(this.btnGetHelp_Click);
+            // 
             // scheduleControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -232,5 +251,6 @@
         private Guna.UI2.WinForms.Guna2TextBox textBoxSearch;
         private Guna.UI2.WinForms.Guna2DataGridView dgvResults;
         private Guna.UI2.WinForms.Guna2DataGridView dgvCourseDetails;
+        private Guna.UI2.WinForms.Guna2ImageButton btnGetHelp;
     }
 }

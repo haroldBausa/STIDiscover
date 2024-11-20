@@ -37,6 +37,10 @@
             this.guna2Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse4 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
+            this.scheduleControl2 = new STIDiscover.scheduleControl();
+            this.eventSchedule1 = new STIDiscover.EventSchedule();
+            this.scheduleControl1 = new STIDiscover.scheduleControl();
+            this.homeControl1 = new STIDiscover.homeControl();
             this.btnAdmin = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnEventModule = new Guna.UI2.WinForms.Guna2Button();
@@ -44,10 +48,7 @@
             this.btnSchedule = new Guna.UI2.WinForms.Guna2Button();
             this.btnHome = new Guna.UI2.WinForms.Guna2Button();
             this.imageSilder = new System.Windows.Forms.PictureBox();
-            this.scheduleControl2 = new STIDiscover.scheduleControl();
-            this.eventSchedule1 = new STIDiscover.EventSchedule();
-            this.scheduleControl1 = new STIDiscover.scheduleControl();
-            this.homeControl1 = new STIDiscover.homeControl();
+            this.map1 = new STIDiscover.Map();
             this.panel1.SuspendLayout();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -107,6 +108,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.map1);
             this.panel2.Controls.Add(this.scheduleControl2);
             this.panel2.Controls.Add(this.eventSchedule1);
             this.panel2.Controls.Add(this.scheduleControl1);
@@ -115,6 +117,40 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(2036, 875);
             this.panel2.TabIndex = 1;
+            // 
+            // scheduleControl2
+            // 
+            this.scheduleControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scheduleControl2.Location = new System.Drawing.Point(0, 0);
+            this.scheduleControl2.Name = "scheduleControl2";
+            this.scheduleControl2.Size = new System.Drawing.Size(2036, 875);
+            this.scheduleControl2.TabIndex = 3;
+            this.scheduleControl2.Load += new System.EventHandler(this.scheduleControl2_Load);
+            // 
+            // eventSchedule1
+            // 
+            this.eventSchedule1.BackColor = System.Drawing.Color.White;
+            this.eventSchedule1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.eventSchedule1.Location = new System.Drawing.Point(0, 0);
+            this.eventSchedule1.Name = "eventSchedule1";
+            this.eventSchedule1.Size = new System.Drawing.Size(2036, 875);
+            this.eventSchedule1.TabIndex = 2;
+            // 
+            // scheduleControl1
+            // 
+            this.scheduleControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scheduleControl1.Location = new System.Drawing.Point(0, 0);
+            this.scheduleControl1.Name = "scheduleControl1";
+            this.scheduleControl1.Size = new System.Drawing.Size(2036, 875);
+            this.scheduleControl1.TabIndex = 1;
+            // 
+            // homeControl1
+            // 
+            this.homeControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.homeControl1.Location = new System.Drawing.Point(0, 0);
+            this.homeControl1.Name = "homeControl1";
+            this.homeControl1.Size = new System.Drawing.Size(2036, 875);
+            this.homeControl1.TabIndex = 0;
             // 
             // btnAdmin
             // 
@@ -268,39 +304,13 @@
             this.imageSilder.TabStop = false;
             this.imageSilder.Visible = false;
             // 
-            // scheduleControl2
+            // map1
             // 
-            this.scheduleControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scheduleControl2.Location = new System.Drawing.Point(0, 0);
-            this.scheduleControl2.Name = "scheduleControl2";
-            this.scheduleControl2.Size = new System.Drawing.Size(2036, 875);
-            this.scheduleControl2.TabIndex = 3;
-            this.scheduleControl2.Load += new System.EventHandler(this.scheduleControl2_Load);
-            // 
-            // eventSchedule1
-            // 
-            this.eventSchedule1.BackColor = System.Drawing.Color.White;
-            this.eventSchedule1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.eventSchedule1.Location = new System.Drawing.Point(0, 0);
-            this.eventSchedule1.Name = "eventSchedule1";
-            this.eventSchedule1.Size = new System.Drawing.Size(2036, 875);
-            this.eventSchedule1.TabIndex = 2;
-            // 
-            // scheduleControl1
-            // 
-            this.scheduleControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scheduleControl1.Location = new System.Drawing.Point(0, 0);
-            this.scheduleControl1.Name = "scheduleControl1";
-            this.scheduleControl1.Size = new System.Drawing.Size(2036, 875);
-            this.scheduleControl1.TabIndex = 1;
-            // 
-            // homeControl1
-            // 
-            this.homeControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.homeControl1.Location = new System.Drawing.Point(0, 0);
-            this.homeControl1.Name = "homeControl1";
-            this.homeControl1.Size = new System.Drawing.Size(2036, 875);
-            this.homeControl1.TabIndex = 0;
+            this.map1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.map1.Location = new System.Drawing.Point(0, 0);
+            this.map1.Name = "map1";
+            this.map1.Size = new System.Drawing.Size(2036, 875);
+            this.map1.TabIndex = 4;
             // 
             // Form1
             // 
@@ -344,6 +354,7 @@
         private Guna.UI2.WinForms.Guna2Button btnAdmin;
         private EventSchedule eventSchedule1;
         private scheduleControl scheduleControl2;
+        private Map map1;
     }
 }
 

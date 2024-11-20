@@ -31,6 +31,7 @@
             this.btnB1 = new Guna.UI2.WinForms.Guna2Button();
             this.btnB2 = new Guna.UI2.WinForms.Guna2Button();
             this.btnB3 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2TileButton3 = new Guna.UI2.WinForms.Guna2TileButton();
             this.guna2TileButton2 = new Guna.UI2.WinForms.Guna2TileButton();
             this.guna2TileButton1 = new Guna.UI2.WinForms.Guna2TileButton();
@@ -96,6 +97,23 @@
             this.btnB3.Size = new System.Drawing.Size(234, 54);
             this.btnB3.TabIndex = 7;
             this.btnB3.Text = "Building 3";
+            // 
+            // guna2ImageButton1
+            // 
+            this.guna2ImageButton1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(0, 0);
+            this.guna2ImageButton1.Image = global::STIDiscover.Properties.Resources.info;
+            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton1.ImageRotate = 0F;
+            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(70, 70);
+            this.guna2ImageButton1.Location = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton1.Name = "guna2ImageButton1";
+            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(0, 0);
+            this.guna2ImageButton1.Size = new System.Drawing.Size(92, 82);
+            this.guna2ImageButton1.TabIndex = 8;
+            this.guna2ImageButton1.UseTransparentBackground = true;
+            this.guna2ImageButton1.Click += new System.EventHandler(this.guna2ImageButton1_Click);
             // 
             // guna2TileButton3
             // 
@@ -165,6 +183,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.guna2ImageButton1);
             this.Controls.Add(this.btnB3);
             this.Controls.Add(this.btnB2);
             this.Controls.Add(this.btnB1);
@@ -184,5 +203,6 @@
         private Guna.UI2.WinForms.Guna2Button btnB1;
         private Guna.UI2.WinForms.Guna2Button btnB2;
         private Guna.UI2.WinForms.Guna2Button btnB3;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
     }
 }

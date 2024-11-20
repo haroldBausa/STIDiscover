@@ -42,7 +42,7 @@ namespace STIDiscover
 
         private void btnOpenMap_Click(object sender, EventArgs e)
         {
-
+            map1.BringToFront();
         }
 
        
