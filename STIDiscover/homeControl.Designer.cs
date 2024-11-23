@@ -126,7 +126,8 @@
             this.guna2CustomGradientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2CustomGradientPanel1.FillColor = System.Drawing.Color.Blue;
             this.guna2CustomGradientPanel1.FillColor2 = System.Drawing.Color.Blue;
-            this.guna2CustomGradientPanel1.FillColor3 = System.Drawing.Color.Blue;
+            this.guna2CustomGradientPanel1.FillColor3 = System.Drawing.Color.Yellow;
+            this.guna2CustomGradientPanel1.FillColor4 = System.Drawing.Color.Yellow;
             this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 0);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(2036, 875);
@@ -153,7 +154,6 @@
             // 
             this.guna2TileButton3.BackColor = System.Drawing.Color.Transparent;
             this.guna2TileButton3.BorderRadius = 10;
-            this.guna2TileButton3.BorderThickness = 2;
             this.guna2TileButton3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2TileButton3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2TileButton3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -175,7 +175,6 @@
             // 
             this.guna2TileButton2.BackColor = System.Drawing.Color.Transparent;
             this.guna2TileButton2.BorderRadius = 10;
-            this.guna2TileButton2.BorderThickness = 2;
             this.guna2TileButton2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2TileButton2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2TileButton2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -197,7 +196,6 @@
             // 
             this.guna2TileButton1.BackColor = System.Drawing.Color.Transparent;
             this.guna2TileButton1.BorderRadius = 10;
-            this.guna2TileButton1.BorderThickness = 2;
             this.guna2TileButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2TileButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2TileButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));

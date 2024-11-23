@@ -294,7 +294,8 @@
             this.guna2CustomGradientPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2CustomGradientPanel2.FillColor = System.Drawing.Color.Blue;
             this.guna2CustomGradientPanel2.FillColor2 = System.Drawing.Color.Blue;
-            this.guna2CustomGradientPanel2.FillColor3 = System.Drawing.Color.Blue;
+            this.guna2CustomGradientPanel2.FillColor3 = System.Drawing.Color.Yellow;
+            this.guna2CustomGradientPanel2.FillColor4 = System.Drawing.Color.Yellow;
             this.guna2CustomGradientPanel2.Location = new System.Drawing.Point(0, 0);
             this.guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
             this.guna2CustomGradientPanel2.Size = new System.Drawing.Size(1920, 1080);
