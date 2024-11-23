@@ -151,6 +151,7 @@
             this.txtUsername.Size = new System.Drawing.Size(201, 24);
             this.txtUsername.TabIndex = 11;
             this.txtUsername.Click += new System.EventHandler(this.txtUsername_Click);
+            this.txtUsername.Enter += new System.EventHandler(this.txtUsername_Enter);
             this.txtUsername.Leave += new System.EventHandler(this.txtUsername_Leave);
             // 
             // txtPassword
@@ -163,6 +164,7 @@
             this.txtPassword.Size = new System.Drawing.Size(201, 24);
             this.txtPassword.TabIndex = 12;
             this.txtPassword.Click += new System.EventHandler(this.txtPassword_Click);
+            this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
             this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // AdminLoginForm
@@ -184,6 +186,7 @@
             this.Controls.Add(this.pictureBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AdminLoginForm";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminLoginForm";
             this.TopMost = true;

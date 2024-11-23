@@ -1,6 +1,6 @@
 ﻿namespace STIDiscover
 {
-    partial class Building1
+    partial class Building2
     {
         /// <summary>
         /// Required designer variable.
@@ -42,7 +42,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 63);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1437, 618);
-            this.panel1.TabIndex = 1;
+            this.panel1.TabIndex = 3;
             // 
             // btnExit
             // 
@@ -53,19 +53,19 @@
             this.btnExit.ImageOffset = new System.Drawing.Point(0, 0);
             this.btnExit.ImageRotate = 0F;
             this.btnExit.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnExit.Location = new System.Drawing.Point(1361, 3);
+            this.btnExit.Location = new System.Drawing.Point(1361, 1);
             this.btnExit.Name = "btnExit";
             this.btnExit.PressedState.Image = global::STIDiscover.Properties.Resources.circle_xmark_solid__1_;
             this.btnExit.PressedState.ImageSize = new System.Drawing.Size(30, 30);
             this.btnExit.Size = new System.Drawing.Size(64, 54);
-            this.btnExit.TabIndex = 2;
+            this.btnExit.TabIndex = 4;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::STIDiscover.Properties.Resources.Building1;
+            this.pictureBox1.Image = global::STIDiscover.Properties.Resources.Building2;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1437, 618);
@@ -73,7 +73,7 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // Building1
+            // Building2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -81,12 +81,12 @@
             this.ClientSize = new System.Drawing.Size(1437, 681);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.panel1);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Building1";
+            this.Name = "Building2";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Building1";
-            this.Load += new System.EventHandler(this.Building1_Load);
+            this.Text = "Building2";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -95,8 +95,8 @@
 
         #endregion
 
+        private Guna.UI2.WinForms.Guna2ImageButton btnExit;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
-        private Guna.UI2.WinForms.Guna2ImageButton btnExit;
     }
 }

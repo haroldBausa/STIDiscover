@@ -14,7 +14,7 @@ namespace STIDiscover
 {
     public partial class scheduleControl : UserControl
     {
-        private Process oskProcess;
+        private Process onScreenKeyboardProc;
         private string connectionString = "Server=localhost;Database=schedules;Uid=root;Pwd=;";
         public scheduleControl()
         {
@@ -22,6 +22,8 @@ namespace STIDiscover
             InitializeDataGridView();
             this.dgvResults.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResults_CellClick);
             textBoxSearch.Click += textBoxSearch_Click;
+            textBoxSearch.Enter += new EventHandler(OpenKeyboard);
+            textBoxSearch.TextChanged += new EventHandler(textBoxSearch_TextChanged);
         }
         private void InitializeDataGridView()
         {
@@ -121,9 +123,8 @@ namespace STIDiscover
 
         private void textBoxSearch_Enter(object sender, EventArgs e)
         {
-            dgvResults.Visible = true;
-            textBoxSearch.Text = "";
-            textBoxSearch.ForeColor = Color.Black;
+           
+
         }
 
         private void textBoxSearch_Leave(object sender, EventArgs e)
@@ -210,7 +211,7 @@ namespace STIDiscover
                 STR_TO_DATE(time, '%h:%i %p') ASC"; // Sort by time in ascending order
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    using (MySqlDataReader reader = cmd.ExecuteReader()) // Use MySqlDataReader directly
                     {
                         // Create a DataTable to hold the course data
                         DataTable dataTable = new DataTable();
@@ -218,6 +219,12 @@ namespace STIDiscover
 
                         // Set the DataSource of dgvCourseDetails to display course data
                         dgvCourseDetails.DataSource = dataTable;
+
+                        // Set custom column headers
+                        dgvCourseDetails.Columns[0].HeaderText = "Course Description";
+                        dgvCourseDetails.Columns[1].HeaderText = "Days";
+                        dgvCourseDetails.Columns[2].HeaderText = "Time";
+                        dgvCourseDetails.Columns[3].HeaderText = "Room";
 
                         // Disable row selection in dgvCourseDetails
                         dgvCourseDetails.SelectionMode = DataGridViewSelectionMode.CellSelect;
@@ -230,59 +237,27 @@ namespace STIDiscover
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
-
         private void textBoxSearch_Click(object sender, EventArgs e)
         {
-            StartOnScreenKeyboard();
+            dgvResults.Visible = true;
+            textBoxSearch.Text = "";
+            textBoxSearch.ForeColor = Color.Black;
         }
-        private void StartOnScreenKeyboard()
+        private void OpenKeyboard(object sender, EventArgs e)
         {
-            try
+            // Close any open instances of the on-screen keyboard
+            Process[] oskProcessArray = Process.GetProcessesByName("TabTip");
+            foreach (Process oskProcess in oskProcessArray)
             {
-                string oskPath = @"C:\Windows\System32\osk.exe"; // Adjust path if necessary
+                oskProcess.Kill();
+            }
 
-                // Check if the On-Screen Keyboard exists
-                if (File.Exists(oskPath))
-                {
-                    // Launch the On-Screen Keyboard and save the process object
-                    oskProcess = Process.Start(oskPath);
-                }
-                else
-                {
-                    MessageBox.Show("On-Screen Keyboard not found at the expected location.",
-                                    "Error",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error opening On-Screen Keyboard:\n{ex.Message}",
-                                "Error",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
-            }
+            // Open the on-screen keyboard
+            string progFiles = @"C:\Program Files\Common Files\Microsoft Shared\ink";
+            string onScreenKeyboardPath = System.IO.Path.Combine(progFiles, "TabTip.exe");
+            onScreenKeyboardProc = System.Diagnostics.Process.Start(onScreenKeyboardPath);
         }
 
-        private void CloseOnScreenKeyboard()
-        {
-            // If the On-Screen Keyboard process is running, kill it
-            if (oskProcess != null && !oskProcess.HasExited)
-            {
-                try
-                {
-                    oskProcess.Kill();
-                    oskProcess = null; // Reset the process object after closing
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error closing On-Screen Keyboard:\n{ex.Message}",
-                                    "Error",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Error);
-                }
-            }
-        }
 
         private void btnGetHelp_Click(object sender, EventArgs e)
         {

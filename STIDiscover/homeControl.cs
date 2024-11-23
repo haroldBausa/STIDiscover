@@ -36,5 +36,23 @@ namespace STIDiscover
             getHelp.Show();
 
         }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            ScreenShot ss = new ScreenShot();
+            ss.Show();
+        }
+
+        private void btnB2_Click(object sender, EventArgs e)
+        {
+            Building2 building2 = new Building2();
+            building2.Show();
+        }
+
+        private void btnB3_Click(object sender, EventArgs e)
+        {
+            Building3 building3 = new Building3();
+            building3.Show();
+        }
     }
 }

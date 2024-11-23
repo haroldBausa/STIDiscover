@@ -127,6 +127,7 @@
             this.txtName.Size = new System.Drawing.Size(497, 101);
             this.txtName.TabIndex = 5;
             this.txtName.Click += new System.EventHandler(this.txtName_Click);
+            this.txtName.Enter += new System.EventHandler(this.txtName_Enter);
             this.txtName.Leave += new System.EventHandler(this.txtName_Leave);
             // 
             // btnAdd
@@ -138,7 +139,7 @@
             this.btnAdd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(342, 863);
+            this.btnAdd.Location = new System.Drawing.Point(651, 660);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(188, 55);
             this.btnAdd.TabIndex = 7;
@@ -154,7 +155,7 @@
             this.btnUpdate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
             this.btnUpdate.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(651, 863);
+            this.btnUpdate.Location = new System.Drawing.Point(1004, 571);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(188, 55);
             this.btnUpdate.TabIndex = 8;
@@ -170,7 +171,7 @@
             this.btnDelete.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(507, 969);
+            this.btnDelete.Location = new System.Drawing.Point(1264, 571);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(188, 55);
             this.btnDelete.TabIndex = 9;
@@ -194,10 +195,10 @@
             this.txtDescript.Location = new System.Drawing.Point(342, 487);
             this.txtDescript.Multiline = true;
             this.txtDescript.Name = "txtDescript";
-            this.txtDescript.Size = new System.Drawing.Size(497, 229);
+            this.txtDescript.Size = new System.Drawing.Size(497, 167);
             this.txtDescript.TabIndex = 11;
-            this.txtDescript.Text = "Text";
             this.txtDescript.Click += new System.EventHandler(this.txtDescript_Click);
+            this.txtDescript.Enter += new System.EventHandler(this.txtDescript_Enter);
             this.txtDescript.Leave += new System.EventHandler(this.txtDescript_Leave);
             // 
             // btnUpload
@@ -209,11 +210,11 @@
             this.btnUpload.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
             this.btnUpload.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpload.ForeColor = System.Drawing.Color.White;
-            this.btnUpload.Location = new System.Drawing.Point(1158, 969);
+            this.btnUpload.Location = new System.Drawing.Point(120, 997);
             this.btnUpload.Name = "btnUpload";
             this.btnUpload.Size = new System.Drawing.Size(188, 55);
             this.btnUpload.TabIndex = 12;
-            this.btnUpload.Text = "Upload";
+            this.btnUpload.Text = "Upload Image";
             this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
             // 
             // lstEvents
@@ -230,7 +231,7 @@
             // picEventImage
             // 
             this.picEventImage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.picEventImage.Location = new System.Drawing.Point(978, 635);
+            this.picEventImage.Location = new System.Drawing.Point(314, 769);
             this.picEventImage.Name = "picEventImage";
             this.picEventImage.Size = new System.Drawing.Size(575, 283);
             this.picEventImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

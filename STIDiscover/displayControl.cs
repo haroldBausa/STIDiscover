@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ namespace STIDiscover
 {
     public partial class displayControl : UserControl
     {
+
         private string connectionString = "Server=localhost;Database=event_schedule;Uid=root;Pwd=;"; // Update as needed
         private string eventName;
         public displayControl()
@@ -50,12 +52,39 @@ namespace STIDiscover
                         string description = reader["description"].ToString();
                         byte[] imageBytes = reader["event_image"] as byte[];
 
-                        // Create a new instance of DisplayEventForm
-                        DisplayEventForm displayEventForm = new DisplayEventForm();
-                        displayEventForm.SetEventDetails(name, description, imageBytes);
+                        if (imageBytes != null && imageBytes.Length > 0)
+                        {
+                            using (MemoryStream ms = new MemoryStream(imageBytes))
+                            {
+                                try
+                                {
+                                    Image eventImage = Image.FromStream(ms);
 
-                        // Show the DisplayEventForm
-                        displayEventForm.Show();
+                                    // Convert Image to byte[] before passing to SetEventDetails
+                                    using (MemoryStream byteStream = new MemoryStream())
+                                    {
+                                        eventImage.Save(byteStream, eventImage.RawFormat);
+                                        byte[] eventImageBytes = byteStream.ToArray();
+
+                                        DisplayEventForm displayEventForm = new DisplayEventForm();
+                                        displayEventForm.SetEventDetails(name, description, eventImageBytes);
+
+                                        displayEventForm.Show();
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show($"Error loading image: {ex.Message}", "Image Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("No image available for this event.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            DisplayEventForm displayEventForm = new DisplayEventForm();
+                            displayEventForm.SetEventDetails(name, description, null);
+                            displayEventForm.Show();
+                        }
                     }
                     else
                     {
@@ -64,5 +93,6 @@ namespace STIDiscover
                 }
             }
         }
+
     }
 }

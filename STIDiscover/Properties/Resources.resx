@@ -121,8 +121,14 @@
   <data name="clock-regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Icons\clock-regular.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="B2-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\B2-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="KioskLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\KioskLogo.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="b11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\b11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="circle-chevron-right-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Icons\circle-chevron-right-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -139,8 +145,8 @@
   <data name="B3-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\B3-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="STIDiscoverLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\STIDiscoverLogo.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="B1-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\B1-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="info" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Icons\info.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -148,14 +154,26 @@
   <data name="calendar-check-regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Icons\calendar-check-regular.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="B1-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\B1-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="b21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\b21.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="right-from-bracket-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Icons\right-from-bracket-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="B2-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\B2-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Building3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Building3.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Building2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Building2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Building1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Building1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Email" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Icons\Email.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circle-xmark-solid (1)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Icons\circle-xmark-solid (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Building 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Building 1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,13 +184,16 @@
   <data name="sun-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Icons\sun-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Email" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\Icons\Email.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="STIDiscoverLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\STIDiscoverLogo.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="moon-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Icons\moon-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="FAQ" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Icons\FAQ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="b31" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\b31.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

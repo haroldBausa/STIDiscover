@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace STIDiscover
 {
     public partial class ScheduleControlManager : UserControl
     {
+        private Process onScreenKeyboardProc;
         private string currentTableName = "";
         private string connectionString = "Server=localhost;Database=schedules;Uid=root;Pwd=;";
         public ScheduleControlManager()
@@ -23,8 +25,22 @@ namespace STIDiscover
             InitializeDataGridView();
             this.dgvResults.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResults_CellClick);
             textBoxSearch.Click += textBoxSearch_Click;
+            textBoxSearch.Enter += new EventHandler(OpenKeyboard);
         }
+        private void OpenKeyboard(object sender, EventArgs e)
+        {
+            // Close any open instances of the on-screen keyboard
+            Process[] oskProcessArray = Process.GetProcessesByName("TabTip");
+            foreach (Process oskProcess in oskProcessArray)
+            {
+                oskProcess.Kill();
+            }
 
+            // Open the on-screen keyboard
+            string progFiles = @"C:\Program Files\Common Files\Microsoft Shared\ink";
+            string onScreenKeyboardPath = System.IO.Path.Combine(progFiles, "TabTip.exe");
+            onScreenKeyboardProc = System.Diagnostics.Process.Start(onScreenKeyboardPath);
+        }
         private void ScheduleControlManager_Load(object sender, EventArgs e)
         {
 
@@ -141,7 +157,9 @@ namespace STIDiscover
             dgvResults.Visible = true;
             textBoxSearch.Text = "";
             textBoxSearch.ForeColor = Color.Black;
+
         }
+
         private void DisplayCourseDetails(string tableName)
         {
             try
@@ -199,8 +217,6 @@ namespace STIDiscover
                 {
                     conn.Open();
 
-                    // Query to get course details, including `id` as a hidden unique identifier
-                    // Sort by `days` (Monday-Sunday) and then by `time`
                     string query = $@"
                 SELECT id, course_des, days, time, room 
                 FROM `{tableName}` 
@@ -213,30 +229,31 @@ namespace STIDiscover
                     WHEN LOWER(days) = 'friday' THEN 5
                     WHEN LOWER(days) = 'saturday' THEN 6
                     WHEN LOWER(days) = 'sunday' THEN 7
-                    ELSE 8 -- For any unexpected values
+                    ELSE 8
                 END, 
-                STR_TO_DATE(time, '%h:%i %p') ASC"; // Sort by time in ascending order (e.g., 08:00 AM, 10:00 AM)
+                STR_TO_DATE(time, '%h:%i %p') ASC";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
-                        // Create a DataTable to hold the course data
                         DataTable dataTable = new DataTable();
-                        dataTable.Load(reader); // Load the data from the reader
+                        dataTable.Load(reader);
 
-                        // Set the DataSource of your second DataGridView to display course data
                         dgvCourseDetails.DataSource = dataTable;
 
                         // Hide the `id` column
                         dgvCourseDetails.Columns["id"].Visible = false;
 
-                        // Make all other columns editable
+                        // Set custom column headers
+                        dgvCourseDetails.Columns["course_des"].HeaderText = "Course Description";
+                        dgvCourseDetails.Columns["days"].HeaderText = "Days";
+                        dgvCourseDetails.Columns["time"].HeaderText = "Time";
+                        dgvCourseDetails.Columns["room"].HeaderText = "Room";
+
+                        // Make columns editable except for `id`
                         foreach (DataGridViewColumn column in dgvCourseDetails.Columns)
                         {
-                            if (column.Name != "id") // Keep `id` non-editable
-                            {
-                                column.ReadOnly = false;
-                            }
+                            column.ReadOnly = column.Name == "id";
                         }
                     }
                 }
@@ -246,6 +263,7 @@ namespace STIDiscover
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {

@@ -58,7 +58,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
@@ -188,6 +188,18 @@
     <Compile Include="Building1.Designer.cs">
       <DependentUpon>Building1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Building2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Building2.Designer.cs">
+      <DependentUpon>Building2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Building3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Building3.Designer.cs">
+      <DependentUpon>Building3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Contact.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -283,6 +295,12 @@
     <Compile Include="ScheduleControlManager.Designer.cs">
       <DependentUpon>ScheduleControlManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="ScreenShot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScreenShot.Designer.cs">
+      <DependentUpon>ScreenShot.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControlDays.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -297,6 +315,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Building1.resx">
       <DependentUpon>Building1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Building2.resx">
+      <DependentUpon>Building2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Building3.resx">
+      <DependentUpon>Building3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Contact.resx">
       <DependentUpon>Contact.cs</DependentUpon>
@@ -353,6 +377,9 @@
     <EmbeddedResource Include="ScheduleControlManager.resx">
       <DependentUpon>ScheduleControlManager.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ScreenShot.resx">
+      <DependentUpon>ScreenShot.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControlDays.resx">
       <DependentUpon>UserControlDays.cs</DependentUpon>
     </EmbeddedResource>
@@ -378,12 +405,18 @@
     <Content Include="Images &amp; Video\5.jpg" />
     <Content Include="Images &amp; Video\6.jpg" />
     <Content Include="Images &amp; Video\Happy 41st Founding Year STI.mp4" />
+    <Content Include="Images\b11.png" />
+    <Content Include="Images\b21.png" />
+    <Content Include="Images\b31.png" />
     <Content Include="Images\B1-removebg-preview.png" />
     <Content Include="Images\B1.gif" />
     <Content Include="Images\B2-removebg-preview.png" />
     <Content Include="Images\B3-removebg-preview.png" />
     <Content Include="Images\Building 1.gif" />
     <Content Include="Images\Building 2.gif" />
+    <Content Include="Images\Building1.gif" />
+    <Content Include="Images\Building2.gif" />
+    <Content Include="Images\Building3.gif" />
     <Content Include="Images\Icons\calendar-check-regular.png" />
     <Content Include="Images\Icons\circle-chevron-left-solid.png" />
     <Content Include="Images\Icons\circle-chevron-right-solid.png" />

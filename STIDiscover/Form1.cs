@@ -11,18 +11,30 @@ using System.Windows.Forms;
 
 namespace STIDiscover
 {
+
     public partial class Form1 : Form
     {
+        private const int WM_NCLBUTTONDOWN = 0xA1;
+        private const int HTCAPTION = 0x2;
         public Form1()
         {
             InitializeComponent();
             homeControl1.BringToFront();
         }
+        protected override void WndProc(ref Message m)
+        {
+            // Block the form from being moved
+            if (m.Msg == WM_NCLBUTTONDOWN && (int)m.WParam == HTCAPTION)
+            {
+                // Prevent the form from moving
+                return;
+            }
+
+            base.WndProc(ref m);
+        }
         private void moveImageBox(object sender)
         {
-            Guna2Button guna2 = (Guna2Button)sender;
-            imageSilder.Location = new Point(guna2.Location.X -45, guna2.Location.Y - 15);
-            imageSilder.SendToBack();
+
         }
         private void guna2Button1_CheckedChanged(object sender, EventArgs e)
         {

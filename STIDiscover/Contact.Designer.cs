@@ -45,11 +45,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Uighur", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(33, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(314, 72);
+            this.label1.Size = new System.Drawing.Size(456, 69);
             this.label1.TabIndex = 0;
             this.label1.Text = "Submit a Ticket";
             // 
@@ -80,22 +80,22 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Uighur", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(25, 131);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(105, 48);
+            this.label2.Size = new System.Drawing.Size(155, 46);
             this.label2.TabIndex = 2;
             this.label2.Text = "Course";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Uighur", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(438, 131);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 48);
+            this.label3.Size = new System.Drawing.Size(107, 46);
             this.label3.TabIndex = 4;
             this.label3.Text = "Year";
             // 
@@ -126,11 +126,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Uighur", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(830, 131);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(107, 48);
+            this.label4.Size = new System.Drawing.Size(162, 46);
             this.label4.TabIndex = 6;
             this.label4.Text = "Section";
             // 
@@ -182,15 +182,16 @@
             this.txtConcern.Size = new System.Drawing.Size(749, 395);
             this.txtConcern.TabIndex = 7;
             this.txtConcern.Click += new System.EventHandler(this.txtConcern_Click);
+            this.txtConcern.Enter += new System.EventHandler(this.txtConcern_Enter);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Uighur", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(25, 300);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(269, 48);
+            this.label5.Size = new System.Drawing.Size(251, 29);
             this.label5.TabIndex = 8;
             this.label5.Text = "Concern Description";
             // 
@@ -198,11 +199,11 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Microsoft Uighur", 22.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(287, 299);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(463, 49);
+            this.label6.Size = new System.Drawing.Size(508, 29);
             this.label6.TabIndex = 9;
             this.label6.Text = "(e.g. Misinformation, wrong schedule, etc.)";
             this.label6.Click += new System.EventHandler(this.label6_Click);

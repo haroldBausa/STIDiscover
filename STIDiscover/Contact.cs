@@ -15,7 +15,6 @@ namespace STIDiscover
 {
     public partial class Contact : Form
     {
-        private Process oskProcess;
         public Contact()
         {
             InitializeComponent();
@@ -48,38 +47,11 @@ namespace STIDiscover
             {
                 SendEmail(adminEmail, subject, body);
                 MessageBox.Show("Your concern has been sent successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Failed to send the email: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        private void StartOnScreenKeyboard()
-        {
-            try
-            {
-                string oskPath = @"C:\Windows\System32\osk.exe"; // Adjust path if necessary
-
-                // Check if the On-Screen Keyboard exists
-                if (File.Exists(oskPath))
-                {
-                    // Launch the On-Screen Keyboard and save the process object
-                    oskProcess = Process.Start(oskPath);
-                }
-                else
-                {
-                    MessageBox.Show("On-Screen Keyboard not found at the expected location.",
-                                    "Error",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error opening On-Screen Keyboard:\n{ex.Message}",
-                                "Error",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
             }
         }
         private void SendEmail(string toEmail, string subject, string body)
@@ -110,20 +82,36 @@ namespace STIDiscover
         {
 
         }
+        private void OpenTabTip()
+        {
+            try
+            {
+                Process.Start(@"C:\Program Files\Common Files\Microsoft Shared\ink\TabTip.exe");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to open TabTip: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         private void txtYear_Click(object sender, EventArgs e)
         {
-            StartOnScreenKeyboard();
+
         }
 
         private void txtSection_Click(object sender, EventArgs e)
         {
-            StartOnScreenKeyboard();
+
         }
 
         private void txtConcern_Click(object sender, EventArgs e)
         {
-            StartOnScreenKeyboard();
+
+        }
+
+        private void txtConcern_Enter(object sender, EventArgs e)
+        {
+            OpenTabTip();          
         }
     }
 }

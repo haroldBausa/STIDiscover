@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(scheduleControl));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -36,10 +37,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.btnGetHelp = new Guna.UI2.WinForms.Guna2ImageButton();
             this.dgvResults = new Guna.UI2.WinForms.Guna2DataGridView();
             this.textBoxSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.dgvCourseDetails = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.btnGetHelp = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2CustomGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourseDetails)).BeginInit();
@@ -59,6 +60,23 @@
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(455, 875);
             this.guna2CustomGradientPanel1.TabIndex = 0;
+            // 
+            // btnGetHelp
+            // 
+            this.btnGetHelp.BackColor = System.Drawing.Color.Transparent;
+            this.btnGetHelp.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnGetHelp.HoverState.ImageSize = new System.Drawing.Size(0, 0);
+            this.btnGetHelp.Image = ((System.Drawing.Image)(resources.GetObject("btnGetHelp.Image")));
+            this.btnGetHelp.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnGetHelp.ImageRotate = 0F;
+            this.btnGetHelp.ImageSize = new System.Drawing.Size(70, 70);
+            this.btnGetHelp.Location = new System.Drawing.Point(0, 0);
+            this.btnGetHelp.Name = "btnGetHelp";
+            this.btnGetHelp.PressedState.ImageSize = new System.Drawing.Size(0, 0);
+            this.btnGetHelp.Size = new System.Drawing.Size(92, 82);
+            this.btnGetHelp.TabIndex = 9;
+            this.btnGetHelp.UseTransparentBackground = true;
+            this.btnGetHelp.Click += new System.EventHandler(this.btnGetHelp_Click);
             // 
             // dgvResults
             // 
@@ -151,7 +169,7 @@
             this.textBoxSearch.Size = new System.Drawing.Size(414, 62);
             this.textBoxSearch.TabIndex = 0;
             this.textBoxSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
+            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_Enter);
             this.textBoxSearch.Click += new System.EventHandler(this.textBoxSearch_Click);
             this.textBoxSearch.Enter += new System.EventHandler(this.textBoxSearch_Enter);
             this.textBoxSearch.Leave += new System.EventHandler(this.textBoxSearch_Leave);
@@ -212,23 +230,6 @@
             this.dgvCourseDetails.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvCourseDetails.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvCourseDetails.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCourseDetails_CellClick);
-            // 
-            // btnGetHelp
-            // 
-            this.btnGetHelp.BackColor = System.Drawing.Color.Transparent;
-            this.btnGetHelp.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnGetHelp.HoverState.ImageSize = new System.Drawing.Size(0, 0);
-            this.btnGetHelp.Image = global::STIDiscover.Properties.Resources.info;
-            this.btnGetHelp.ImageOffset = new System.Drawing.Point(0, 0);
-            this.btnGetHelp.ImageRotate = 0F;
-            this.btnGetHelp.ImageSize = new System.Drawing.Size(70, 70);
-            this.btnGetHelp.Location = new System.Drawing.Point(0, 0);
-            this.btnGetHelp.Name = "btnGetHelp";
-            this.btnGetHelp.PressedState.ImageSize = new System.Drawing.Size(0, 0);
-            this.btnGetHelp.Size = new System.Drawing.Size(92, 82);
-            this.btnGetHelp.TabIndex = 9;
-            this.btnGetHelp.UseTransparentBackground = true;
-            this.btnGetHelp.Click += new System.EventHandler(this.btnGetHelp_Click);
             // 
             // scheduleControl
             // 

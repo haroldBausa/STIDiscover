@@ -31,6 +31,8 @@
             this.btnB1 = new Guna.UI2.WinForms.Guna2Button();
             this.btnB2 = new Guna.UI2.WinForms.Guna2Button();
             this.btnB3 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2TileButton3 = new Guna.UI2.WinForms.Guna2TileButton();
             this.guna2TileButton2 = new Guna.UI2.WinForms.Guna2TileButton();
@@ -56,6 +58,7 @@
             this.btnB1.Size = new System.Drawing.Size(234, 54);
             this.btnB1.TabIndex = 5;
             this.btnB1.Text = "Building 1";
+            this.btnB1.UseTransparentBackground = true;
             this.btnB1.Click += new System.EventHandler(this.btnB1_Click);
             // 
             // btnB2
@@ -70,13 +73,15 @@
             this.btnB2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnB2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnB2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
-            this.btnB2.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnB2.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Bold);
             this.btnB2.ForeColor = System.Drawing.Color.Linen;
             this.btnB2.Location = new System.Drawing.Point(857, 696);
             this.btnB2.Name = "btnB2";
             this.btnB2.Size = new System.Drawing.Size(234, 54);
             this.btnB2.TabIndex = 6;
             this.btnB2.Text = "Building 2";
+            this.btnB2.UseTransparentBackground = true;
+            this.btnB2.Click += new System.EventHandler(this.btnB2_Click);
             // 
             // btnB3
             // 
@@ -90,13 +95,42 @@
             this.btnB3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnB3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnB3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
-            this.btnB3.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnB3.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Bold);
             this.btnB3.ForeColor = System.Drawing.Color.Linen;
             this.btnB3.Location = new System.Drawing.Point(1553, 696);
             this.btnB3.Name = "btnB3";
             this.btnB3.Size = new System.Drawing.Size(234, 54);
             this.btnB3.TabIndex = 7;
             this.btnB3.Text = "Building 3";
+            this.btnB3.UseTransparentBackground = true;
+            this.btnB3.Click += new System.EventHandler(this.btnB3_Click);
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Location = new System.Drawing.Point(140, 20);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(180, 45);
+            this.guna2Button1.TabIndex = 9;
+            this.guna2Button1.Text = "Report";
+            this.guna2Button1.Visible = false;
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
+            // guna2CustomGradientPanel1
+            // 
+            this.guna2CustomGradientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2CustomGradientPanel1.FillColor = System.Drawing.Color.Blue;
+            this.guna2CustomGradientPanel1.FillColor2 = System.Drawing.Color.Blue;
+            this.guna2CustomGradientPanel1.FillColor3 = System.Drawing.Color.Blue;
+            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(2036, 875);
+            this.guna2CustomGradientPanel1.TabIndex = 10;
             // 
             // guna2ImageButton1
             // 
@@ -128,13 +162,14 @@
             this.guna2TileButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
             this.guna2TileButton3.ForeColor = System.Drawing.Color.White;
             this.guna2TileButton3.HoverState.ForeColor = System.Drawing.Color.Transparent;
-            this.guna2TileButton3.Image = global::STIDiscover.Properties.Resources.B2_removebg_preview;
-            this.guna2TileButton3.ImageOffset = new System.Drawing.Point(1, -50);
-            this.guna2TileButton3.ImageSize = new System.Drawing.Size(330, 500);
+            this.guna2TileButton3.Image = global::STIDiscover.Properties.Resources.b21;
+            this.guna2TileButton3.ImageOffset = new System.Drawing.Point(1, -20);
+            this.guna2TileButton3.ImageSize = new System.Drawing.Size(330, 400);
             this.guna2TileButton3.Location = new System.Drawing.Point(755, 197);
             this.guna2TileButton3.Name = "guna2TileButton3";
             this.guna2TileButton3.Size = new System.Drawing.Size(436, 472);
             this.guna2TileButton3.TabIndex = 4;
+            this.guna2TileButton3.UseTransparentBackground = true;
             // 
             // guna2TileButton2
             // 
@@ -149,13 +184,14 @@
             this.guna2TileButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
             this.guna2TileButton2.ForeColor = System.Drawing.Color.White;
             this.guna2TileButton2.HoverState.ForeColor = System.Drawing.Color.Transparent;
-            this.guna2TileButton2.Image = global::STIDiscover.Properties.Resources.B3_removebg_preview;
-            this.guna2TileButton2.ImageOffset = new System.Drawing.Point(0, -50);
-            this.guna2TileButton2.ImageSize = new System.Drawing.Size(350, 500);
+            this.guna2TileButton2.Image = global::STIDiscover.Properties.Resources.b31;
+            this.guna2TileButton2.ImageOffset = new System.Drawing.Point(0, -20);
+            this.guna2TileButton2.ImageSize = new System.Drawing.Size(350, 400);
             this.guna2TileButton2.Location = new System.Drawing.Point(1436, 197);
             this.guna2TileButton2.Name = "guna2TileButton2";
             this.guna2TileButton2.Size = new System.Drawing.Size(436, 472);
             this.guna2TileButton2.TabIndex = 3;
+            this.guna2TileButton2.UseTransparentBackground = true;
             // 
             // guna2TileButton1
             // 
@@ -170,19 +206,21 @@
             this.guna2TileButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
             this.guna2TileButton1.ForeColor = System.Drawing.Color.White;
             this.guna2TileButton1.HoverState.ForeColor = System.Drawing.Color.Transparent;
-            this.guna2TileButton1.Image = global::STIDiscover.Properties.Resources.B1_removebg_preview;
+            this.guna2TileButton1.Image = global::STIDiscover.Properties.Resources.b11;
             this.guna2TileButton1.ImageOffset = new System.Drawing.Point(0, 5);
             this.guna2TileButton1.ImageSize = new System.Drawing.Size(330, 380);
             this.guna2TileButton1.Location = new System.Drawing.Point(98, 197);
             this.guna2TileButton1.Name = "guna2TileButton1";
             this.guna2TileButton1.Size = new System.Drawing.Size(436, 472);
             this.guna2TileButton1.TabIndex = 2;
+            this.guna2TileButton1.UseTransparentBackground = true;
             this.guna2TileButton1.Click += new System.EventHandler(this.guna2TileButton1_Click);
             // 
             // homeControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.guna2ImageButton1);
             this.Controls.Add(this.btnB3);
             this.Controls.Add(this.btnB2);
@@ -190,6 +228,7 @@
             this.Controls.Add(this.guna2TileButton3);
             this.Controls.Add(this.guna2TileButton2);
             this.Controls.Add(this.guna2TileButton1);
+            this.Controls.Add(this.guna2CustomGradientPanel1);
             this.Name = "homeControl";
             this.Size = new System.Drawing.Size(2036, 875);
             this.ResumeLayout(false);
@@ -204,5 +243,7 @@
         private Guna.UI2.WinForms.Guna2Button btnB2;
         private Guna.UI2.WinForms.Guna2Button btnB3;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
     }
 }

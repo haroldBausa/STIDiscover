@@ -86,6 +86,7 @@
             this.Controls.Add(this.lblEventName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DisplayEventForm";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DisplayEventForm";
             ((System.ComponentModel.ISupportInitialize)(this.pictureEvent)).EndInit();

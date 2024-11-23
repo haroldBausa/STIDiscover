@@ -1,25 +1,23 @@
-﻿using System;
+﻿using AxWMPLib;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using AxWMPLib;
+
 namespace STIDiscover
 {
     public partial class FrontPage : Form
     {
+        private int ImageNumber = 1;
         public FrontPage()
         {
             InitializeComponent();
         }
-
-        private int ImageNumber = 1;
-
 
         private void LoadNextImages()
         {
@@ -111,6 +109,9 @@ namespace STIDiscover
             }
         }
 
+       
+
+
         private void Guna2ButtonSetup(Guna.UI2.WinForms.Guna2Button button)
         {
             button.FillColor = System.Drawing.Color.Transparent; // Make button background transparent
@@ -142,8 +143,17 @@ namespace STIDiscover
             }
         }
 
+
+
+
+        private void timer1_Tick_1(object sender, EventArgs e)
+        {
+            LoadNextImages();
+        }
+
         private void FrontPage_Load_1(object sender, EventArgs e)
         {
+
             rb1.Checked = true;
             LoadMedia();
 
@@ -159,22 +169,39 @@ namespace STIDiscover
             panel1.Parent = pictureBox1; // Set the parent for transparency
         }
 
-        private void timer1_Tick_1(object sender, EventArgs e)
-        {
-            LoadNextImages();
-        }
-
-        private void BtnPrevious_Click_1(object sender, EventArgs e)
-        {
-            LoadPreviousImages();
-        }
-
         private void BtnNext_Click(object sender, EventArgs e)
         {
             LoadNextImages();
         }
 
-        private void btnSkipVideo_Click(object sender, EventArgs e)
+        private void BtnPrevious_Click(object sender, EventArgs e)
+        {
+            LoadPreviousImages();
+        }
+
+
+        private void BtnStart_Click(object sender, EventArgs e)
+        {
+            // Stop the timer
+            timer1.Stop();
+
+            // Stop any media playing
+            axWindowsMediaPlayer1.Ctlcontrols.stop();
+
+            // Hide this form
+            this.Hide();
+
+            // Open the next form
+            using (Form1 form = new Form1())
+            {
+                form.ShowDialog();
+            }
+
+            // Dispose of this form after the new form is closed
+            this.Dispose();
+        }
+
+        private void btnSkipVideo_Click_1(object sender, EventArgs e)
         {
             // Stop the video, reset to first image, and hide skip button
             axWindowsMediaPlayer1.Ctlcontrols.stop();
@@ -183,14 +210,6 @@ namespace STIDiscover
             LoadMedia(); // Load the first image
             btnSkipVideo.Visible = false; // Hide the skip button
             timer1.Start(); // Resume the timer
-        }
-
-        private void BtnStart_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            Form1 form = new Form1();
-            this.Hide();
-            form.ShowDialog();
         }
     }
 }

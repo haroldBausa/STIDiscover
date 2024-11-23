@@ -15,7 +15,8 @@ namespace STIDiscover
 {
     public partial class AdminLoginForm : Form
     {
-        private Process oskProcess;
+        private Process onScreenKeyboardProc;
+
         public AdminLoginForm()
         {
             InitializeComponent();
@@ -24,6 +25,9 @@ namespace STIDiscover
 
             txtUsername.Leave += txtUsername_Leave;
             txtPassword.Leave += txtPassword_Leave;
+            txtPassword.Enter += new EventHandler(OpenKeyboard);
+
+            txtUsername.Enter += new EventHandler(OpenKeyboard);
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -48,14 +52,9 @@ namespace STIDiscover
 
                         if (result > 0)
                         {
-                            // Open the next form if login is successful
-                            MessageBox.Show("Login successful!");
-                            //FormFaceAuthentication ffa = new FormFaceAuthentication();
-                            //ffa.ShowDialog();
                             this.Hide();
-                            // Open your next form here
                             FileMaintenance fm = new FileMaintenance();
-                            fm.Show();
+                            fm.ShowDialog();
                         }
                         else
                         {
@@ -96,70 +95,46 @@ namespace STIDiscover
 
         private void txtUsername_Click(object sender, EventArgs e)
         {
-            StartOnScreenKeyboard();
+            
         }
 
         private void txtPassword_Click(object sender, EventArgs e)
         {
-            StartOnScreenKeyboard();
+            
         }
 
         private void txtUsername_Leave(object sender, EventArgs e)
         {
-            CloseOnScreenKeyboard();
+           
         }
 
         private void txtPassword_Leave(object sender, EventArgs e)
         {
-            CloseOnScreenKeyboard();
+           
         }
-        private void StartOnScreenKeyboard()
+        private void OpenKeyboard(object sender, EventArgs e)
         {
-            try
+            // Close any open instances of the on-screen keyboard
+            Process[] oskProcessArray = Process.GetProcessesByName("TabTip");
+            foreach (Process oskProcess in oskProcessArray)
             {
-                string oskPath = @"C:\Windows\System32\osk.exe"; // Adjust path if necessary
+                oskProcess.Kill();
+            }
 
-                // Check if the On-Screen Keyboard exists
-                if (File.Exists(oskPath))
-                {
-                    // Launch the On-Screen Keyboard and save the process object
-                    oskProcess = Process.Start(oskPath);
-                }
-                else
-                {
-                    MessageBox.Show("On-Screen Keyboard not found at the expected location.",
-                                    "Error",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error opening On-Screen Keyboard:\n{ex.Message}",
-                                "Error",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
-            }
+            // Open the on-screen keyboard
+            string progFiles = @"C:\Program Files\Common Files\Microsoft Shared\ink";
+            string onScreenKeyboardPath = System.IO.Path.Combine(progFiles, "TabTip.exe");
+            onScreenKeyboardProc = System.Diagnostics.Process.Start(onScreenKeyboardPath);
         }
 
-        private void CloseOnScreenKeyboard()
+        private void txtUsername_Enter(object sender, EventArgs e)
         {
-            // If the On-Screen Keyboard process is running, kill it
-            if (oskProcess != null && !oskProcess.HasExited)
-            {
-                try
-                {
-                    oskProcess.Kill();
-                    oskProcess = null; // Reset the process object after closing
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error closing On-Screen Keyboard:\n{ex.Message}",
-                                    "Error",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Error);
-                }
-            }
+
+        }
+
+        private void txtPassword_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

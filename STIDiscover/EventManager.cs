@@ -15,6 +15,7 @@ namespace STIDiscover
 {
     public partial class EventManager : UserControl
     {
+        private TextBox textBox;
         private Process oskProcess;
         MySqlConnection connection = new MySqlConnection("Server=localhost;Database=event_schedule;Uid=root;Pwd=;");
         public EventManager()
@@ -74,40 +75,86 @@ namespace STIDiscover
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            connection.Open();
-            string query = "INSERT INTO events (event_date, event_name, description, event_image) VALUES (@date, @name, @description, @image)";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
-            cmd.Parameters.AddWithValue("@date", dtpEvent.Value.ToString("yyyy-MM-dd"));
-            cmd.Parameters.AddWithValue("@name", txtName.Text);
-            cmd.Parameters.AddWithValue("@description", txtDescript.Text);
-
-            // Add the image as a BLOB
-            if (picEventImage.Image != null)
+            // Check if event name or description is empty
+            if (string.IsNullOrWhiteSpace(txtName.Text) || string.IsNullOrWhiteSpace(txtDescript.Text))
             {
-                using (MemoryStream ms = new MemoryStream())
+                MessageBox.Show("Please enter both the event name and description.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtDescript.Clear();
+                txtName.Clear();
+                return;
+            }
+
+            if (dtpEvent.Value.Date < DateTime.Now.Date)
+            {
+                MessageBox.Show("Cannot add events to a past date. Please select today or a future date.",
+                                "Invalid Date",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                txtDescript.Clear();
+                txtName.Clear();
+                return;
+            }
+
+            try
+            {
+                connection.Open();
+                string query = "INSERT INTO events (event_date, event_name, description, event_image) VALUES (@date, @name, @description, @image)";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@date", dtpEvent.Value.ToString("yyyy-MM-dd"));
+                cmd.Parameters.AddWithValue("@name", txtName.Text);
+                cmd.Parameters.AddWithValue("@description", txtDescript.Text);
+
+                // Add the image as a BLOB
+                if (picEventImage.Image != null)
                 {
-                    picEventImage.Image.Save(ms, picEventImage.Image.RawFormat);
-                    cmd.Parameters.AddWithValue("@image", ms.ToArray());
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        picEventImage.Image.Save(ms, picEventImage.Image.RawFormat);
+                        cmd.Parameters.AddWithValue("@image", ms.ToArray());
+                    }
                 }
-            }
-            else
-            {
-                cmd.Parameters.AddWithValue("@image", DBNull.Value);
-            }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@image", DBNull.Value);
+                }
 
-            cmd.ExecuteNonQuery();
-            connection.Close();
-            MessageBox.Show("Event with image added successfully!");
-            ShowEventInfo(dtpEvent.Value);
-            txtDescript.Clear();
-            txtName.Clear();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Event with image added successfully!");
+                ShowEventInfo(dtpEvent.Value);
+                txtDescript.Clear();
+                txtName.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error adding event: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            // Check if event name or description is empty
+            if (string.IsNullOrWhiteSpace(txtName.Text) || string.IsNullOrWhiteSpace(txtDescript.Text))
+            {
+                MessageBox.Show("Please enter both the event name and description.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (lstEvents.SelectedItem == null)
             {
                 MessageBox.Show("Please select an event to update.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (dtpEvent.Value.Date < DateTime.Now.Date)
+            {
+                MessageBox.Show("Cannot update events to a past date. Please select today or a future date.",
+                                "Invalid Date",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
                 return;
             }
 
@@ -141,6 +188,8 @@ namespace STIDiscover
                 int rowsAffected = cmd.ExecuteNonQuery();
                 MessageBox.Show(rowsAffected > 0 ? "Event updated successfully!" : "No event found with the given ID.");
                 ShowEventInfo(dtpEvent.Value); // Refresh the list
+                txtDescript.Clear();
+                txtName.Clear();
             }
             catch (Exception ex)
             {
@@ -152,32 +201,69 @@ namespace STIDiscover
             }
         }
 
+
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            connection.Open();
-            string query = "DELETE FROM events WHERE event_date = @date AND event_name = @name";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
-            cmd.Parameters.AddWithValue("@date", dtpEvent.Value.ToString("yyyy-MM-dd"));
-            cmd.Parameters.AddWithValue("@name", txtName.Text); // Use the event name to delete specific event
-            int rowsAffected = cmd.ExecuteNonQuery();
-            connection.Close();
-
-            if (rowsAffected > 0)
+            if (lstEvents.SelectedItem == null)
             {
-                MessageBox.Show("Event deleted successfully!");
-            }
-            else
-            {
-                MessageBox.Show("No matching event found for deletion.");
+                MessageBox.Show("Please select an event to delete.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
-            // Refresh the event list
-            ShowEventInfo(dtpEvent.Value);
+            // Get the event ID from the selected item
+            string selectedEvent = lstEvents.SelectedItem.ToString();
+            string[] parts = selectedEvent.Split('-');
+            if (parts.Length < 2)
+            {
+                MessageBox.Show("Invalid event selection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-            // Clear input fields
-            txtDescript.Clear();
-            txtName.Clear();
-            picEventImage.Image = null;
+            int eventId;
+            if (!int.TryParse(parts[0].Trim(), out eventId))
+            {
+                MessageBox.Show("Invalid event ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Confirm deletion
+            DialogResult confirmResult = MessageBox.Show(
+                $"Are you sure you want to delete the selected event: {parts[1].Trim()}?",
+                "Confirm Deletion",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (confirmResult != DialogResult.Yes)
+            {
+                return; // User canceled the deletion
+            }
+
+            try
+            {
+                connection.Open();
+                string query = "DELETE FROM events WHERE id = @id";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@id", eventId);
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Event deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ShowEventInfo(dtpEvent.Value); // Refresh the event list
+                }
+                else
+                {
+                    MessageBox.Show("No event found with the given ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error deleting event: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
         private void StartOnScreenKeyboard()
         {
@@ -313,6 +399,29 @@ namespace STIDiscover
             {
                 connection.Close();
             }
+        }
+
+        private void txtName_Enter(object sender, EventArgs e)
+        {
+            OpenTabTip();
+            textBox.Focus();
+        }
+        private void OpenTabTip()
+        {
+            try
+            {
+                Process.Start(@"C:\Program Files\Common Files\Microsoft Shared\ink\TabTip.exe");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to open TabTip: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtDescript_Enter(object sender, EventArgs e)
+        {
+            OpenTabTip();
+            textBox.Focus();
         }
     }
 }
