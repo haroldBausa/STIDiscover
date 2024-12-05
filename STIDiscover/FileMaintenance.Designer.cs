@@ -31,14 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FileMaintenance));
             this.patnavBar = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnExit = new Guna.UI2.WinForms.Guna2Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnExit = new Guna.UI2.WinForms.Guna2Button();
             this.btnEvent = new Guna.UI2.WinForms.Guna2Button();
             this.btnSchedule = new Guna.UI2.WinForms.Guna2Button();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.eventManager1 = new STIDiscover.EventManager();
             this.scheduleControlManager1 = new STIDiscover.ScheduleControlManager();
+            this.eventManager1 = new STIDiscover.EventManager();
             this.patnavBar.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -65,6 +65,24 @@
             this.panel3.Size = new System.Drawing.Size(347, 118);
             this.panel3.TabIndex = 3;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnEvent);
+            this.panel1.Controls.Add(this.btnSchedule);
+            this.panel1.Location = new System.Drawing.Point(0, 211);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(342, 749);
+            this.panel1.TabIndex = 2;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(348, 212);
+            this.panel2.TabIndex = 1;
+            // 
             // btnExit
             // 
             this.btnExit.BorderColor = System.Drawing.Color.WhiteSmoke;
@@ -86,15 +104,6 @@
             this.btnExit.Text = "Sign out";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.btnEvent);
-            this.panel1.Controls.Add(this.btnSchedule);
-            this.panel1.Location = new System.Drawing.Point(0, 211);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(342, 749);
-            this.panel1.TabIndex = 2;
-            // 
             // btnEvent
             // 
             this.btnEvent.BorderColor = System.Drawing.Color.WhiteSmoke;
@@ -109,12 +118,11 @@
             this.btnEvent.ForeColor = System.Drawing.Color.White;
             this.btnEvent.Image = global::STIDiscover.Properties.Resources.calendar_check_regular;
             this.btnEvent.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnEvent.Location = new System.Drawing.Point(7, 243);
+            this.btnEvent.Location = new System.Drawing.Point(12, 94);
             this.btnEvent.Name = "btnEvent";
             this.btnEvent.Size = new System.Drawing.Size(320, 57);
             this.btnEvent.TabIndex = 2;
             this.btnEvent.Text = "EVENT MANAGER";
-            this.btnEvent.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnEvent.Click += new System.EventHandler(this.btnEvent_Click);
             // 
             // btnSchedule
@@ -131,22 +139,12 @@
             this.btnSchedule.ForeColor = System.Drawing.Color.White;
             this.btnSchedule.Image = global::STIDiscover.Properties.Resources.clock_regular;
             this.btnSchedule.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnSchedule.Location = new System.Drawing.Point(7, 123);
+            this.btnSchedule.Location = new System.Drawing.Point(12, 229);
             this.btnSchedule.Name = "btnSchedule";
             this.btnSchedule.Size = new System.Drawing.Size(320, 55);
             this.btnSchedule.TabIndex = 1;
-            this.btnSchedule.Text = "CONTROL SCHEDULE";
-            this.btnSchedule.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnSchedule.Text = "   CONTROL SCHEDULE";
             this.btnSchedule.Click += new System.EventHandler(this.btnSchedule_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(348, 212);
-            this.panel2.TabIndex = 1;
             // 
             // pictureBox1
             // 
@@ -159,6 +157,14 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // scheduleControlManager1
+            // 
+            this.scheduleControlManager1.BackColor = System.Drawing.SystemColors.Control;
+            this.scheduleControlManager1.Location = new System.Drawing.Point(348, 0);
+            this.scheduleControlManager1.Name = "scheduleControlManager1";
+            this.scheduleControlManager1.Size = new System.Drawing.Size(1920, 1080);
+            this.scheduleControlManager1.TabIndex = 2;
+            // 
             // eventManager1
             // 
             this.eventManager1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -167,14 +173,6 @@
             this.eventManager1.Name = "eventManager1";
             this.eventManager1.Size = new System.Drawing.Size(1572, 1080);
             this.eventManager1.TabIndex = 1;
-            // 
-            // scheduleControlManager1
-            // 
-            this.scheduleControlManager1.BackColor = System.Drawing.SystemColors.Control;
-            this.scheduleControlManager1.Location = new System.Drawing.Point(348, 0);
-            this.scheduleControlManager1.Name = "scheduleControlManager1";
-            this.scheduleControlManager1.Size = new System.Drawing.Size(1920, 1080);
-            this.scheduleControlManager1.TabIndex = 2;
             // 
             // FileMaintenance
             // 
@@ -189,8 +187,9 @@
             this.Name = "FileMaintenance";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FileMaintenance";
+            this.Text = "x";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FileMaintenance_Load);
             this.patnavBar.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

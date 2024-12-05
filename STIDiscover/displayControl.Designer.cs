@@ -34,11 +34,11 @@
             // 
             // lblShowName
             // 
-            this.lblShowName.Font = new System.Drawing.Font("Microsoft Yi Baiti", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblShowName.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblShowName.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblShowName.ForeColor = System.Drawing.SystemColors.Control;
             this.lblShowName.Location = new System.Drawing.Point(3, 14);
             this.lblShowName.Name = "lblShowName";
-            this.lblShowName.Size = new System.Drawing.Size(150, 42);
+            this.lblShowName.Size = new System.Drawing.Size(328, 42);
             this.lblShowName.TabIndex = 0;
             this.lblShowName.Text = "label1";
             // 

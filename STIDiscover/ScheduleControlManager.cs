@@ -19,6 +19,7 @@ namespace STIDiscover
         private Process onScreenKeyboardProc;
         private string currentTableName = "";
         private string connectionString = "Server=localhost;Database=schedules;Uid=root;Pwd=;";
+        private Dictionary<int, DataRow> originalData = new Dictionary<int, DataRow>();
         public ScheduleControlManager()
         {
             InitializeComponent();
@@ -26,7 +27,9 @@ namespace STIDiscover
             this.dgvResults.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResults_CellClick);
             textBoxSearch.Click += textBoxSearch_Click;
             textBoxSearch.Enter += new EventHandler(OpenKeyboard);
+            
         }
+       
         private void OpenKeyboard(object sender, EventArgs e)
         {
             // Close any open instances of the on-screen keyboard
@@ -57,6 +60,13 @@ namespace STIDiscover
             dgvCourseDetails.AllowUserToDeleteRows = false; // Prevent deleting rows manually
             dgvCourseDetails.SelectionMode = DataGridViewSelectionMode.CellSelect; // Allow cell selection
             dgvCourseDetails.MultiSelect = false; // Single cell selection
+
+            dgvCourseDetails.CellValueChanged += dgvCourseDetails_CellValueChanged;
+            dgvCourseDetails.CellBeginEdit += dgvCourseDetails_CellBeginEdit;
+
+   
+            btnUpdate.Enabled = false;
+            dgvCourseDetails.DataBindingComplete += dgvCourseDetails_DataBindingComplete;
         }
 
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
@@ -155,8 +165,7 @@ namespace STIDiscover
         private void textBoxSearch_Enter(object sender, EventArgs e)
         {
             dgvResults.Visible = true;
-            textBoxSearch.Text = "";
-            textBoxSearch.ForeColor = Color.Black;
+          
 
         }
 
@@ -211,6 +220,8 @@ namespace STIDiscover
         private void LoadCourseData(string tableName)
         {
             currentTableName = tableName; // Store the table name for future updates
+            originalData.Clear(); // Clear the dictionary to avoid stale data
+
             try
             {
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -241,6 +252,15 @@ namespace STIDiscover
 
                         dgvCourseDetails.DataSource = dataTable;
 
+                        // Track the original data
+                        foreach (DataRow row in dataTable.Rows)
+                        {
+                            int id = Convert.ToInt32(row["id"]);
+                            DataRow newRow = dataTable.NewRow(); // Create a new row
+                            newRow.ItemArray = row.ItemArray;    // Copy the values from the original row
+                            originalData[id] = newRow;           // Store the new row in the dictionary
+                        }
+
                         // Hide the `id` column
                         dgvCourseDetails.Columns["id"].Visible = false;
 
@@ -265,6 +285,7 @@ namespace STIDiscover
         }
 
 
+
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             try
@@ -273,16 +294,42 @@ namespace STIDiscover
                 {
                     conn.Open();
 
+                    bool dataChanged = false; // Track if any row has changed
+
                     foreach (DataGridViewRow row in dgvCourseDetails.Rows)
                     {
                         if (!row.IsNewRow)
                         {
                             int id = Convert.ToInt32(row.Cells["id"].Value);
-                            string courseDes = row.Cells["course_des"].Value?.ToString();
-                            string days = row.Cells["days"].Value?.ToString();
-                            string time = row.Cells["time"].Value?.ToString();
-                            string room = row.Cells["room"].Value?.ToString();
+                            string courseDes = row.Cells["course_des"].Value?.ToString()?.Trim();
+                            string days = row.Cells["days"].Value?.ToString()?.Trim();
+                            string time = row.Cells["time"].Value?.ToString()?.Trim();
+                            string room = row.Cells["room"].Value?.ToString()?.Trim();
 
+                            // Get original values
+                            if (originalData.TryGetValue(id, out DataRow originalRow))
+                            {
+                                // Compare values
+                                if (courseDes == originalRow["course_des"].ToString().Trim() &&
+                                    days == originalRow["days"].ToString().Trim() &&
+                                    time == originalRow["time"].ToString().Trim() &&
+                                    room == originalRow["room"].ToString().Trim())
+                                {
+                                    continue; // Skip unchanged rows
+                                }
+                            }
+
+                            // Validate non-empty fields
+                            if (string.IsNullOrWhiteSpace(courseDes) ||
+                                string.IsNullOrWhiteSpace(days) ||
+                                string.IsNullOrWhiteSpace(time) ||
+                                string.IsNullOrWhiteSpace(room))
+                            {
+                                MessageBox.Show("Fields cannot be blank. Please fill all the details.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
+                            }
+
+                            // Update the database
                             string query = $@"
                         UPDATE `{currentTableName}` 
                         SET `course_des` = @course_des, `days` = @days, `time` = @time, `room` = @room 
@@ -297,14 +344,22 @@ namespace STIDiscover
                                 cmd.Parameters.AddWithValue("@room", room);
 
                                 cmd.ExecuteNonQuery();
+                                dataChanged = true; // Mark data as changed
                             }
                         }
                     }
 
-                    // Reload the updated data
-                    LoadCourseData(currentTableName);
-
-                    MessageBox.Show("Database updated successfully!");
+                    if (dataChanged)
+                    {
+                        // Reload updated data and reset
+                        LoadCourseData(currentTableName);
+                        btnUpdate.Enabled = false; // Disable Update button after successful update
+                        MessageBox.Show("Database updated successfully!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No changes detected. Nothing to update.", "No Changes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
             }
             catch (Exception ex)
@@ -313,13 +368,6 @@ namespace STIDiscover
             }
         }
 
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(currentTableName))
-            {
-                LoadCourseData(currentTableName); // Reload data for the currently selected table
-            }
-        }
 
         private void btnUploadExcel_Click(object sender, EventArgs e)
         {
@@ -415,6 +463,34 @@ namespace STIDiscover
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dgvCourseDetails_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            // Store the original value before editing
+            int id = Convert.ToInt32(dgvCourseDetails.Rows[e.RowIndex].Cells["id"].Value);
+            if (!originalData.ContainsKey(id))
+            {
+                originalData[id] = (dgvCourseDetails.Rows[e.RowIndex].DataBoundItem as DataRowView)?.Row;
+            }
+        }
+
+        private void dgvCourseDetails_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            btnUpdate.Enabled = true;
+        }
+
+        private void dgvCourseDetails_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dgvCourseDetails.ClearSelection();
+        }
+
+        private void dgvCourseDetails_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0) // Ensure it's a valid cell
+            {
+                btnUpdate.Enabled = true; // Enable button on cell click
             }
         }
     }

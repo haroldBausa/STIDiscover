@@ -15,8 +15,9 @@ namespace STIDiscover
         public homeControl()
         {
             InitializeComponent();
+           
         }
-
+      
         private void guna2TileButton1_Click(object sender, EventArgs e)
         {
 
@@ -37,12 +38,7 @@ namespace STIDiscover
 
         }
 
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-            ScreenShot ss = new ScreenShot();
-            ss.Show();
-        }
-
+            
         private void btnB2_Click(object sender, EventArgs e)
         {
             Building2 building2 = new Building2();
@@ -53,6 +49,17 @@ namespace STIDiscover
         {
             Building3 building3 = new Building3();
             building3.Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void homeControl_Load(object sender, EventArgs e)
+        {
+            label1.BackColor = System.Drawing.Color.Transparent;
+            label1.Parent = pictureBox4;
         }
     }
 }

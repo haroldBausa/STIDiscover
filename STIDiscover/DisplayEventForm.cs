@@ -16,7 +16,9 @@ namespace STIDiscover
         public DisplayEventForm()
         {
             InitializeComponent();
+           
         }
+        
         public void SetEventDetails(string eventName, string description, byte[] imageBytes)
         {
             lblEventName.Text = eventName; // Set event name in the label
@@ -43,5 +45,12 @@ namespace STIDiscover
         {
            Close();
         }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+     
     }
 }

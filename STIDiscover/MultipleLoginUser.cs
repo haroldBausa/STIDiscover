@@ -11,16 +11,26 @@ using System.Windows.Forms;
 
 namespace STIDiscover
 {
-    public partial class Map : UserControl
+    public partial class MultipleLoginUser : Form
     {
-        public Map()
+        public MultipleLoginUser()
         {
             InitializeComponent();
         }
 
-        private void btnOpenMap_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
-            string unityAppPath = @"C:\Path\To\Your\UnityApp.exe";
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnToMap_Click(object sender, EventArgs e)
+        {
+            string unityAppPath = @"C:\Users\USER\Final\STIDiscover\Final.exe";
 
             StartUnityApp(unityAppPath);
         }
@@ -35,7 +45,7 @@ namespace STIDiscover
                 // Start the process
                 process.Start();
 
-                MessageBox.Show("Unity application started successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
             catch (Exception ex)
             {
@@ -43,12 +53,18 @@ namespace STIDiscover
             }
         }
 
-        private void btnGetHelp_Click(object sender, EventArgs e)
+        private void btnToAsk_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
-            form1.Hide();
-            GetHelp getHelp = new GetHelp();
-            getHelp.Show();
+            Form1 frm = new Form1();
+            this.Close();
+            frm.ShowDialog();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            FrontPage fp = new FrontPage();
+            this.Close();
+            fp.ShowDialog();
         }
     }
 }

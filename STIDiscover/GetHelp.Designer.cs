@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.btnOpenContact = new Guna.UI2.WinForms.Guna2Button();
+            this.btnExit = new Guna.UI2.WinForms.Guna2Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.faQs1 = new STIDiscover.FAQs();
-            this.label1 = new System.Windows.Forms.Label();
             this.guna2GradientPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -40,57 +40,39 @@
             // guna2GradientPanel1
             // 
             this.guna2GradientPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
-            this.guna2GradientPanel1.Controls.Add(this.btnOpenContact);
+            this.guna2GradientPanel1.Controls.Add(this.btnExit);
             this.guna2GradientPanel1.Controls.Add(this.label1);
             this.guna2GradientPanel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.guna2GradientPanel1.FillColor = System.Drawing.Color.Aqua;
-            this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.Fuchsia;
+            this.guna2GradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
+            this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
             this.guna2GradientPanel1.Location = new System.Drawing.Point(0, 0);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
             this.guna2GradientPanel1.Size = new System.Drawing.Size(484, 1080);
             this.guna2GradientPanel1.TabIndex = 1;
             // 
-            // btnOpenContact
+            // btnExit
             // 
-            this.btnOpenContact.AutoRoundedCorners = true;
-            this.btnOpenContact.BackColor = System.Drawing.Color.Transparent;
-            this.btnOpenContact.BorderColor = System.Drawing.Color.White;
-            this.btnOpenContact.BorderRadius = 32;
-            this.btnOpenContact.BorderThickness = 1;
-            this.btnOpenContact.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnOpenContact.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnOpenContact.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnOpenContact.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnOpenContact.FillColor = System.Drawing.Color.Transparent;
-            this.btnOpenContact.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Underline);
-            this.btnOpenContact.ForeColor = System.Drawing.Color.White;
-            this.btnOpenContact.Image = global::STIDiscover.Properties.Resources.Email;
-            this.btnOpenContact.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnOpenContact.ImageSize = new System.Drawing.Size(50, 50);
-            this.btnOpenContact.Location = new System.Drawing.Point(92, 615);
-            this.btnOpenContact.Name = "btnOpenContact";
-            this.btnOpenContact.Size = new System.Drawing.Size(317, 67);
-            this.btnOpenContact.TabIndex = 2;
-            this.btnOpenContact.Text = "Contact us";
-            this.btnOpenContact.UseTransparentBackground = true;
-            this.btnOpenContact.Click += new System.EventHandler(this.btnOpenContact_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.faQs1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(484, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1436, 1080);
-            this.panel1.TabIndex = 2;
-            // 
-            // faQs1
-            // 
-            this.faQs1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.faQs1.Location = new System.Drawing.Point(0, 0);
-            this.faQs1.Name = "faQs1";
-            this.faQs1.Size = new System.Drawing.Size(1436, 1080);
-            this.faQs1.TabIndex = 0;
+            this.btnExit.AutoRoundedCorners = true;
+            this.btnExit.BackColor = System.Drawing.Color.Transparent;
+            this.btnExit.BorderColor = System.Drawing.Color.White;
+            this.btnExit.BorderRadius = 32;
+            this.btnExit.BorderThickness = 1;
+            this.btnExit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnExit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnExit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnExit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnExit.FillColor = System.Drawing.Color.Transparent;
+            this.btnExit.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Underline);
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnExit.ImageSize = new System.Drawing.Size(50, 50);
+            this.btnExit.Location = new System.Drawing.Point(92, 615);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(317, 67);
+            this.btnExit.TabIndex = 2;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseTransparentBackground = true;
+            this.btnExit.Click += new System.EventHandler(this.btnOpenContact_Click);
             // 
             // label1
             // 
@@ -104,6 +86,22 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "GetHelp";
             this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.faQs1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(484, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1436, 1080);
+            this.panel1.TabIndex = 2;
+            // 
+            // faQs1
+            // 
+            this.faQs1.Location = new System.Drawing.Point(0, 0);
+            this.faQs1.Name = "faQs1";
+            this.faQs1.Size = new System.Drawing.Size(1436, 1080);
+            this.faQs1.TabIndex = 0;
             // 
             // GetHelp
             // 
@@ -126,9 +124,9 @@
 
         #endregion
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
-        private Guna.UI2.WinForms.Guna2Button btnOpenContact;
+        private Guna.UI2.WinForms.Guna2Button btnExit;
         private System.Windows.Forms.Panel panel1;
-        private FAQs faQs1;
         private System.Windows.Forms.Label label1;
+        private FAQs faQs1;
     }
 }

@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrontPage));
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.rb7 = new Guna.UI2.WinForms.Guna2CustomRadioButton();
             this.rb3 = new Guna.UI2.WinForms.Guna2CustomRadioButton();
@@ -59,11 +57,6 @@
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(1920, 974);
             this.axWindowsMediaPlayer1.TabIndex = 11;
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 7000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
             // panel1
             // 
@@ -265,10 +258,10 @@
             this.btnSkipVideo.BackColor = System.Drawing.Color.Black;
             this.btnSkipVideo.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
             this.btnSkipVideo.HoverState.ImageSize = new System.Drawing.Size(200, 200);
-            this.btnSkipVideo.Image = ((System.Drawing.Image)(resources.GetObject("btnSkipVideo.Image")));
+            this.btnSkipVideo.Image = global::STIDiscover.Properties.Resources.SKIP;
             this.btnSkipVideo.ImageOffset = new System.Drawing.Point(0, 0);
             this.btnSkipVideo.ImageRotate = 0F;
-            this.btnSkipVideo.ImageSize = new System.Drawing.Size(200, 200);
+            this.btnSkipVideo.ImageSize = new System.Drawing.Size(100, 100);
             this.btnSkipVideo.Location = new System.Drawing.Point(1930, 0);
             this.btnSkipVideo.Name = "btnSkipVideo";
             this.btnSkipVideo.PressedState.ImageSize = new System.Drawing.Size(200, 200);
@@ -292,6 +285,7 @@
             this.Name = "FrontPage";
             this.Text = "FrontPage";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrontPage_FormClosing);
             this.Load += new System.EventHandler(this.FrontPage_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -303,7 +297,6 @@
         #endregion
 
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2CustomRadioButton rb7;
         private Guna.UI2.WinForms.Guna2CustomRadioButton rb3;

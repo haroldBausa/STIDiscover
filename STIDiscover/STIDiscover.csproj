@@ -13,6 +13,8 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
     <PublishUrl>C:\Users\bausa\STIDiscover\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -61,8 +63,23 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.2.2.5\lib\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
       <HintPath>..\packages\BouncyCastle.Cryptography.2.3.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.UI, Version=4.1.1.3497, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <HintPath>..\packages\EMGU.CV.4.1.1.3497\lib\net35\Emgu.CV.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.World, Version=4.1.1.3497, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <HintPath>..\packages\EMGU.CV.4.1.1.3497\lib\net35\Emgu.CV.World.dll</HintPath>
     </Reference>
     <Reference Include="EPPlus, Version=7.5.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
       <HintPath>..\packages\EPPlus.7.5.0\lib\net462\EPPlus.dll</HintPath>
@@ -78,9 +95,6 @@
     </Reference>
     <Reference Include="Fizzler, Version=1.2.1.0, Culture=neutral, PublicKeyToken=4ebff4844e382110, processorArchitecture=MSIL">
       <HintPath>..\packages\Fizzler.1.2.1\lib\netstandard2.0\Fizzler.dll</HintPath>
-    </Reference>
-    <Reference Include="FontAwesome.WinForms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FontAwesome.WinForms.1.0.5\lib\net472\FontAwesome.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Google.Protobuf, Version=3.26.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.26.1\lib\net45\Google.Protobuf.dll</HintPath>
@@ -100,8 +114,8 @@
     <Reference Include="K4os.Hash.xxHash, Version=1.0.8.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
       <HintPath>..\packages\K4os.Hash.xxHash.1.0.8\lib\net462\K4os.Hash.xxHash.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.3.0.1\lib\netstandard2.0\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
@@ -123,6 +137,7 @@
     <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
     </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.ConfigurationManager, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -136,6 +151,11 @@
     <Reference Include="System.Drawing.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Drawing.Common.8.0.4\lib\net462\System.Drawing.Common.dll</HintPath>
     </Reference>
+    <Reference Include="System.Drawing.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Primitives.4.3.0\lib\net45\System.Drawing.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.IO.Pipelines, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.Pipelines.5.0.2\lib\net461\System.IO.Pipelines.dll</HintPath>
     </Reference>
@@ -147,14 +167,33 @@
     <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.1\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Security" />
+    <Reference Include="System.Text.Encodings.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.8.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.8.0.1\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -165,6 +204,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="ZedGraph, Version=5.1.7.430, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZedGraph.5.1.7\lib\net35-Client\ZedGraph.dll</HintPath>
+    </Reference>
     <Reference Include="ZstdSharp, Version=0.8.0.0, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf, processorArchitecture=MSIL">
       <HintPath>..\packages\ZstdSharp.Port.0.8.0\lib\net462\ZstdSharp.dll</HintPath>
     </Reference>
@@ -200,14 +242,26 @@
     <Compile Include="Building3.Designer.cs">
       <DependentUpon>Building3.cs</DependentUpon>
     </Compile>
-    <Compile Include="Contact.cs">
+    <Compile Include="Camera.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Contact.Designer.cs">
-      <DependentUpon>Contact.cs</DependentUpon>
+    <Compile Include="Camera.Designer.cs">
+      <DependentUpon>Camera.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CountDown.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CountDown.Designer.cs">
+      <DependentUpon>CountDown.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomButton.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DeanValidation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeanValidation.Designer.cs">
+      <DependentUpon>DeanValidation.cs</DependentUpon>
     </Compile>
     <Compile Include="displayControl.cs">
       <SubType>UserControl</SubType>
@@ -251,6 +305,12 @@
     <Compile Include="FileMaintenance.Designer.cs">
       <DependentUpon>FileMaintenance.cs</DependentUpon>
     </Compile>
+    <Compile Include="ForgotPassForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ForgotPassForm.Designer.cs">
+      <DependentUpon>ForgotPassForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -275,14 +335,21 @@
     <Compile Include="homeControl.Designer.cs">
       <DependentUpon>homeControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Map.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="Inactivity.cs" />
+    <Compile Include="MultipleLoginUser.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Map.Designer.cs">
-      <DependentUpon>Map.cs</DependentUpon>
+    <Compile Include="MultipleLoginUser.Designer.cs">
+      <DependentUpon>MultipleLoginUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="schedule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="schedule.Designer.cs">
+      <DependentUpon>schedule.cs</DependentUpon>
+    </Compile>
     <Compile Include="scheduleControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -307,6 +374,12 @@
     <Compile Include="UserControlDays.Designer.cs">
       <DependentUpon>UserControlDays.cs</DependentUpon>
     </Compile>
+    <Compile Include="Welcome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Welcome.Designer.cs">
+      <DependentUpon>Welcome.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AdminLoginForm.resx">
       <DependentUpon>AdminLoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -322,8 +395,14 @@
     <EmbeddedResource Include="Building3.resx">
       <DependentUpon>Building3.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Contact.resx">
-      <DependentUpon>Contact.cs</DependentUpon>
+    <EmbeddedResource Include="Camera.resx">
+      <DependentUpon>Camera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CountDown.resx">
+      <DependentUpon>CountDown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeanValidation.resx">
+      <DependentUpon>DeanValidation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="displayControl.resx">
       <DependentUpon>displayControl.cs</DependentUpon>
@@ -346,6 +425,9 @@
     <EmbeddedResource Include="FileMaintenance.resx">
       <DependentUpon>FileMaintenance.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ForgotPassForm.resx">
+      <DependentUpon>ForgotPassForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -358,8 +440,8 @@
     <EmbeddedResource Include="homeControl.resx">
       <DependentUpon>homeControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Map.resx">
-      <DependentUpon>Map.cs</DependentUpon>
+    <EmbeddedResource Include="MultipleLoginUser.resx">
+      <DependentUpon>MultipleLoginUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -371,6 +453,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="schedule.resx">
+      <DependentUpon>schedule.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="scheduleControl.resx">
       <DependentUpon>scheduleControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -382,6 +467,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlDays.resx">
       <DependentUpon>UserControlDays.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Welcome.resx">
+      <DependentUpon>Welcome.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -398,6 +486,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Pink Purple Cute Boba Milk Tea Circle Logo %281%29.png" />
+    <None Include="Resources\STIers.png" />
+    <None Include="Resources\%27%271.png" />
+    <None Include="Resources\%27%27.png" />
+    <None Include="haarcascade_frontalface_alt_tree.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <Content Include="Images &amp; Video\1.jpg" />
     <Content Include="Images &amp; Video\2.jpg" />
     <Content Include="Images &amp; Video\3.jpg" />
@@ -405,28 +500,56 @@
     <Content Include="Images &amp; Video\5.jpg" />
     <Content Include="Images &amp; Video\6.jpg" />
     <Content Include="Images &amp; Video\Happy 41st Founding Year STI.mp4" />
+    <Content Include="Images\462554152_543732578636388_9028703776878858428_n.jpg" />
+    <Content Include="Images\462565175_1122912942787340_2186478706642678428_n.jpg" />
+    <Content Include="Images\ADMIN.png" />
+    <Content Include="Images\Email.gif" />
     <Content Include="Images\b11.png" />
     <Content Include="Images\b21.png" />
+    <Content Include="Images\B222.gif" />
     <Content Include="Images\b31.png" />
     <Content Include="Images\B1-removebg-preview.png" />
     <Content Include="Images\B1.gif" />
     <Content Include="Images\B2-removebg-preview.png" />
     <Content Include="Images\B3-removebg-preview.png" />
+    <Content Include="Images\B1111.gif" />
+    <Content Include="Images\B333.gif" />
     <Content Include="Images\Building 1.gif" />
     <Content Include="Images\Building 2.gif" />
     <Content Include="Images\Building1.gif" />
     <Content Include="Images\Building2.gif" />
     <Content Include="Images\Building3.gif" />
+    <None Include="Images\Icons\AAdmin.png" />
     <Content Include="Images\Icons\calendar-check-regular.png" />
+    <Content Include="Images\Icons\calendar-check-solid %281%29.png" />
+    <Content Include="Images\Icons\calendar-check-solid.png" />
     <Content Include="Images\Icons\circle-chevron-left-solid.png" />
     <Content Include="Images\Icons\circle-chevron-right-solid.png" />
+    <None Include="Images\Icons\user-tie-solid.png" />
+    <Content Include="Images\Icons\yellow.png" />
+    <Content Include="Images\Lock.png" />
+    <Content Include="Images\MainLogo.png" />
+    <Content Include="Images\EXIT.png" />
+    <Content Include="Images\g.gif" />
+    <None Include="Images\Pink Purple Cute Boba Milk Tea Circle Logo %281%29.png" />
+    <Content Include="Images\Timer.gif" />
+    <Content Include="Images\TITULO.png" />
+    <Content Include="Images\Untitled design %281%29.png" />
+    <Content Include="License-LGPL.txt" />
     <None Include="Images\Icons\circle-xmark-solid %281%29.png" />
     <Content Include="Images\Icons\circle-xmark-solid.png" />
     <Content Include="Images\Icons\clock-regular.png" />
+    <Content Include="Images\Icons\eye-slash-solid.png" />
+    <Content Include="Images\Icons\eye-solid.png" />
     <Content Include="Images\Icons\moon-solid.png" />
     <Content Include="Images\Icons\info.png" />
     <Content Include="Images\Icons\Email.png" />
     <Content Include="Images\Icons\FAQ.png" />
+    <Content Include="Images\Icons\delete.png" />
+    <Content Include="Images\Icons\SKIP.png" />
+    <Content Include="Images\Icons\pen-to-square-solid.png" />
+    <Content Include="Images\Icons\update.png" />
+    <Content Include="Images\Icons\upload.png" />
     <Content Include="Images\Icons\right-from-bracket-solid.png" />
     <Content Include="Images\Icons\sun-solid.png" />
     <Content Include="Images\KioskLogo.gif" />
@@ -453,6 +576,15 @@
       <WrapperTool>aximp</WrapperTool>
       <Isolated>False</Isolated>
     </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
     <COMReference Include="WMPLib">
       <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
       <VersionMajor>1</VersionMajor>
@@ -464,4 +596,11 @@
     </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\EMGU.CV.4.1.1.3497\build\EMGU.CV.targets" Condition="Exists('..\packages\EMGU.CV.4.1.1.3497\build\EMGU.CV.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EMGU.CV.4.1.1.3497\build\EMGU.CV.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EMGU.CV.4.1.1.3497\build\EMGU.CV.targets'))" />
+  </Target>
 </Project>

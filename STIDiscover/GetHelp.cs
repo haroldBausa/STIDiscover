@@ -15,8 +15,9 @@ namespace STIDiscover
         public GetHelp()
         {
             InitializeComponent();
+            
         }
-
+       
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -24,8 +25,9 @@ namespace STIDiscover
 
         private void btnOpenContact_Click(object sender, EventArgs e)
         {
-            Contact contact = new Contact(); 
-            contact.ShowDialog();
+            Form1 frm = new Form1();
+            this.Hide();
+            frm.ShowDialog();
         }
     }
 }

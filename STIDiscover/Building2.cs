@@ -19,7 +19,13 @@ namespace STIDiscover
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            base.Close();
+            this.Close();
+        }
+
+        private void Building2_Load(object sender, EventArgs e)
+        {
+            pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            pictureBox1.Parent = pictureBox2;
         }
     }
 }

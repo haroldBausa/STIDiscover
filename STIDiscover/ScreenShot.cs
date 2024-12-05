@@ -15,20 +15,22 @@ namespace STIDiscover
 {
     public partial class ScreenShot : Form
     {
-
+        private static ScreenShot instance;
         public ScreenShot()
         {
             InitializeComponent();
+            
         }
+        
         private void ScreenShot_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void btnSendEmail_Click(object sender, EventArgs e)
+        private async void btnSendEmail_Click(object sender, EventArgs e)
         {
             string adminEmail = "heyitsmebausa@gmail.com"; // Admin email address
-            string description = txtConcern.Text;
+            string description = txtConcern.Text.Trim();
 
             if (string.IsNullOrWhiteSpace(description))
             {
@@ -41,32 +43,35 @@ namespace STIDiscover
 
             try
             {
-                // Prepare the email
-                using (MailMessage mail = new MailMessage())
+                // Show a loading message
+                MessageBox.Show("Sending email, please wait...", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                await Task.Run(() =>
                 {
-                    mail.From = new MailAddress("heyitsmebausa@gmail.com");
-                    mail.To.Add(adminEmail);
-                    mail.Subject = subject;
-                    mail.Body = body;
-
-                    // Attach the screenshot if it exists
-                    if (pictureBoxScreenshot.Image != null)
+                    using (MailMessage mail = new MailMessage())
                     {
-                        string tempPath = Path.Combine(Path.GetTempPath(), "screenshot.png");
-                        mail.Attachments.Add(new Attachment(tempPath));
-                    }
+                        mail.From = new MailAddress("heyitsmebausa@gmail.com");
+                        mail.To.Add(adminEmail);
+                        mail.Subject = subject;
+                        mail.Body = body;
 
-                    // Configure the SMTP client
-                    using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
-                    {
-                        smtp.Credentials = new NetworkCredential("heyitsmebausa@gmail.com", "zpzm hupc wotf lnbz");
-                        smtp.EnableSsl = true;
-                        smtp.Send(mail);
+                        // Attach the screenshot if it exists
+                        if (pictureBoxScreenshot.Image != null)
+                        {
+                            string tempPath = Path.Combine(Path.GetTempPath(), "screenshot.png");
+                            mail.Attachments.Add(new Attachment(tempPath));
+                        }
+
+                        using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+                        {
+                            smtp.Credentials = new NetworkCredential("heyitsmebausa@gmail.com", "zpzm hupc wotf lnbz");
+                            smtp.EnableSsl = true;
+                            smtp.Send(mail);
+                        }
                     }
-                }
+                });
 
                 MessageBox.Show("Report sent successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
             }
             catch (Exception ex)
             {
@@ -76,29 +81,42 @@ namespace STIDiscover
 
         private void btnCaptureScreenshot_Click(object sender, EventArgs e)
         {
+            CaptureScreenshot();
+        }
+
+        public static void ShowWithScreenshot()
+        {
+            if (instance == null || instance.IsDisposed)
+            {
+                instance = new ScreenShot();
+            }
+
+            instance.CaptureScreenshot(); // Automatically capture a screenshot
+            instance.Show(); // Display the form
+            instance.BringToFront(); // Bring it to the front
+        }
+
+        private void CaptureScreenshot()
+        {
             try
             {
-                // Hide the form temporarily to capture the target data
-                this.Hide();
+                // Define the area to capture (update dimensions as needed)
+                Rectangle captureArea = new Rectangle(this.Location.X, this.Location.Y, 1980, 875);
 
-                // Capture the entire screen
-                Bitmap screenshot = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
-                using (Graphics g = Graphics.FromImage(screenshot))
+                // Create a new bitmap for the screenshot
+                Bitmap screenshot = new Bitmap(captureArea.Width, captureArea.Height);
+
+                using (Graphics graphics = Graphics.FromImage(screenshot))
                 {
-                    g.CopyFromScreen(0, 0, 0, 0, screenshot.Size);
+                    graphics.CopyFromScreen(captureArea.Location, Point.Empty, captureArea.Size);
                 }
 
                 // Display the screenshot in the PictureBox
                 pictureBoxScreenshot.Image = screenshot;
 
-                // Optionally save the screenshot to a temporary location
+                // Save to a temporary file
                 string tempPath = Path.Combine(Path.GetTempPath(), "screenshot.png");
-                screenshot.Save(tempPath, System.Drawing.Imaging.ImageFormat.Png);
-
-                MessageBox.Show("Screenshot captured successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Show the form again after the screenshot is captured
-                this.Show();
+                screenshot.Save(tempPath, System.Drawing.Imaging.ImageFormat.Jpeg);
             }
             catch (Exception ex)
             {
@@ -108,12 +126,11 @@ namespace STIDiscover
 
         private void guna2ImageButton1_Click(object sender, EventArgs e)
         {
-
+            base.Close();
         }
 
         private void txtConcern_Enter(object sender, EventArgs e)
         {
-            OpenTabTip();
         }
         private void OpenTabTip()
         {
@@ -126,6 +143,12 @@ namespace STIDiscover
                 MessageBox.Show($"Failed to open TabTip: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
+        private void txtConcern_Click(object sender, EventArgs e)
+        {
+            OpenTabTip();
+            txtConcern.Text = "";
+            txtConcern.ForeColor = Color.Black;
+        }
     }
 }

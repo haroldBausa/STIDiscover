@@ -31,12 +31,18 @@
             this.btnB1 = new Guna.UI2.WinForms.Guna2Button();
             this.btnB2 = new Guna.UI2.WinForms.Guna2Button();
             this.btnB3 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.guna2TileButton3 = new Guna.UI2.WinForms.Guna2TileButton();
-            this.guna2TileButton2 = new Guna.UI2.WinForms.Guna2TileButton();
-            this.guna2TileButton1 = new Guna.UI2.WinForms.Guna2TileButton();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // btnB1
@@ -105,33 +111,69 @@
             this.btnB3.UseTransparentBackground = true;
             this.btnB3.Click += new System.EventHandler(this.btnB3_Click);
             // 
-            // guna2Button1
+            // label1
             // 
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(140, 20);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(180, 45);
-            this.guna2Button1.TabIndex = 9;
-            this.guna2Button1.Text = "Report";
-            this.guna2Button1.Visible = false;
-            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            this.label1.BackColor = System.Drawing.Color.MidnightBlue;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(147, 52);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(155, 26);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "FAQs";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // guna2CustomGradientPanel1
+            // guna2PictureBox4
             // 
-            this.guna2CustomGradientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2CustomGradientPanel1.FillColor = System.Drawing.Color.Blue;
-            this.guna2CustomGradientPanel1.FillColor2 = System.Drawing.Color.Blue;
-            this.guna2CustomGradientPanel1.FillColor3 = System.Drawing.Color.Yellow;
-            this.guna2CustomGradientPanel1.FillColor4 = System.Drawing.Color.Yellow;
-            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 0);
-            this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(2036, 875);
-            this.guna2CustomGradientPanel1.TabIndex = 10;
+            this.guna2PictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox4.Image = global::STIDiscover.Properties.Resources.TITULO;
+            this.guna2PictureBox4.ImageRotate = 0F;
+            this.guna2PictureBox4.Location = new System.Drawing.Point(662, -88);
+            this.guna2PictureBox4.Name = "guna2PictureBox4";
+            this.guna2PictureBox4.Size = new System.Drawing.Size(643, 307);
+            this.guna2PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox4.TabIndex = 14;
+            this.guna2PictureBox4.TabStop = false;
+            this.guna2PictureBox4.UseTransparentBackground = true;
+            // 
+            // guna2PictureBox3
+            // 
+            this.guna2PictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox3.Image = global::STIDiscover.Properties.Resources.b31;
+            this.guna2PictureBox3.ImageRotate = 0F;
+            this.guna2PictureBox3.Location = new System.Drawing.Point(1472, 148);
+            this.guna2PictureBox3.Name = "guna2PictureBox3";
+            this.guna2PictureBox3.Size = new System.Drawing.Size(385, 469);
+            this.guna2PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox3.TabIndex = 12;
+            this.guna2PictureBox3.TabStop = false;
+            this.guna2PictureBox3.UseTransparentBackground = true;
+            // 
+            // guna2PictureBox2
+            // 
+            this.guna2PictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox2.Image = global::STIDiscover.Properties.Resources.b21;
+            this.guna2PictureBox2.ImageRotate = 0F;
+            this.guna2PictureBox2.Location = new System.Drawing.Point(779, 148);
+            this.guna2PictureBox2.Name = "guna2PictureBox2";
+            this.guna2PictureBox2.Size = new System.Drawing.Size(385, 469);
+            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox2.TabIndex = 11;
+            this.guna2PictureBox2.TabStop = false;
+            this.guna2PictureBox2.UseTransparentBackground = true;
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox1.Image = global::STIDiscover.Properties.Resources.b111;
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(121, 148);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(385, 469);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox1.TabIndex = 10;
+            this.guna2PictureBox1.TabStop = false;
+            this.guna2PictureBox1.UseTransparentBackground = true;
             // 
             // guna2ImageButton1
             // 
@@ -142,7 +184,7 @@
             this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton1.ImageRotate = 0F;
             this.guna2ImageButton1.ImageSize = new System.Drawing.Size(70, 70);
-            this.guna2ImageButton1.Location = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton1.Location = new System.Drawing.Point(67, 20);
             this.guna2ImageButton1.Name = "guna2ImageButton1";
             this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(0, 0);
             this.guna2ImageButton1.Size = new System.Drawing.Size(92, 82);
@@ -150,98 +192,55 @@
             this.guna2ImageButton1.UseTransparentBackground = true;
             this.guna2ImageButton1.Click += new System.EventHandler(this.guna2ImageButton1_Click);
             // 
-            // guna2TileButton3
+            // pictureBox4
             // 
-            this.guna2TileButton3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2TileButton3.BorderRadius = 10;
-            this.guna2TileButton3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2TileButton3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2TileButton3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2TileButton3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2TileButton3.FillColor = System.Drawing.Color.Transparent;
-            this.guna2TileButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.guna2TileButton3.ForeColor = System.Drawing.Color.White;
-            this.guna2TileButton3.HoverState.ForeColor = System.Drawing.Color.Transparent;
-            this.guna2TileButton3.Image = global::STIDiscover.Properties.Resources.b21;
-            this.guna2TileButton3.ImageOffset = new System.Drawing.Point(1, -20);
-            this.guna2TileButton3.ImageSize = new System.Drawing.Size(330, 400);
-            this.guna2TileButton3.Location = new System.Drawing.Point(755, 197);
-            this.guna2TileButton3.Name = "guna2TileButton3";
-            this.guna2TileButton3.Size = new System.Drawing.Size(436, 472);
-            this.guna2TileButton3.TabIndex = 4;
-            this.guna2TileButton3.UseTransparentBackground = true;
-            // 
-            // guna2TileButton2
-            // 
-            this.guna2TileButton2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2TileButton2.BorderRadius = 10;
-            this.guna2TileButton2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2TileButton2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2TileButton2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2TileButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2TileButton2.FillColor = System.Drawing.Color.Transparent;
-            this.guna2TileButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.guna2TileButton2.ForeColor = System.Drawing.Color.White;
-            this.guna2TileButton2.HoverState.ForeColor = System.Drawing.Color.Transparent;
-            this.guna2TileButton2.Image = global::STIDiscover.Properties.Resources.b31;
-            this.guna2TileButton2.ImageOffset = new System.Drawing.Point(0, -20);
-            this.guna2TileButton2.ImageSize = new System.Drawing.Size(350, 400);
-            this.guna2TileButton2.Location = new System.Drawing.Point(1436, 197);
-            this.guna2TileButton2.Name = "guna2TileButton2";
-            this.guna2TileButton2.Size = new System.Drawing.Size(436, 472);
-            this.guna2TileButton2.TabIndex = 3;
-            this.guna2TileButton2.UseTransparentBackground = true;
-            // 
-            // guna2TileButton1
-            // 
-            this.guna2TileButton1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2TileButton1.BorderRadius = 10;
-            this.guna2TileButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2TileButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2TileButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2TileButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2TileButton1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2TileButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.guna2TileButton1.ForeColor = System.Drawing.Color.White;
-            this.guna2TileButton1.HoverState.ForeColor = System.Drawing.Color.Transparent;
-            this.guna2TileButton1.Image = global::STIDiscover.Properties.Resources.b11;
-            this.guna2TileButton1.ImageOffset = new System.Drawing.Point(0, 5);
-            this.guna2TileButton1.ImageSize = new System.Drawing.Size(330, 380);
-            this.guna2TileButton1.Location = new System.Drawing.Point(98, 197);
-            this.guna2TileButton1.Name = "guna2TileButton1";
-            this.guna2TileButton1.Size = new System.Drawing.Size(436, 472);
-            this.guna2TileButton1.TabIndex = 2;
-            this.guna2TileButton1.UseTransparentBackground = true;
-            this.guna2TileButton1.Click += new System.EventHandler(this.guna2TileButton1_Click);
+            this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox4.Image = global::STIDiscover.Properties.Resources._462565175_1122912942787340_2186478706642678428_n;
+            this.pictureBox4.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(2036, 1080);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 9;
+            this.pictureBox4.TabStop = false;
             // 
             // homeControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.guna2Button1);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.guna2PictureBox4);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.guna2PictureBox3);
+            this.Controls.Add(this.guna2PictureBox2);
+            this.Controls.Add(this.guna2PictureBox1);
             this.Controls.Add(this.guna2ImageButton1);
             this.Controls.Add(this.btnB3);
             this.Controls.Add(this.btnB2);
             this.Controls.Add(this.btnB1);
-            this.Controls.Add(this.guna2TileButton3);
-            this.Controls.Add(this.guna2TileButton2);
-            this.Controls.Add(this.guna2TileButton1);
-            this.Controls.Add(this.guna2CustomGradientPanel1);
+            this.Controls.Add(this.pictureBox4);
             this.Name = "homeControl";
-            this.Size = new System.Drawing.Size(2036, 875);
+            this.Size = new System.Drawing.Size(2036, 1080);
+            this.Load += new System.EventHandler(this.homeControl_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private Guna.UI2.WinForms.Guna2TileButton guna2TileButton1;
-        private Guna.UI2.WinForms.Guna2TileButton guna2TileButton2;
-        private Guna.UI2.WinForms.Guna2TileButton guna2TileButton3;
+
         private Guna.UI2.WinForms.Guna2Button btnB1;
         private Guna.UI2.WinForms.Guna2Button btnB2;
         private Guna.UI2.WinForms.Guna2Button btnB3;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
+        private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox4;
     }
 }

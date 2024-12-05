@@ -19,7 +19,11 @@ namespace STIDiscover
             InitializeComponent();
             PopulateEvents(events);
             SetSelectedDate(selectedDate);
+
+
+           
         }
+        
         private void SetSelectedDate(DateTime date)
         {
             // Format the date as "Saturday, November 16, 2024"

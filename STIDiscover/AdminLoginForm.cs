@@ -11,18 +11,22 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.IO;
 using MySqlX.XDevAPI;
+using Guna.UI2.WinForms;
+using System.Net.Mail;
+using System.Net;
+using System.Security.Cryptography;
 namespace STIDiscover
 {
     public partial class AdminLoginForm : Form
     {
         private Process onScreenKeyboardProc;
-
+        bool isPasswordVisible = false ;
         public AdminLoginForm()
         {
             InitializeComponent();
             txtUsername.Click += txtUsername_Click;
             txtPassword.Click += txtPassword_Click;
-
+            txtPassword.PasswordChar = '*';
             txtUsername.Leave += txtUsername_Leave;
             txtPassword.Leave += txtPassword_Leave;
             txtPassword.Enter += new EventHandler(OpenKeyboard);
@@ -81,16 +85,36 @@ namespace STIDiscover
 
         private void label3_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            this.Close();
-            Form1 form = new Form1();
-            form.ShowDialog();
-  
+            
         }
         
         private void AdminLoginForm_Load(object sender, EventArgs e)
         {
+            Form1 form = new Form1();
+            form.Dispose();
+            pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            label1.BackColor = System.Drawing.Color.Transparent;
+            label2.BackColor = System.Drawing.Color.Transparent;
+            btnPasswordShow.BackColor = System.Drawing.Color.Transparent;
+            btnLogin.BackColor = System.Drawing.Color.Transparent;
+            label2.BackColor = System.Drawing.Color.Transparent;
+            btnExit.BackColor = System.Drawing.Color.Transparent;
+            changePass.BackColor = System.Drawing.Color.Transparent;
 
+            pictureBox1.Parent = pcBack;
+            pictureBox2.Parent = pcBack;
+            pictureBox3.Parent = pcBack;
+            label1.Parent = pcBack;
+            label2.Parent = pcBack;
+            btnPasswordShow.Parent = pcBack;
+            btnLogin.Parent = pcBack;
+            label2.Parent = pcBack;
+            btnExit.Parent = pcBack;
+            txtUsername.Parent = pcBack;
+            txtPassword.Parent = pcBack;
+            changePass.Parent = pcBack;
         }
 
         private void txtUsername_Click(object sender, EventArgs e)
@@ -135,6 +159,37 @@ namespace STIDiscover
         private void txtPassword_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnPasswordShow_Click(object sender, EventArgs e)
+        {
+
+
+            // Change the image of the button
+            if (isPasswordVisible)
+            {
+                txtPassword.PasswordChar = '*';
+                btnPasswordShow.Image = Properties.Resources.eye_slash_solid;
+            }
+            else
+            {
+                txtPassword.PasswordChar= '\0';
+                btnPasswordShow.Image = Properties.Resources.eye_solid;
+            }
+            isPasswordVisible = !isPasswordVisible;
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+        
+        private void changePass_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ForgotPassForm form = new ForgotPassForm();
+            form.ShowDialog();
+          
         }
     }
 }

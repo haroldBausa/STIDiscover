@@ -18,9 +18,9 @@ namespace STIDiscover
         public EventSchedule()
         {
             InitializeComponent();
+            
         }
-        // Method to fetch events for the current month and year
-        // Fetches events for the current month and year
+       
         private Dictionary<int, List<string>> GetEvents(int month, int year)
         {
             var events = new Dictionary<int, List<string>>();
@@ -66,6 +66,9 @@ namespace STIDiscover
             // Get events for the current month and year
             var events = GetEvents(month, year);
 
+            // Suspend the layout update to prevent the UI from refreshing each time
+            dayContainer.SuspendLayout();
+
             // Clear existing controls in the day container
             dayContainer.Controls.Clear();
 
@@ -79,22 +82,35 @@ namespace STIDiscover
             for (int i = 1; i <= days; i++)
             {
                 UserControlDays userdays = new UserControlDays();
-                userdays.SetDay(i);  // Set the day number
+                userdays.SetDay(i, month, year);  // Pass the day, month, and year to SetDay
 
                 // Check if there are events for this day
                 if (events.ContainsKey(i))
                 {
                     int eventCount = events[i].Count();  // Get the count of events for this day
                     userdays.SetEvent(eventCount);  // Pass event count to the user control
+
+                    // Highlight past events in red
+                    DateTime eventDate = new DateTime(year, month, i);
+                    if (eventDate < DateTime.Now)
+                    {
+                        userdays.BackColor = Color.Red;
+                    }
                 }
                 else
                 {
                     userdays.SetEvent(0); // No events for this day
                 }
 
-                dayContainer.Controls.Add(userdays);
+                dayContainer.Controls.Add(userdays); // Add the control to the container
             }
+
+            // End layout update and refresh the container in one go
+            dayContainer.ResumeLayout();
         }
+
+
+
         private void label3_Click(object sender, EventArgs e)
         {
 
@@ -256,14 +272,6 @@ namespace STIDiscover
                 year--;
             }
             displayDays(); // Update the calendar display
-        }
-
-        private void btnGetHelp_Click(object sender, EventArgs e)
-        {
-            Form1 form1 = new Form1();
-            form1.Hide();
-            GetHelp getHelp = new GetHelp();
-            getHelp.Show();
         }
 
         private void OpenEventDetailsForm(int day)
